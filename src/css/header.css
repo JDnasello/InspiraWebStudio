@@ -1,0 +1,82 @@
+
+#header-call {
+    background: linear-gradient(to top, #8400ff, #0011ff);
+    /* Gradiente vertical para simular relieve */
+    padding: 7px 20px;
+    border-style: none;
+    border-radius: 50px;
+    font-size: 1.5em;
+    color: var(--color-neutro-white);
+    cursor: pointer;
+    box-shadow:
+        0px 4px 10px rgba(0, 0, 0, 0.5),
+        /* Sombra externa */
+        inset 0px -4px 8px rgba(53, 9, 95, 0.3);
+    /* Sombra interna para profundidad */
+    transition: transform 0.2s, box-shadow 0.2s;
+    /* Suavizar animaciones */
+}
+
+#header-call:hover {
+    transform: translateY(-4px);
+    /* Botón se eleva al pasar el mouse */
+    box-shadow:
+        0px 6px 15px rgba(0, 0, 0, 0.5),
+        /* Sombra externa más pronunciada */
+        inset 0px -3px 6px rgba(0, 0, 0, 0.4);
+    /* Sombra interna ajustada */
+}
+
+/* Header 2 */
+
+.container-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-title {
+    font-size: 1.3em;
+    font-weight: 400;
+}
+
+.header {
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.header-nav {
+    display: flex;
+    gap: 30px;
+}
+
+.header .nav-link {
+    font-size: 1.2em;
+    position: relative;
+}
+
+.header .nav-link::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, #8400ff,#0011ff);
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transition: all .3s;
+    will-change: width;
+}
+
+.header .nav-link:hover::after {
+    width: 100%;
+    right: 0;
+}

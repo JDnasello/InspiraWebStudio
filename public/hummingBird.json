@@ -1,0 +1,15 @@
+{
+  "src": "hummingbird_from_poly_by_google.glb",
+  "ar": true,
+  "arModes": ["webxr", "scene-viewer", "quick-look"],
+  "cameraControls": true,
+  "toneMapping": "neutral",
+  "shadowIntensity": 1.12,
+  "environmentImage": "spruit_sunrise_1k_HDR.hdr",
+  "shadowSoftness": 0.92,
+  "exposure": 2,
+  "autoRotate": true,
+  "disableZoom": true,
+  "cameraOrbit": "-45deg 60deg",
+  "id": "colibri"
+}
