@@ -11,8 +11,10 @@ import Linkedin from "../svg/Linkedin";
 import { useEffect, useRef } from "react";
 import Header from "./Header";
 import "../css/section-1.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
-const Section1 = () => {
+const Section1 = ({ cursorRef, innerCursorRef }) => {
   const itemRefs = {
     item1: useRef(null),
     item2: useRef(null),
@@ -95,7 +97,11 @@ const Section1 = () => {
   return (
     <section className="seccion1">
       <div className="sec1-contizq">
-        <HummingBird colibriRef={colibriRef} />
+        <HummingBird
+          colibriRef={colibriRef}
+          cursorRef={cursorRef}
+          innerCursorRef={innerCursorRef}
+        />
         <div className="social-hero">
           <a href="">
             <Instagram />
@@ -118,41 +124,55 @@ const Section1 = () => {
             <h1 className="contder-h1">innovación asegurada.</h1>
           </span>
           <div className="items-hero">
-            <img
-              src={Cone}
-              ref={itemRefs.item1}
-              className="parallax"
-              id="item1"
-              alt=""
-            />
-            <img
-              src={Cone1}
-              ref={itemRefs.item2}
-              className="parallax"
-              id="item2"
-              alt=""
-            />
-            <img
-              src={Cone2}
-              ref={itemRefs.item3}
-              className="parallax"
-              id="item3"
-              alt=""
-            />
-            <img
-              src={Cone3}
-              ref={itemRefs.item4}
-              className="parallax"
-              id="item4"
-              alt=""
-            />
-            <img
-              src={Cone4}
-              ref={itemRefs.item5}
-              className="parallax"
-              id="item5"
-              alt=""
-            />
+            <div className="parallax" ref={itemRefs.item1}>
+              <LazyLoadImage
+                src={Cone}
+                ref={itemRefs.item1}
+                className="item1"
+                alt=""
+                effect="blur"
+              />
+            </div>
+
+            <div className="parallax" ref={itemRefs.item2}>
+              <LazyLoadImage
+                src={Cone1}
+                ref={itemRefs.item2}
+                className="item2"
+                alt=""
+                effect="blur"
+              />
+            </div>
+
+            <div className="parallax" ref={itemRefs.item3}>
+              <LazyLoadImage
+                src={Cone2}
+                ref={itemRefs.item3}
+                className="item3"
+                alt=""
+                effect="blur"
+              />
+            </div>
+
+            <div className="parallax" ref={itemRefs.item4}>
+              <LazyLoadImage
+                src={Cone3}
+                ref={itemRefs.item4}
+                className="item4"
+                alt=""
+                effect="blur"
+              />
+            </div>
+
+            <div className="parallax" ref={itemRefs.item5}>
+              <LazyLoadImage
+                src={Cone4}
+                ref={itemRefs.item5}
+                className="item5"
+                alt=""
+                effect="blur"
+              />
+            </div>
           </div>
         </div>
       </div>

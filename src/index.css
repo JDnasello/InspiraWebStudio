@@ -6,6 +6,7 @@
     --color-extra-1: #0011ff;
     --color-neutro-black: #111;
     --color-neutro-white: #f0f0f0;
+    --color-primary-hovered: #854eec54;
 }
 
 * {
@@ -19,8 +20,48 @@
 body {
     min-height: 100%;
     overflow-y: scroll;
+    cursor: none;
+}
+
+button, a {
+    cursor: none;
 }
 
 a {
     text-decoration: none;
+}
+
+.cursor {
+    width: 30px;
+    height: 30px;
+    border: 1px solid var(--color-primary);
+    background-color: transparent;
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.inner-cursor {
+    width: 5px;
+    height: 5px;
+    background-color: var(--color-primary);
+}
+
+.cursor, .inner-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 10000;
+    pointer-events: none;
+}
+
+.cursor.hovered {
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-primary-hovered);
+}
+
+.inner-cursor.hovered {
+    width: 0;
+    height: 0;
 }
