@@ -85,7 +85,7 @@
     width: 60%;
     color: white;
     position: relative;
-    padding: 50px;
+    padding: 10px 50px 50px 50px;
 }
 
 .sec1-contder .contder-presentation {
@@ -100,13 +100,12 @@
 }
 
 .sec1-contder .contder-presentation .contder-h1 {
-    font-size: 3.9em;
-    font-weight: 600;
+    font-size: 100px;
+    font-weight: 700;
     color: var(--color-neutro-black);
 }
 
 .sec1-contder .contder-presentation .contder-h1:nth-child(2) {
-    margin: 50px 0;
 }
 
 .sec1-contder .contder-presentation .contder-h1:nth-child(3) {

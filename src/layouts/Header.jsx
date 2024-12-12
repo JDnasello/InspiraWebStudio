@@ -4,7 +4,7 @@ const Header = ({ headerRef }) => {
     return (
       <div className="container-header" ref={headerRef}>
         <div className="container-logo">
-          <img src='logoColor.png' alt="" width={100} height="auto" />
+          <img src='logoColor.png' alt="" width={80} height="auto" />
           <span className="header-title">Inspira Web Studio</span>
         </div>
         <header className="header">

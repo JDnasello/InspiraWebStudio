@@ -119,9 +119,9 @@ const Section1 = ({ cursorRef, innerCursorRef }) => {
         <Header headerRef={headerRef} />
         <div className="contder-presentation">
           <span>
-            <h1 className="contder-h1">código limpio.</h1>
-            <h1 className="contder-h1">diseño único.</h1>
-            <h1 className="contder-h1">innovación asegurada.</h1>
+            <h1 className="contder-h1">imagine.</h1>
+            <h1 className="contder-h1">develop.</h1>
+            <h1 className="contder-h1">& style.</h1>
           </span>
           <div className="items-hero">
             <div className="parallax" ref={itemRefs.item1}>
