@@ -1,0 +1,93 @@
+.seccion3 {
+    height: 100vh;
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+        perspective: 1000px;
+}
+
+.cards-container {
+    display: flex;
+    gap: 70px;
+    align-items: center;
+}
+
+.card {
+    width: 350px;
+    height: 600px;
+    box-shadow: 1px 1px 40px 10px #00000021;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    font-size: 1.2em;
+    padding: 15px;
+    /* Aplica el desenfoque */
+    opacity: 1;
+    /* Ajusta la opacidad general */
+        transition: transform 0.1s ease-out;
+            /* Suaviza el movimiento */
+            transform-style: preserve-3d;
+}
+
+.top-card{
+display: flex;
+justify-content: center;
+flex-direction: column;
+align-items: start;
+padding: 20px;
+}
+#card-price{
+    font-weight: 700;
+    font-size: 2em;
+    align-self: center;
+    color: #2a0f5c;
+}
+
+#custom-price-btn {
+    align-self: center;
+    padding: 15px 50px;
+    margin-top: 15px;
+    border-radius: 50px;
+    border: none;
+    background-color: #2a0f5c;
+    color: #fff;
+}
+
+.coin-type {
+    font-weight: 400;
+    color: #333;
+}
+
+.card-quotes {
+    align-self: center;
+}
+
+.card-description{
+    font-size: 0.8em;
+    margin: 15px 0;
+}
+
+.card::before {
+    content: "";
+    width: 100%;
+    /* Aumenta el tamaño para que sobresalga ligeramente */
+    height: 30%;
+    /* Cubre más allá de los bordes */
+    position: absolute;
+    top: -10%;
+    /* Centra el efecto */
+    left: -10%;
+    z-index: -1;
+    filter: blur(30px);
+    opacity: 0.5;
+    /* Desenfoque del gradiente */
+    background: linear-gradient(203deg, rgba(221, 135, 218, 1) 20%, rgb(37, 153, 216) 40%, rgba(97, 24, 194, 1) 89%);
+    transform: scale(1.2);
+    /* Escala el gradiente para mayor cobertura */
+}
+
+.card:nth-child(2){
+    margin-top: -70px;
+}

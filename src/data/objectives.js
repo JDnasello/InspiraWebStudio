@@ -34,17 +34,5 @@ export const objectivesList = [
         title: "Objetivo 6",
         description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni labore a nulla voluptatibus qui illum aliquid exercitationem vero molestiae           harumdolodignissimovoluptates eos perferendis, quisquam provident, at obcaecati tempore!",
-    },
-    {
-        id: 7,
-        title: "Objetivo 7",
-        description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni labore a nulla voluptatibus qui illum aliquid exercitationem vero molestiae           harumdolodignissimovoluptates eos perferendis, quisquam provident, at obcaecati tempore!",
-    },
-    {
-        id: 8,
-        title: "Objetivo 8",
-        description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni labore a nulla voluptatibus qui illum aliquid exercitationem vero molestiae           harumdolodignissimovoluptates eos perferendis, quisquam provident, at obcaecati tempore!",
     }
 ]

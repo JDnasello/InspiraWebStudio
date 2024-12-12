@@ -19,7 +19,7 @@ const Header = ({ headerRef }) => {
               Portfolio
             </a>
           </nav>
-          <button id="header-call">Ver planes</button>
+          <a id="header-call" href='#planing'>Ver planes</a>
         </header>
       </div>
     );
