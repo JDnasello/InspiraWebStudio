@@ -5,6 +5,13 @@ export const payCardList = [
     price: "50000",
     description:
       "Actualización de contenido, corrección de errores, y soporte técnico regular para tu sitio web.",
+    characteristics: [
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+    ],
   },
   {
     id: 2,
@@ -12,6 +19,13 @@ export const payCardList = [
     price: "80000",
     description:
       "Diseñada para quienes buscan destacar online con una página rápida, efectiva y rentable.",
+    characteristics: [
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+    ],
   },
   {
     id: 3,
@@ -19,6 +33,13 @@ export const payCardList = [
     price: "120000",
     description:
       "Creación o conexión con APIs de terceros para integrar funcionalidades avanzadas en tu proyecto.",
+    characteristics: [
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+    ],
   },
   {
     id: 5,
@@ -26,5 +47,12 @@ export const payCardList = [
     price: "150000",
     description:
       "Creación de sitios web multi-página completamente personalizados y optimizados para tus necesidades.",
-  }
+    characteristics: [
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+    ],
+  },
 ];

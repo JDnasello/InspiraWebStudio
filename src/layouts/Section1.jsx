@@ -97,6 +97,10 @@ const Section1 = ({ cursorRef, innerCursorRef }) => {
   return (
     <section className="seccion1">
       <div className="sec1-contizq">
+        <div className="container-logo" ref={headerRef}>
+          <img src="logoColor.png" alt="" width={80} height="auto" style={{ zIndex: 10 }} />
+          <span className="header-title">Inspira Web Studio</span>
+        </div>
         <HummingBird
           colibriRef={colibriRef}
           cursorRef={cursorRef}
