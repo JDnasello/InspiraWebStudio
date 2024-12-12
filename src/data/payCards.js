@@ -43,7 +43,7 @@ export const payCardList = [
     ],
   },
   {
-    id: 5,
+    id: 4,
     chip: "Premium",
     title: "Desarrollo de web personalizada",
     price: "150000",

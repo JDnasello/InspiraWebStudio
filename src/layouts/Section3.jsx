@@ -1,4 +1,4 @@
-import { Check } from "@mui/icons-material";
+import { Check, RecommendOutlined, WorkspacePremium } from "@mui/icons-material";
 import "../css/section-3.css";
 import { payCardList } from "../data/payCards";
 import { useEffect, useRef } from "react";
@@ -59,13 +59,17 @@ const Section3 = () => {
             <div className="cards-container">
                 {payCardList.map((card) => (
                 <div className="card-container" key={card.id}>
-                    { card?.chip && <button className="chip">{card.chip}</button>}
-                    <div className="card">
+                        {card?.chip &&
+                            <span className={`chip ${card.id === 2 ? 'first-chip' : 'second-chip'}`}>
+                                {card.chip}
+                            </span>}
+                    <div className={`card ${card.id === 2 || card.id === 4 ? 'no-radius' : ''}`}>
+                        {card.id === 2 ? <RecommendOutlined className="best-plans recommend" /> : card.id === 4 && <WorkspacePremium className="best-plans premium" />}
                     <div className="top-card">
                         <h3>{card.title}</h3>
                         <p className="card-description">{card.description}</p>
                         {card.id > 2 ? (
-                        <span id="custom-price">Consultar precio</span>
+                        <button id="custom-price">Consultar precio</button>
                         ) : (
                         <>
                             <span className="card-quotes">
