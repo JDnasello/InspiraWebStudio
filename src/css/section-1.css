@@ -5,6 +5,7 @@
     align-items: center;
     perspective: 1000px;
     overflow: hidden;
+    margin-top: -100px;
 }
 
 /*
@@ -77,15 +78,6 @@
     box-shadow: 0px 20px 30px;
 }
 
-.container-logo {
-    position: absolute;
-    top: 0;
-    left: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 10px;
-}
 
 
 .header-title {
@@ -117,7 +109,7 @@
     width: 60%;
     color: white;
     position: relative;
-    padding: 10px 50px 50px 50px;
+    padding: 110px 50px 50px 50px;
 }
 
 .sec1-contder .contder-presentation {

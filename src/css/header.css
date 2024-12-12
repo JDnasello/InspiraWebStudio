@@ -32,16 +32,42 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     user-select: none;
+    position: sticky;
+    height: 100px;
+    top: 0;
+    z-index: 9999;
+    padding: 20px 35px;
+    transition: background-color 0.3s ease-in-out;
 }
+
+.header-sticky{
+    background-color: rgba(255, 255, 255, 0.425);
+    backdrop-filter: blur(30px);
+}
+
+.header-sticky-title {
+    color: var(--color-neutro-black) !important;  /* Puedes cambiar el color cuando el header esté sticky */
+  }
+
+.header-title{
+    transition: color 0.2s ease-in-out;
+
+}
+
+.header-logo{
+    display: flex;
+    align-items: center;
+    
+}
+
 
 .header {
     padding: 20px 10px;
     display: flex;
     align-items: center;
     gap: 30px;
-    
 }
 
 .header-nav {

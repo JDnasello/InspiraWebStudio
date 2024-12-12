@@ -1,11 +1,11 @@
 .seccion3 {
-    height: 100vh;
+    height: fit-content;
     padding: 100px 0;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 50px;
-        perspective: 1000px;
+    perspective: 1000px;
 }
 
 .cards-container {
@@ -14,21 +14,28 @@
     align-items: center;
 }
 
+.card-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .card {
     width: 350px;
-    height: 700px;
-    box-shadow: 1px 1px 40px 10px #00000021;
+    height: fit-content;
+    box-shadow: 1px 30px 23px 10px #00000021;
     border-radius: 15px;
     position: relative;
     overflow: hidden;
     font-size: 1.2em;
     padding: 15px;
-    /* Aplica el desenfoque */
     opacity: 1;
-    /* Ajusta la opacidad general */
-        transition: transform 0.1s ease-out;
-            /* Suaviza el movimiento */
-            transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+    transform-style: preserve-3d;
+}
+
+.chip {
+    position: relative;
+    top: -90px;
 }
 
 .top-card{
@@ -36,7 +43,7 @@ display: flex;
 justify-content: center;
 flex-direction: column;
 align-items: start;
-padding: 20px;
+padding: 20px 20px 0;
 }
 #card-price{
     font-weight: 700;
@@ -45,14 +52,9 @@ padding: 20px;
     color: #2a0f5c;
 }
 
-#custom-price-btn {
+#custom-price{
     align-self: center;
-    padding: 15px 50px;
-    margin-top: 15px;
-    border-radius: 50px;
-    border: none;
-    background-color: #2a0f5c;
-    color: #fff;
+    font-size: 1.5em;
 }
 
 .coin-type {
@@ -93,8 +95,13 @@ padding: 20px;
     gap: 10px;
 }
 
+.characteristic-container svg path {
+    fill: #4CAF50 !important;
+}
+
 .characteristic-container .characteristic-txt {
     font-size: .7em;
+    color: #414141;
 }
 
 .card::before {

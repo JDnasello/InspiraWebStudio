@@ -4,11 +4,38 @@ footer {
     height: 200px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 footer .container-footer-logo .footer-title {
     color: #fff;
     font-size: 1.3em;
     font-weight: 200;
+}
+
+.container-footer-logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer *{
+    color: var(--color-neutro-white) !important;
+    font-weight: 300;
+}
+
+footer div:first-child p{
+    font-weight: 300;
+}
+
+.nav-footer a{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.nav-footer p:first-child{
+    margin-bottom: 10px;
 }

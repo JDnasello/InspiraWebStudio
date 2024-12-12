@@ -14,7 +14,7 @@ import "../css/section-1.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
-const Section1 = ({ cursorRef, innerCursorRef }) => {
+const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
   const itemRefs = {
     item1: useRef(null),
     item2: useRef(null),
@@ -23,7 +23,6 @@ const Section1 = ({ cursorRef, innerCursorRef }) => {
     item5: useRef(null),
   };
 
-  const headerRef = useRef(null);
   const colibriRef = useRef(null);
 
   const targetPositions = {
@@ -43,18 +42,9 @@ const Section1 = ({ cursorRef, innerCursorRef }) => {
       moverElemento(ref.current, targetPositions[key], scrollOffset, 0.2);
     }
 
-    if (headerRef.current) {
-      moverHeader(headerRef.current, scrollOffset, 0.5);
-    }
-
     if (colibriRef.current) {
       moverColibri(colibriRef.current, scrollOffset, 0.1);
     }
-  };
-
-  const moverHeader = (element, scrollOffset, velocidad) => {
-    const currentY = -scrollOffset * velocidad; // scrollOffset en negativo para que se desplace hacia arriba
-    element.style.transform = `translateY(${currentY}px)`; // Desplazamiento en vertical
   };
 
   const moverColibri = (element, scrollOffset, velocidad) => {
@@ -97,10 +87,6 @@ const Section1 = ({ cursorRef, innerCursorRef }) => {
   return (
     <section className="seccion1">
       <div className="sec1-contizq">
-        <div className="container-logo" ref={headerRef}>
-          <img src="logoColor.png" alt="" width={80} height="auto" style={{ zIndex: 10 }} />
-          <span className="header-title">Inspira Web Studio</span>
-        </div>
         <HummingBird
           colibriRef={colibriRef}
           cursorRef={cursorRef}
@@ -120,7 +106,6 @@ const Section1 = ({ cursorRef, innerCursorRef }) => {
       </div>
 
       <div className="sec1-contder">
-        <Header headerRef={headerRef} />
         <div className="contder-presentation">
           <span>
             <h1 className="contder-h1">imagine.</h1>

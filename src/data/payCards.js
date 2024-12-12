@@ -15,6 +15,7 @@ export const payCardList = [
   },
   {
     id: 2,
+    chip: "Recomendado",
     title: "Landing page",
     price: "80000",
     description:
@@ -43,6 +44,7 @@ export const payCardList = [
   },
   {
     id: 5,
+    chip: "Premium",
     title: "Desarrollo de web personalizada",
     price: "150000",
     description:

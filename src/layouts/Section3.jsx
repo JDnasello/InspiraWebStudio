@@ -57,34 +57,37 @@ const Section3 = () => {
     return (
         <section className="seccion3" ref={cardContainer} id="planing">
             <div className="cards-container">
-            {payCardList.map((card) => (
-                <div className="card" key={card.id}>
-                <div className="top-card">
-                    <h3>{card.title}</h3>
-                    <p className="card-description">{card.description}</p>
-                    {card.id > 2 ? (
-                    <button id="custom-price-btn">Consultar precio</button>
-                    ) : (
-                    <>
-                        <span className="card-quotes">
-                        3 cuotas sin interés de:
-                        </span>
-                        <span id="card-price">
-                        <span className="coin-type">ar$</span>
-                        {card.price}
-                        <span className="coin-type price-per-month">/mes</span>
-                        </span>
-                    </>
-                    )}
-                </div>
-                <div className="card-separator"></div>
-                    <div className="characteristics">
-                        {card.characteristics.map((char, index) => (
-                        <div key={index} className="characteristic-container">
-                            <Check sx={{ color: 'red'}}/>
-                            <span className="characteristic-txt">{char}</span>
+                {payCardList.map((card) => (
+                <div className="card-container" key={card.id}>
+                    { card?.chip && <button className="chip">{card.chip}</button>}
+                    <div className="card">
+                    <div className="top-card">
+                        <h3>{card.title}</h3>
+                        <p className="card-description">{card.description}</p>
+                        {card.id > 2 ? (
+                        <span id="custom-price">Consultar precio</span>
+                        ) : (
+                        <>
+                            <span className="card-quotes">
+                            3 cuotas sin interés de:
+                            </span>
+                            <span id="card-price">
+                            <span className="coin-type">ar$</span>
+                            {card.price}
+                            <span className="coin-type price-per-month">/mes</span>
+                            </span>
+                        </>
+                        )}
+                    </div>
+                    <div className="card-separator"></div>
+                        <div className="characteristics">
+                            {card.characteristics.map((char, index) => (
+                            <div key={index} className="characteristic-container">
+                                <Check sx={{ fill: 'red'}}/>
+                                <span className="characteristic-txt">{char}</span>
+                            </div>
+                            ))}
                         </div>
-                        ))}
                     </div>
                 </div>
             ))}
