@@ -25,7 +25,7 @@ const Section3 = () => {
     // }, []); // Se ejecuta solo una vez al montarse el componente
 
     return (
-        <section className="seccion3" ref={cardContainer} id="planing">
+        <section className="seccion3" ref={cardContainer} id="planing" aria-labelledby="section3-title">
             <PayCard cardContainer={cardContainer} />
         </section>
     );

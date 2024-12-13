@@ -3,6 +3,7 @@ export const payCardList = [
     id: 1,
     title: "Mantenimiento web",
     price: "50000",
+    button: true,
     description:
       "Actualización de contenido, corrección de errores, y soporte técnico regular para tu sitio web.",
     characteristics: [
@@ -23,6 +24,7 @@ export const payCardList = [
     chip: "Recomendado",
     title: "Landing page",
     price: "80000",
+    button: true,
     description:
       "Diseñada para quienes buscan destacar online con una página rápida, efectiva y rentable.",
     characteristics: [

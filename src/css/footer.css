@@ -6,10 +6,21 @@ footer {
     align-items: center;
     height: fit-content;
     padding: 50px 30px;
+    z-index: 1;
+    bottom: 0;
+        left: 0;
+    transform: translateY(100%);
+    overflow: hidden;
+}
+
+.container-footer {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
 }
 
 .container-footer-logo {
-    margin-bottom: 20px;
+    align-self: center;
 }
 
 footer .container-footer-logo .footer-title {
@@ -32,9 +43,8 @@ footer *{
 
 .nav-footer {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
-    width: 80%;
     gap: 80px;
     line-height: 24px;
     border-bottom: 1px solid #dadada2a;
@@ -55,6 +65,7 @@ footer div:first-child .nav-section-title{
 .nav-section-title {
     border-bottom: 4px solid #dadada;
     color: #fff;
+    max-width: fit-content;
 }
 
 .nav-section p {
@@ -78,4 +89,33 @@ footer div:first-child .nav-section-title{
 
 .nav-section.section-2 {
     min-width: 80px;
+}
+
+.nav-section.section-2 ul {
+    padding: 0;
+    list-style: none;
+}
+
+.social-media-and-email {
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.social-media-and-email .copyright {
+    font-size: .9em;
+}
+
+.social-media-and-email .social-media {
+    display: flex;
+    gap: 10px;
+}
+
+@media screen and (max-width: 460px) {
+
+    footer {
+        display: none;
+    }
 }

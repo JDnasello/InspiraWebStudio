@@ -1,11 +1,8 @@
 import React from 'react'
 
-const Button = ({ buttonText }) => {
-  return (
-    <button className='custom-btn'>
-      {buttonText}
-    </button>
-  )
+const Button = ({ buttonText, buttonClassName }) => {
+
+  return <button className={`custom-btn ${buttonClassName}`}>{buttonText}</button>
 }
 
 export default Button

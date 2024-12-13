@@ -5,14 +5,11 @@ import Cone1 from "../assets/Cone-1.png";
 import Cone2 from "../assets/Cone-2.png";
 import Cone3 from "../assets/Cone-3.png";
 import Cone4 from "../assets/Cone-4.png";
-import Facebook from "../svg/Facebook";
-import Instagram from "../svg/Instagram";
-import Linkedin from "../svg/Linkedin";
 import { useEffect, useRef, useState} from "react";
-import Header from "./Header";
 import "../css/section-1.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
 
 
 const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
@@ -26,6 +23,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
   };
 
   const colibriRef = useRef(null);
+  const isMobile = window.innerWidth <= 460;
 
   const [targetPositions, setTargetPositions] = useState({
     item1: { x: -60, y: 60, rotation: 45 },
@@ -37,7 +35,6 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
 
    // Función para ajustar las posiciones en función del tamaño de la ventana
    const adjustPositionsForScreenSize = () => {
-    const isMobile = window.innerWidth <= 460;
 
     if (isMobile) {
       setTargetPositions({
@@ -68,6 +65,29 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
     };
   }, []);
 
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobile = window.innerWidth <= 460; // Detectar si es móvil
+      if (colibriRef.current) {
+        if (isMobile) {
+          colibriRef.current.removeAttribute("camera-controls");
+          colibriRef.current.style.touchAction = "none"; // Desactiva interacción táctil
+        } else {
+          colibriRef.current.setAttribute("camera-controls", ""); // Reactiva controles
+          colibriRef.current.style.touchAction = "auto"; // Activa interacción táctil
+        }
+      }
+    };
+
+    handleResize(); // Verificar al cargar el componente
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   // Función que maneja el comportamiento del parallax al hacer scroll
   const handleScroll = () => {
     const scrollOffset = window.scrollY; // Obtener desplazamiento vertical
@@ -82,10 +102,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
     // }
   };
 
-  const moverColibri = (element, scrollOffset, velocidad) => {
-    const currentY = scrollOffset * velocidad;
-    element.style.transform = `translateY(${currentY}px)`;
-  };
+  
 
   const moverElemento = (elemento, targetPos, scrollOffset, velocidad) => {
     // Calcular la posición actual basada en el desplazamiento del scroll
@@ -133,7 +150,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
   }, [])
 
   return (
-    <section className="seccion1">
+    <section className="seccion1" aria-labelledby="section1-title">
       <div className="sec1-contizq">
         <HummingBird
           colibriRef={colibriRef}
@@ -142,71 +159,80 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
         />
         <div className="social-hero">
           <a href="">
-            <Instagram />
+            <Instagram
+              className="social-icon"
+              title="Visita nuestro perfil en Instagram"
+            />
           </a>
           <a href="">
-            <Facebook />
+            <Facebook
+              className="social-icon"
+              title="Visita nuestro perfil en Facebook"
+            />
           </a>
           <a href="">
-            <Linkedin />
+            <LinkedIn
+              className="social-icon"
+              title="Visita nuestro perfil en LinkedIn"
+            />
           </a>
         </div>
       </div>
 
       <div className="sec1-contder">
         <div className="contder-presentation">
-          <span className="span-hero" ref={spanRef}>
-            <h1 className="contder-h1">imagine.</h1>
-            <h1 className="contder-h1">develop.</h1>
-            <h1 className="contder-h1">& style.</h1>
-          </span>
+          <h1 className="span-hero" ref={spanRef}>
+            <span className="contder-h1">imagine.</span>
+            <span className="contder-h1">develop.</span>
+            <span className="contder-h1">& style.</span>
+          </h1>
           <div className="items-hero">
-            <div className="parallax" ref={itemRefs.item1}>
+            <div className="parallax" ref={itemRefs.item1} aria-hidden="true">
               <LazyLoadImage
                 src={Cone}
                 ref={itemRefs.item1}
                 className="item1"
-                alt=""
+                alt="Hexagono 3D"
                 effect="blur"
               />
             </div>
 
-            <div className="parallax" ref={itemRefs.item2}>
+            <div className="parallax" ref={itemRefs.item2} aria-hidden="true">
               <LazyLoadImage
                 src={Cone1}
                 ref={itemRefs.item2}
                 className="item2"
-                alt=""
+                alt="Cubo 3D"
                 effect="blur"
               />
             </div>
 
-            <div className="parallax" ref={itemRefs.item3}>
+            <div className="parallax" ref={itemRefs.item3} aria-hidden="true">
               <LazyLoadImage
                 src={Cone2}
                 ref={itemRefs.item3}
                 className="item3"
-                alt=""
+                alt="Piramide 3D"
                 effect="blur"
               />
             </div>
 
-            <div className="parallax" ref={itemRefs.item4}>
+            <div className="parallax" ref={itemRefs.item4} aria-hidden="true">
               <LazyLoadImage
                 src={Cone3}
                 ref={itemRefs.item4}
                 className="item4"
-                alt=""
+                alt="Pretzel 3D"
                 effect="blur"
               />
             </div>
 
-            <div className="parallax" ref={itemRefs.item5}>
+            <div className="parallax" ref={itemRefs.item5} aria-hidden="true">
               <LazyLoadImage
                 src={Cone4}
                 ref={itemRefs.item5}
                 className="item5"
-                alt=""
+                alt="Aro 3D"
                 effect="blur"
               />
             </div>

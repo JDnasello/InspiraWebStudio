@@ -22,7 +22,7 @@ body {
     min-height: 100vh;
     overflow-y: scroll;
     cursor: none;
-}
+    background-color: var(--color-neutro-black);}
 
 button, a {
     cursor: none;
@@ -82,5 +82,19 @@ a {
 
 .custom-btn:hover {
     background-color: #331669;
+}
 
+.custom-btn.button-variant {
+    border: 1px solid #50279c;
+    background-color: transparent;
+    color: #50279c;
+    font-weight: 600;
+}
+
+.custom-btn.button-variant:hover {
+    background-color: #50279c1f;
+}
+
+.social-icon path {
+    font-size: large;
 }

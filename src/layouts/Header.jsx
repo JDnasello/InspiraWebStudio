@@ -26,23 +26,23 @@ const Header = () => {
   }, [])  // Ejecutarse solo al montar el componente
 
   return (
-    <div className={`container-header ${headerClass ? 'header-sticky' : ''}`} ref={headerRef}>
+    <header className={`container-header ${headerClass ? 'header-sticky' : ''}`} ref={headerRef}>
       <div className='header-logo'>
-        <img src="logoColor.png" alt="" width={80} height="auto" style={{ zIndex: 10 }} />
-        <span className={`header-title ${headerClass ? 'header-sticky-title' : ''}`}>Inspira Web Studio</span>
+        <img src="logoColor.png" alt="Logo de Inspira Web Studio" aria-label='Inicio' width={80} height="auto" style={{ zIndex: 10 }} />
+        <span className={`header-title ${headerClass ? 'header-sticky-title' : ''}`} title='Inspira Web Studio, estudio de desarrollo y diseño web'>Inspira Web Studio</span>
       </div>
-      <header className="header" id='header-id'>
-        <nav className="header-nav">
-          <a className="nav-link" href="#">
+      <div className="header" id='header-id'>
+        <nav className="header-nav" title='Menú de navegación'>
+          <a className="nav-link" href="#" title='Nosotros'>
             Nosotros
           </a>
-          <a className='nav-link' href='#objectives'>
+          <a className='nav-link' href='#objectives' title='Objetivos'>
             Objetivos
           </a>
         </nav>
-        <a id="header-call" href='#planing'>Ver planes</a>
-      </header>
-    </div>
+        <a id="header-call" href='#planing' title='Planes de pago'>Ver planes</a>
+      </div>
+    </header>
   );
 }
 

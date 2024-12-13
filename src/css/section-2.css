@@ -26,6 +26,7 @@
     text-align: center;
     transform: translate(-50%, -50%);
     color: #dadada;
+    font-weight: 600;
 }
 
 .container-objectives {
@@ -45,7 +46,8 @@
     border-radius: 15px;
 }
 
-.objective-article .objective-h2 {
+.objective-article .objective-h3 {
+    font-size: 1.5em;
     margin-bottom: 10px;
     color: var(--color-neutro-black);
 }

@@ -1,11 +1,15 @@
 .seccion3 {
     height: fit-content;
+    min-height: 100vh;
     padding: 200px 0;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 50px;
     perspective: 1000px;
+    z-index: 10;
+    position: relative;
+    background-color: #fffefe;
 }
 
 .cards-container {
@@ -127,6 +131,7 @@
     align-items: center;
     word-break: break-all;
     margin: 20px;
+    padding: 0;
 }
 
 .characteristic-container {
@@ -136,6 +141,7 @@
     opacity: 0;
     transition: height .2s ease, opacity .4s ease, transform .2s ease;
     overflow: hidden;
+    list-style: none;
 }
 
 .characteristic-container.show {
@@ -170,6 +176,7 @@
     align-items: center;
     transition: scale 0.3s ease-out;
     padding: 10px 10px;
+    width: 100%;
 }
 
 .characteristic-btn:hover{
@@ -235,3 +242,11 @@
 .card:nth-child(2) {
     margin-top: -70px;
 }
+
+@media screen and (max-width: 460px) {
+
+    .seccion3{
+    display: none;
+}
+}
+

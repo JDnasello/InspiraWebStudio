@@ -70,14 +70,14 @@ const Section2 = () => {
       }, []);
 
     return (
-        <section className="seccion2" id='objectives'>
-            <h1 className="background-h1">Inspira</h1>
+        <section className="seccion2" id='objectives' aria-labelledby='section2-title'>
+            <span className="background-h1">Inspira</span>
             <div className="parallax-section2" ref={itemRefs.item6}>
                 <LazyLoadImage
                     src={Cone5}
                     ref={itemRefs.item6}
                     className="item6"
-                    alt=""
+                    alt="Resorte 3D"
                     effect="blur"
                 />
             </div><div className="parallax-section2" ref={itemRefs.item7}>
@@ -85,17 +85,17 @@ const Section2 = () => {
                     src={Cone6}
                     ref={itemRefs.item7}
                     className="item7"
-                    alt=""
+                    alt="Piramide 3D"
                     effect="blur"
                 />
             </div>
-            <h1 className='seccion2-title'>Nuestros Objetivos</h1>
+            <h2 className='seccion2-title'>Nuestros Objetivos</h2>
             <div className="container-objectives">
                 {
                     objectivesList.map(obj => (
                         <article className='objective-article' key={obj.id}>
-                            <h2 className='objective-h2'>{obj.title}</h2>
-                            <p className="objective-p">{obj.description}</p>
+                            <h3 className='objective-h3' title={obj.title} aria-label={obj.title}>{obj.title}</h3>
+                            <p className="objective-p" title={obj.description} aria-label={obj.description}>{obj.description}</p>
                         </article>
                     ))
                 }

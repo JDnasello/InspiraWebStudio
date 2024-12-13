@@ -64,36 +64,39 @@ const PayCard = ({ cardContainer }) => {
     }, [])
 
     return (
-        <div className="cards-container">
+        <div ref={cardContainer} className="cards-container">
             {payCardList.map((card) => (
-                <div className="card-container" key={card.id}>
+                <article className="card-container" key={card.id}>
                     {card?.chip && (
                         <span className={`chip ${card.id === 2 ? 'first-chip' : 'second-chip'}`}>
                             {card.chip}
                         </span>
                     )}
                     <div className={`card ${card.id === 2 || card.id === 4 ? 'no-radius' : ''}`}>
-                        {card.id === 2 ? <RecommendOutlined className="best-plans recommend" /> : card.id === 4 && <WorkspacePremium className="best-plans premium" />}
+                        {card.id === 2 ?
+                            <RecommendOutlined className="best-plans recommend" aria-label='Recomendado' />
+                            : card.id === 4 && <WorkspacePremium className="best-plans premium" aria-label='Premium' />}
                         <div className="top-card">
                             <h3>{card.title}</h3>
                             <p className="card-description">{card.description}</p>
                             {card.id > 2 ? (
-                                    <Button buttonText='Consultar precio' />
+                                    <Button buttonText='Consultar precio' buttonClassName='button-variant' aria-label="Consultar precio del plan" />
                                 ) : (
                                 <>
                                     <span className="card-quotes">3 cuotas sin interés de:</span>
                                         <span id="card-price">
-                                        <span className="coin-type">ar$</span>
+                                        <span className="coin-type" aria-label='Moneda'>ar$</span>
                                         {card.price}
                                         <span className="coin-type price-per-month">/mes</span>
                                     </span>
                                 </>
                             )}
+                            {card.button && <Button buttonText='Elegir plan' aria-label='Elegir este plan' />}
                         </div>
                         <div className="card-separator"></div>
                         <PayCardCharacteristics card={card} />
                     </div>
-                </div>
+                </article>
             ))}
         </div>
     )

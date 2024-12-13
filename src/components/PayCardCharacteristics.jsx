@@ -12,21 +12,21 @@ const PayCardCharacteristics = ({ card }) => {
     }
 
     return (
-        <div className="characteristics">
+        <ul className="characteristics">
             {card.characteristics.map((char, index) => (
-                <div
+                <li
                 key={index}
                 className={`characteristic-container ${index < 5 || showAll ? 'show' : 'hide'}`}
                 style={{ transitionDelay: `${index >= 5 && showAll ? (index - 5) * 100 : 0}ms`}}
                 >
-                    <Check sx={{ fill: 'red' }} />
+                    <Check sx={{ fill: 'red' }} aria-hidden='true' />
                     <span className="characteristic-txt">{char}</span>
-                </div>
+                </li>
             ))}
-            <button className="characteristic-btn" onClick={handleToggleCharacteristics}>
+            <button className="characteristic-btn" onClick={handleToggleCharacteristics} aria-expanded={showAll} aria-controls='characteristic-btn'>
                 {showAll ? 'Ver menos características' : 'Ver todas las características'} <KeyboardArrowDown className={`characteristic-btn-arrow ${showAll ? 'rotate-arrow' : ''}`} />
             </button>
-        </div>
+        </ul>
     )
 }
 
