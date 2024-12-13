@@ -11,6 +11,11 @@ export const payCardList = [
       "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
       "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
       "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
     ],
   },
   {
@@ -21,6 +26,11 @@ export const payCardList = [
     description:
       "Diseñada para quienes buscan destacar online con una página rápida, efectiva y rentable.",
     characteristics: [
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
       "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
       "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
       "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
@@ -40,6 +50,11 @@ export const payCardList = [
       "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
       "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
       "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
     ],
   },
   {
@@ -50,6 +65,11 @@ export const payCardList = [
     description:
       "Creación de sitios web multi-página completamente personalizados y optimizados para tus necesidades.",
     characteristics: [
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
       "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
       "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
       "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",

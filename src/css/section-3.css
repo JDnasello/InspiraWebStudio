@@ -144,13 +144,31 @@
     flex-direction: column;
     align-items: center;
     word-break: break-all;
-    gap: 10px;
     margin: 20px;
 }
 
 .characteristic-container {
     display: flex;
     gap: 10px;
+    height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: height .2s ease, opacity .4s ease, transform .2s ease;
+    overflow: hidden;
+}
+
+.characteristic-container.show {
+    margin-bottom: 10px;
+    height: 40px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.characteristic-container.hide {
+    height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
 }
 
 .characteristic-container svg path {
@@ -168,7 +186,6 @@
     font-size: 0.8em;
     font-weight: 500;
     color: #50279c;
-    margin-top: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -178,6 +195,39 @@
 
 .characteristic-btn:hover{
     scale: 1.1;
+}
+
+@keyframes rotate-down {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes rotate-up {
+    from {
+        transform: rotate(180deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+.characteristic-btn-arrow {
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+.characteristic-btn-arrow.rotate-arrow {
+    animation-name: rotate-down;
+}
+
+.characteristic-btn-arrow:not(.rotate-arrow) {
+    animation-name: rotate-up;
 }
 
 .characteristic-btn-arrow path{
