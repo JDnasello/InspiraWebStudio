@@ -5,7 +5,7 @@
     align-items: center;
     perspective: 1000px;
     overflow: hidden;
-    margin-top: -100px;
+    margin-top: -90px;
 }
 
 /*
@@ -201,7 +201,7 @@
     transform: translate(40px, -80px);
 }
 
-.parallax:last-child {
+.parallax:nth-child(5) {
     left: 22em;
         top: 16em;
         transform: translate(40px, 80px);

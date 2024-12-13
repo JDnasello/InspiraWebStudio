@@ -21,8 +21,10 @@ const Footer = () => {
                 </a>
             </div> */}
             <div className='container-footer-logo'>
+                <a href="#" >
                 <img src={logo} alt="" width={100} height='auto' />
                 <span className='footer-title'>Inspira Web Studio</span>
+                </a>
             </div>
         </footer >
     )

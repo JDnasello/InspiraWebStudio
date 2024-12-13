@@ -53,3 +53,31 @@
 .objective-article .objective-p {
     color: #505050;
 }
+
+.parallax-section2 {
+    transition: transform .1s linear;
+    position: absolute;
+    z-index: 0;
+
+}
+
+.item6 {
+    /* circulo */
+    width: 150px;
+    position: absolute;
+    transform: translate(500px, -200px);
+    filter: blur(2px);
+
+    top: 0;
+    left: 0;
+}
+
+.item7 {
+    /* circulo */
+    width: 250px;
+    position: absolute;
+    transform: translate(-600px, 250px);
+    filter: blur(2px);
+    top: 0;
+    left: 0;
+}

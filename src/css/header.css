@@ -35,10 +35,10 @@
     justify-content: space-between;
     user-select: none;
     position: sticky;
-    height: 100px;
+    height: 90px;
     top: 0;
     z-index: 9999;
-    padding: 20px 35px;
+    padding: 10px 35px;
     transition: background-color 0.3s ease-in-out;
 }
 

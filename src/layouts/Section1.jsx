@@ -42,9 +42,9 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
       moverElemento(ref.current, targetPositions[key], scrollOffset, 0.2);
     }
 
-    if (colibriRef.current) {
-      moverColibri(colibriRef.current, scrollOffset, 0.1);
-    }
+    // if (colibriRef.current) {
+    //   moverColibri(colibriRef.current, scrollOffset, 0.1);
+    // }
   };
 
   const moverColibri = (element, scrollOffset, velocidad) => {

@@ -18,6 +18,14 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.card-container.appear {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .card {
@@ -62,6 +70,8 @@
     color: #fff;
     text-align: center;
     z-index: 100;
+    transition: transform 0.1s ease-out;
+    transform-style: preserve-3d;
 }
 
 .chip.first-chip {
@@ -72,28 +82,37 @@
     background-color: #ffae00;
 }
 
-.top-card{
-display: flex;
-justify-content: center;
-flex-direction: column;
-align-items: start;
-padding: 20px 20px 0;
+.top-card {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+    padding: 20px 20px 0;
 }
-#card-price{
+
+#card-price {
     font-weight: 700;
     font-size: 2em;
     align-self: center;
     color: #2a0f5c;
 }
 
-#custom-price{
+#custom-price {
     align-self: center;
     font-size: 1em;
     color: #fff;
-    background-color: #2a0f5c;
+    scale: 0.9;
+    width: 100%;
+    background-color: #50279c;
     padding: 10px 20px;
-    border-radius: 50px;
+    border-radius: 15px;
     border: none;
+    transition: background-color 0.15s ease-out, scale 0.15s ease-out;
+}
+
+#custom-price:hover{
+    background-color: #331669;
+
 }
 
 .coin-type {
@@ -109,7 +128,7 @@ padding: 20px 20px 0;
     align-self: center;
 }
 
-.card-description{
+.card-description {
     font-size: 0.8em;
     margin: 25px 0;
 }
@@ -143,6 +162,28 @@ padding: 20px 20px 0;
     color: #414141;
 }
 
+.characteristic-btn{
+    border: none;
+    background-color: transparent;
+    font-size: 0.8em;
+    font-weight: 500;
+    color: #50279c;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: scale 0.3s ease-out;
+    padding: 10px 10px;
+}
+
+.characteristic-btn:hover{
+    scale: 1.1;
+}
+
+.characteristic-btn-arrow path{
+    fill: #50279c !important;
+}
+
 .card::before {
     content: "";
     width: 100%;
@@ -162,6 +203,6 @@ padding: 20px 20px 0;
     /* Escala el gradiente para mayor cobertura */
 }
 
-.card:nth-child(2){
+.card:nth-child(2) {
     margin-top: -70px;
 }

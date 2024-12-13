@@ -13,7 +13,7 @@ footer .container-footer-logo .footer-title {
     font-weight: 200;
 }
 
-.container-footer-logo{
+.container-footer-logo a{
     display: flex;
     align-items: center;
     justify-content: center;
