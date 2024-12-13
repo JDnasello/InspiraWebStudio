@@ -8,13 +8,15 @@ import Cone4 from "../assets/Cone-4.png";
 import Facebook from "../svg/Facebook";
 import Instagram from "../svg/Instagram";
 import Linkedin from "../svg/Linkedin";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState} from "react";
 import Header from "./Header";
 import "../css/section-1.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
+
 const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
+  const spanRef = useRef(null);
   const itemRefs = {
     item1: useRef(null),
     item2: useRef(null),
@@ -25,13 +27,46 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
 
   const colibriRef = useRef(null);
 
-  const targetPositions = {
+  const [targetPositions, setTargetPositions] = useState({
     item1: { x: -60, y: 60, rotation: 45 },
     item2: { x: -50, y: -50, rotation: 30 },
     item3: { x: -80, y: 0, rotation: 90 },
     item4: { x: 40, y: -80, rotation: -45 },
     item5: { x: 40, y: 80, rotation: 180 },
+  });
+
+   // Función para ajustar las posiciones en función del tamaño de la ventana
+   const adjustPositionsForScreenSize = () => {
+    const isMobile = window.innerWidth <= 460;
+
+    if (isMobile) {
+      setTargetPositions({
+        item1: { x: 0, y: -80, rotation: 45 },
+        item2: { x: 0, y: -80, rotation: 30 },
+        item3: { x: 0, y: -80, rotation: 90 },
+        item4: { x: 0, y: -80, rotation: -45 },
+        item5: { x: 0, y: -80, rotation: 180 },
+      });
+    } else {
+      setTargetPositions({
+        item1: { x: -60, y: 60, rotation: 45 },
+        item2: { x: -50, y: -50, rotation: 30 },
+        item3: { x: -80, y: 0, rotation: 90 },
+        item4: { x: 40, y: -80, rotation: -45 },
+        item5: { x: 40, y: 80, rotation: 180 },
+      });
+    }
   };
+
+  useEffect(() => {
+    adjustPositionsForScreenSize(); // Ajusta las posiciones al cargar la página
+
+    window.addEventListener("resize", adjustPositionsForScreenSize); // Escucha el cambio de tamaño de la ventana
+
+    return () => {
+      window.removeEventListener("resize", adjustPositionsForScreenSize); // Limpiar el evento al desmontar
+    };
+  }, []);
 
   // Función que maneja el comportamiento del parallax al hacer scroll
   const handleScroll = () => {
@@ -84,6 +119,19 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  
+  function appearSpan(){
+
+    spanRef.current.classList.add("animation");
+
+  }
+
+  useEffect(() => {
+
+    appearSpan();
+    
+  }, [])
+
   return (
     <section className="seccion1">
       <div className="sec1-contizq">
@@ -107,7 +155,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
 
       <div className="sec1-contder">
         <div className="contder-presentation">
-          <span>
+          <span className="span-hero" ref={spanRef}>
             <h1 className="contder-h1">imagine.</h1>
             <h1 className="contder-h1">develop.</h1>
             <h1 className="contder-h1">& style.</h1>

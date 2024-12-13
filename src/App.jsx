@@ -20,7 +20,7 @@ function App() {
           top: `${posY}px`,
           left: `${posX}px`
         },
-        { duration: 500, fill: "forwards" }
+        { duration: 100, fill: "forwards" }
       );
     }
 

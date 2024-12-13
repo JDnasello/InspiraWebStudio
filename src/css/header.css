@@ -96,3 +96,33 @@
     width: 100%;
     right: 0;
 }
+
+/*PARA IPHONE 16 PRO MAX HACIA ABAJO*/
+@media screen and (max-width: 460px) {
+
+    .header{
+        display: none;
+    }
+
+    .header-title{
+        color: var(--color-neutro-black) !important;
+    }
+
+    .container-header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        user-select: none;
+        position: sticky;
+        height: 90px;
+        top: 0;
+        z-index: 9999;
+        padding: 10px 15px;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    nav{
+        display: none;
+    }
+}

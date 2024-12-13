@@ -24,7 +24,7 @@ const PayCardCharacteristics = ({ card }) => {
                 </div>
             ))}
             <button className="characteristic-btn" onClick={handleToggleCharacteristics}>
-                Ver todas las características <KeyboardArrowDown className={`characteristic-btn-arrow ${showAll ? 'rotate-arrow' : ''}`} />
+                {showAll ? 'Ver menos características' : 'Ver todas las características'} <KeyboardArrowDown className={`characteristic-btn-arrow ${showAll ? 'rotate-arrow' : ''}`} />
             </button>
         </div>
     )

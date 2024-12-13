@@ -39,9 +39,6 @@ const Header = () => {
           <a className='nav-link' href='#objectives'>
             Objetivos
           </a>
-          <a className="nav-link" href="#">
-            Portfolio
-          </a>
         </nav>
         <a id="header-call" href='#planing'>Ver planes</a>
       </header>

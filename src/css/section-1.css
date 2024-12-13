@@ -8,6 +8,18 @@
     margin-top: -90px;
 }
 
+.span-hero{
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+}
+
+.span-hero.animation{
+    opacity: 1;
+    transform: translateX(0px);
+}
+
+
 /*
 .card {
     background-color: var(--color-primary);
@@ -253,3 +265,145 @@ svg path {
     height: auto;
 }
 
+/*PARA IPHONE 16 PRO MAX HACIA ABAJO*/
+@media screen and (max-width: 460px) {
+
+    .seccion1 {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        perspective: 1000px;
+        overflow: hidden;
+        margin-top: -90px;
+    }
+
+    
+    .sec1-contizq {
+        display: flex;
+        order: 2;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        height: 30%;
+        position: relative;
+        backdrop-filter: blur(3px);
+        box-shadow: 0px 20px 30px;
+    }
+
+    .sec1-contizq::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--color-neutro-black);
+        z-index: -1;
+        opacity: 1;
+    }
+
+    #colibri {
+        width: 70%;
+        height: 70%;
+    }
+    
+    .sec1-contder {
+        display: flex;
+        order: 1;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        height: 70%;
+        width: 100%;
+        color: white;
+        position: relative;
+        padding: 110px 50px 50px 50px;
+    }
+    .sec1-contder .contder-presentation {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+    }
+    
+    .sec1-contder .contder-presentation span {
+        width: 50%;
+    }
+    
+    .sec1-contder .contder-presentation .contder-h1 {
+        font-size: 50px;
+        font-weight: 700;
+        color: var(--color-neutro-black);
+        z-index: 1;
+    }
+    
+    .sec1-contder .contder-presentation .contder-h1:nth-child(2) {
+    }
+    
+    .sec1-contder .contder-presentation .contder-h1:nth-child(3) {
+        line-height: 1.2;
+    }
+
+    .item1  { /* rombo */
+        width: 5em;
+    }
+    
+    .item2 { /* cuadrao */
+        width: 5em;
+        z-index: -1;
+    }
+    
+    .item3 { /* triangulop */
+        width: 5em;
+    }
+    
+    .item4 { /* pretzel */
+        width: 5em;
+    }
+    
+    .item5 { /* circulo */
+        width: 5em;
+    }
+
+    .items-hero {
+        position: relative;
+        width: 50%;
+        height: 400px;
+    }
+    
+    .parallax {
+        transition: transform .1s linear;
+        position: absolute;
+    }
+    
+    .parallax:first-child { /* rombo */
+        left: 0em;
+            bottom: -2em;
+    }
+    
+    .parallax:nth-child(2) { /* cuadrao */
+        left: 0%;
+            top: -4em;
+            z-index: -1;
+
+    }
+    
+    .parallax:nth-child(3) { /* triangulop */
+        left: 36%;
+        top: 10em;
+    }
+    
+    .parallax:nth-child(4) {  /* pretzel */
+        left: 65%;
+        top: 2em;
+    }
+    
+    .parallax:nth-child(5) { /* circulo */
+        left: 7em;
+            top: 17em;
+    }
+}

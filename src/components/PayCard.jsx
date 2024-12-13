@@ -2,6 +2,7 @@ import { RecommendOutlined, WorkspacePremium } from '@mui/icons-material';
 import { payCardList } from '../data/payCards';
 import { useEffect } from 'react';
 import PayCardCharacteristics from './PayCardCharacteristics';
+import Button from './Button'
 
 const PayCard = ({ cardContainer }) => {
 
@@ -77,7 +78,7 @@ const PayCard = ({ cardContainer }) => {
                             <h3>{card.title}</h3>
                             <p className="card-description">{card.description}</p>
                             {card.id > 2 ? (
-                                    <button id="custom-price">Consultar precio</button>
+                                    <Button buttonText='Consultar precio' />
                                 ) : (
                                 <>
                                     <span className="card-quotes">3 cuotas sin interés de:</span>
