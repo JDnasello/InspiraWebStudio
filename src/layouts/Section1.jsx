@@ -25,14 +25,14 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
   const updateTargetPositions = (isMobile) =>
     isMobile
       ? {
-          item1: { x: 0, y: -80, rotation: 45 },
+          item1: { x: 0, y: -80, rotation: 65 },
           item2: { x: 0, y: -80, rotation: 30 },
           item3: { x: 0, y: -80, rotation: 90 },
           item4: { x: 0, y: -80, rotation: -45 },
           item5: { x: 0, y: -80, rotation: 180 },
         }
       : {
-          item1: { x: -60, y: 60, rotation: 45 },
+          item1: { x: -60, y: 60, rotation: 65 },
           item2: { x: -50, y: -50, rotation: 30 },
           item3: { x: -80, y: 0, rotation: 90 },
           item4: { x: 40, y: -80, rotation: -45 },

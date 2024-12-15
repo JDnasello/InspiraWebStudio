@@ -53,6 +53,8 @@ const HummingBird = ({ colibriRef, cursorRef, innerCursorRef }) => {
       camera-orbit={modelConfig.cameraOrbit}
       id={modelConfig.id}
       onMouseEnter={hideCursor}
+        touch-action="pan-y"
+
       onMouseLeave={showCursor}
     ></model-viewer>
   );
