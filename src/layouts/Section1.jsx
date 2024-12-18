@@ -1,6 +1,6 @@
 import "@google/model-viewer";
 import HummingBird from "../components/HummingBird";
-import Cone from "../assets/Cone.png";
+import Cone from "../assets/Cone.webp";
 import Cone1 from "../assets/Cone-1.webp";
 import Cone2 from "../assets/Cone-2.webp";
 import Cone3 from "../assets/Cone-3.webp";
