@@ -1,10 +1,10 @@
 import "@google/model-viewer";
 import HummingBird from "../components/HummingBird";
 import Cone from "../assets/Cone.png";
-import Cone1 from "../assets/Cone-1.png";
-import Cone2 from "../assets/Cone-2.png";
-import Cone3 from "../assets/Cone-3.png";
-import Cone4 from "../assets/Cone-4.png";
+import Cone1 from "../assets/Cone-1.webp";
+import Cone2 from "../assets/Cone-2.webp";
+import Cone3 from "../assets/Cone-3.webp";
+import Cone4 from "../assets/Cone-4.webp";
 import { useEffect, useRef, useState } from "react";
 import "../css/section-1.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";

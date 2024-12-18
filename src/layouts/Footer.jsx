@@ -1,5 +1,5 @@
 import "../css/footer.css";
-import logo from "../assets/logoSinColor.png";
+import logo from "../assets/logoSinColor.webp";
 import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
 import { useRef, useEffect } from "react";
 

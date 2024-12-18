@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <header className={`container-header ${headerClass ? 'header-sticky' : ''}`} ref={headerRef}>
       <div className='header-logo'>
-        <img src="logoColor.png" alt="Logo de Inspira Web Studio" aria-label='Inicio' width={80} height="auto" style={{ zIndex: 10 }} />
+        <img src="logoColor.webp" alt="Logo de Inspira Web Studio" aria-label='Inicio' width={80} height="auto" style={{ zIndex: 10 }} />
         <span className={`header-title ${headerClass ? 'header-sticky-title' : ''}`} title='Inspira Web Studio, estudio de desarrollo y diseño web'>Inspira Web Studio</span>
       </div>
       <div className="header" id='header-id'>

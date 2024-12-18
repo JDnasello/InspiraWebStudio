@@ -1,5 +1,5 @@
 {
-  "src": "hummingbird_from_poly_by_google.glb",
+  "src": "opt2.glb",
   "ar": true,
   "arModes": ["webxr", "scene-viewer", "quick-look"],
   "cameraControls": true,
