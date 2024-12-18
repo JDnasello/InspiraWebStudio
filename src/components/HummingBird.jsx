@@ -1,9 +1,11 @@
 import "@google/model-viewer"
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 // eslint-disable-next-line react/prop-types
 const HummingBird = ({ colibriRef, cursorRef, innerCursorRef }) => {
   const [modelConfig, setModelConfig] = useState(null);
+  const [error, setError] = useState(false)
 
   useEffect(() => {
     const fetchModelData = async () => {
@@ -15,6 +17,7 @@ const HummingBird = ({ colibriRef, cursorRef, innerCursorRef }) => {
         const data = await response.json();
         setModelConfig(data);
       } catch (error) {
+        setError(true)
         console.error("Error loading model configuration:", error);
       }
     };
@@ -22,6 +25,9 @@ const HummingBird = ({ colibriRef, cursorRef, innerCursorRef }) => {
     fetchModelData();
   }, [])
 
+  if (error) {
+    return <div style={{ color: '#fff' }}>Error al cargar el modelo 3D</div>
+  }
   if (!modelConfig) {
     return <div style={{color: '#fff'}}>Loading model...</div>;
   }
@@ -37,26 +43,42 @@ const HummingBird = ({ colibriRef, cursorRef, innerCursorRef }) => {
   }
 
   return (
-    <model-viewer
-      ref={colibriRef}
-      src={modelConfig.src}
-      ar={modelConfig.ar}
-      ar-modes={modelConfig.arModes.join(" ")}
-      camera-controls={modelConfig.cameraControls}
-      tone-mapping={modelConfig.toneMapping}
-      shadow-intensity={modelConfig.shadowIntensity}
-      environment-image={modelConfig.environmentImage}
-      shadow-softness={modelConfig.shadowSoftness}
-      exposure={modelConfig.exposure}
-      auto-rotate={modelConfig.autoRotate}
-      disable-zoom={modelConfig.disableZoom}
-      camera-orbit={modelConfig.cameraOrbit}
-      id={modelConfig.id}
-      onMouseEnter={hideCursor}
+    <>
+      <Helmet>
+        <link
+          rel="preload"
+          href={modelConfig.src}
+          as="fetch"
+          type="model/gltf-binary"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href={modelConfig.environmentImage}
+          as="image"
+          type="image/ktx2"
+        />
+      </Helmet>
+      <model-viewer
+        ref={colibriRef}
+        src={modelConfig.src}
+        ar={modelConfig.ar}
+        ar-modes={modelConfig.arModes.join(" ")}
+        camera-controls={modelConfig.cameraControls}
+        tone-mapping={modelConfig.toneMapping}
+        shadow-intensity={modelConfig.shadowIntensity}
+        environment-image={modelConfig.environmentImage}
+        shadow-softness={modelConfig.shadowSoftness}
+        exposure={modelConfig.exposure}
+        auto-rotate={modelConfig.autoRotate}
+        disable-zoom={modelConfig.disableZoom}
+        camera-orbit={modelConfig.cameraOrbit}
+        id={modelConfig.id}
+        onMouseEnter={hideCursor}
         touch-action="pan-y"
-
-      onMouseLeave={showCursor}
-    ></model-viewer>
+        onMouseLeave={showCursor}
+      ></model-viewer>
+    </>
   );
 };
 

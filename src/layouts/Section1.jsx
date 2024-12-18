@@ -7,9 +7,9 @@ import Cone3 from "../assets/Cone-3.webp";
 import Cone4 from "../assets/Cone-4.webp";
 import { useEffect, useRef, useState } from "react";
 import "../css/section-1.css";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
+import { Helmet } from 'react-helmet'
 
 const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
   const spanRef = useRef(null);
@@ -104,53 +104,61 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
   }, []);
 
   return (
-    <section className="seccion1" aria-labelledby="section1-title">
-      <div className="sec1-contizq">
-        <HummingBird
-          colibriRef={colibriRef}
-          cursorRef={cursorRef}
-          innerCursorRef={innerCursorRef}
-        />
-        <div className="social-hero">
-          <a href="#" aria-label="Visita nuestro perfil en Instagram">
-            <Instagram className="social-icon" />
-          </a>
-          <a href="#" aria-label="Visita nuestro perfil en Facebook">
-            <Facebook className="social-icon" />
-          </a>
-          <a href="#" aria-label="Visita nuestro perfil en LinkedIn">
-            <LinkedIn className="social-icon" />
-          </a>
-        </div>
-      </div>
-
-      <div className="sec1-contder">
-        <div className="contder-presentation">
-          <h1 className="span-hero" ref={spanRef}>
-            <span className="contder-h1">imagine.</span>
-            <span className="contder-h1">develop.</span>
-            <span className="contder-h1">& style.</span>
-          </h1>
-          <div className="items-hero">
-            {Object.keys(itemRefs).map((key, index) => (
-              <div
-                key={key}
-                className="parallax"
-                ref={itemRefs[key]}
-                aria-hidden="true"
-              >
-                <LazyLoadImage
-                  src={[Cone, Cone1, Cone2, Cone3, Cone4][index]}
-                  className={`item${index + 1}`}
-                  alt={`Objeto 3D ${index + 1}`}
-                  effect="blur"
-                />
-              </div>
-            ))}
+    <>
+      <Helmet>
+        <link rel="preload" href={Cone} type="image/webp" />
+        <link rel="preload" href={Cone1} type="image/webp" />
+        <link rel="preload" href={Cone2} type="image/webp" />
+        <link rel="preload" href={Cone3} type="image/webp" />
+        <link rel="preload" href={Cone4} type="image/webp" />
+      </Helmet>
+      <section className="seccion1" aria-labelledby="section1-title">
+        <div className="sec1-contizq">
+          <HummingBird
+            colibriRef={colibriRef}
+            cursorRef={cursorRef}
+            innerCursorRef={innerCursorRef}
+          />
+          <div className="social-hero">
+            <a href="#" aria-label="Visita nuestro perfil en Instagram">
+              <Instagram className="social-icon" />
+            </a>
+            <a href="#" aria-label="Visita nuestro perfil en Facebook">
+              <Facebook className="social-icon" />
+            </a>
+            <a href="#" aria-label="Visita nuestro perfil en LinkedIn">
+              <LinkedIn className="social-icon" />
+            </a>
           </div>
         </div>
-      </div>
-    </section>
+
+        <div className="sec1-contder">
+          <div className="contder-presentation">
+            <h1 className="span-hero" ref={spanRef}>
+              <span className="contder-h1">imagine.</span>
+              <span className="contder-h1">develop.</span>
+              <span className="contder-h1">& style.</span>
+            </h1>
+            <div className="items-hero">
+              {Object.keys(itemRefs).map((key, index) => (
+                <div
+                  key={key}
+                  className="parallax"
+                  ref={itemRefs[key]}
+                  aria-hidden="true"
+                >
+                  <img
+                    src={[Cone, Cone1, Cone2, Cone3, Cone4][index]}
+                    className={`item${index + 1}`}
+                    alt={`Objeto 3D ${index + 1}`}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
