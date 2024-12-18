@@ -2,7 +2,7 @@ import '../css/section-2.css'
 import { objectivesList } from '../data/objectives.js';
 import Cone5 from "../assets/Cone-5.webp";
 import Cone6 from "../assets/Cone-6.webp";
-import React, { useRef, useEffect, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 

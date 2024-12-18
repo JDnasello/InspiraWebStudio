@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from "react";
 import "../css/section-1.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 
 const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
   const spanRef = useRef(null);
@@ -106,11 +106,11 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
   return (
     <>
       <Helmet>
-        <link rel="preload" href={Cone} type="image/webp" />
-        <link rel="preload" href={Cone1} type="image/webp" />
-        <link rel="preload" href={Cone2} type="image/webp" />
-        <link rel="preload" href={Cone3} type="image/webp" />
-        <link rel="preload" href={Cone4} type="image/webp" />
+        <link rel="preload" href={Cone} as="image" type="image/webp" />
+        <link rel="preload" href={Cone1} as="image" type="image/webp" />
+        <link rel="preload" href={Cone2} as="image" type="image/webp" />
+        <link rel="preload" href={Cone3} as="image" type="image/webp" />
+        <link rel="preload" href={Cone4} as="image" type="image/webp" />
       </Helmet>
       <section className="seccion1" aria-labelledby="section1-title">
         <div className="sec1-contizq">

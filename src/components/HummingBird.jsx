@@ -1,6 +1,6 @@
 import "@google/model-viewer"
 import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 // eslint-disable-next-line react/prop-types
 const HummingBird = ({ colibriRef, cursorRef, innerCursorRef }) => {
@@ -49,14 +49,12 @@ const HummingBird = ({ colibriRef, cursorRef, innerCursorRef }) => {
           rel="preload"
           href={modelConfig.src}
           as="fetch"
-          type="model/gltf-binary"
           crossOrigin="anonymous"
         />
         <link
           rel="preload"
           href={modelConfig.environmentImage}
           as="image"
-          type="image/ktx2"
         />
       </Helmet>
       <model-viewer
@@ -78,7 +76,7 @@ const HummingBird = ({ colibriRef, cursorRef, innerCursorRef }) => {
         touch-action="pan-y"
         onMouseLeave={showCursor}
       ></model-viewer>
-    </>
+  </>
   );
 };
 
