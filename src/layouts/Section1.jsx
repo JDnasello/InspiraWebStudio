@@ -151,6 +151,8 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
                     src={[Cone, Cone1, Cone2, Cone3, Cone4][index]}
                     className={`item${index + 1}`}
                     alt={`Objeto 3D ${index + 1}`}
+                    loading="eager"
+                    fetchPriority="high"
                   />
                 </div>
               ))}
