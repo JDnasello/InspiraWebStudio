@@ -1,10 +1,6 @@
 import "@google/model-viewer";
 import HummingBird from "../components/HummingBird";
-import Cone from "../assets/optimized/Cone.webp";
-import Cone1 from "../assets/optimized/Cone-1.webp";
-import Cone2 from "../assets/optimized/Cone-2.webp";
-import Cone3 from "../assets/optimized/Cone-3.webp";
-import Cone4 from "../assets/optimized/Cone-4.webp";
+
 import { useEffect, useRef, useState } from "react";
 import "../css/section-1.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -24,6 +20,12 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
+
+  const Cone = "/assets/optimized/Cone.webp"
+  const Cone1 = "/assets/optimized/Cone-1.webp";
+  const Cone2 = "/assets/optimized/Cone-2.webp";
+  const Cone3 = "/assets/optimized/Cone-3.webp";
+  const Cone4 = "/assets/optimized/Cone-4.webp";
 
   const updateTargetPositions = (isMobile) =>
     isMobile
@@ -275,8 +277,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
                     src={[Cone, Cone1, Cone2, Cone3, Cone4][index]}
                     className={`item${index + 1}`}
                     alt={`Objeto 3D ${index + 1}`}
-                    loading="eager"
-                    fetchPriority="high"
+                    loading="lazy"
                   />
                 </div>
               ))}

@@ -1,7 +1,5 @@
 import '../css/section-2.css'
 import { objectivesList } from '../data/objectives.js';
-import Cone5 from "../assets/optimized/Cone-5.webp";
-import Cone6 from "../assets/optimized/Cone-6.webp";
 import { useRef, useEffect, useState } from 'react';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -24,6 +22,9 @@ const Section2 = () => {
   };
 
   const [visibleIndexes, setVisibleIndexes] = useState([]);
+
+  const Cone5 = "/assets/optimized/Cone-5.webp"
+  const Cone6 = "/assets/optimized/Cone-6.webp";
 
   useEffect(() => {
     const handleAnimation = () => {

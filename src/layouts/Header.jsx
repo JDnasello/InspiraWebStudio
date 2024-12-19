@@ -1,13 +1,14 @@
 import '../css/header.css'
 import { useState, useEffect, useRef } from 'react'
-import LogoColor300 from "../assets/optimized/logoColor-300.webp";
-import LogoColor600 from "../assets/optimized/logoColor-600.webp";
-import LogoColor1200 from "../assets/optimized/logoColor-1200.webp";
 
 const Header = () => {
 
   const [headerClass, setHeaderClass] = useState(false)
   const headerRef = useRef(null)
+
+  const LogoColor300 = "/assets/optimized/logoColor-300.webp"
+  const LogoColor600 = "/assets/optimized/logoColor-600.webp";
+  const LogoColor1200 = "/assets/optimized/logoColor-1200.webp";
 
   useEffect(() => {
     // Función para manejar el scroll

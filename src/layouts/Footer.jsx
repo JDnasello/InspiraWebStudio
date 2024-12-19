@@ -1,5 +1,4 @@
 import "../css/footer.css";
-import logo from "../assets/logoSinColor.webp";
 import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
 import { useRef, useEffect } from "react";
 
@@ -8,6 +7,8 @@ const Footer = () => {
     // Función que maneja el comportamiento del parallax al hacer scroll
     const footerRef = useRef(null); // Ref para el footer
 
+    const logo = "/assets/logoSinColor.webp";
+  
     // Función que maneja el efecto de parallax
     const handleScroll = () => {
       const scrollOffset = window.scrollY; // Obtener desplazamiento del scroll
