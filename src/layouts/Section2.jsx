@@ -1,7 +1,7 @@
 import '../css/section-2.css'
 import { objectivesList } from '../data/objectives.js';
-import Cone5 from "../assets/Cone-5.webp";
-import Cone6 from "../assets/Cone-6.webp";
+import Cone5 from "../assets/optimized/Cone-5.webp";
+import Cone6 from "../assets/optimized/Cone-6.webp";
 import { useRef, useEffect, useState } from 'react';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -88,6 +88,12 @@ const Section2 = () => {
       <span className="background-h1">Inspira</span>
       <div className="parallax-section2" ref={itemRefs.item6}>
         <LazyLoadImage
+          srcSet={`
+          ${Cone5.replace('.webp', '-300.webp')} 300w,
+          ${Cone5.replace('.webp', '-600.webp')} 600w,
+          ${Cone5.replace('.webp', '-1200.webp')} 1200w
+        `}
+          sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
           src={Cone5}
           ref={itemRefs.item6}
           className="item6"
@@ -96,6 +102,12 @@ const Section2 = () => {
         />
       </div><div className="parallax-section2" ref={itemRefs.item7}>
         <LazyLoadImage
+          srcSet={`
+          ${Cone6.replace('.webp', '-300.webp')} 300w,
+          ${Cone6.replace('.webp', '-600.webp')} 600w,
+          ${Cone6.replace('.webp', '-1200.webp')} 1200w
+        `}
+          sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
           src={Cone6}
           ref={itemRefs.item7}
           className="item7"
@@ -108,9 +120,8 @@ const Section2 = () => {
         {
           objectivesList.map((obj, index) => (
             <article
-              className={`objective-article ${
-                visibleIndexes.includes(index) ? 'visible' : ''
-              }`}
+              className={`objective-article ${visibleIndexes.includes(index) ? 'visible' : ''
+                }`}
               key={obj.id}
             >
               <h3

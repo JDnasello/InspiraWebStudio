@@ -1,10 +1,10 @@
 import "@google/model-viewer";
 import HummingBird from "../components/HummingBird";
-import Cone from "../assets/Cone.webp";
-import Cone1 from "../assets/Cone-1.webp";
-import Cone2 from "../assets/Cone-2.webp";
-import Cone3 from "../assets/Cone-3.webp";
-import Cone4 from "../assets/Cone-4.webp";
+import Cone from "../assets/optimized/Cone.webp";
+import Cone1 from "../assets/optimized/Cone-1.webp";
+import Cone2 from "../assets/optimized/Cone-2.webp";
+import Cone3 from "../assets/optimized/Cone-3.webp";
+import Cone4 from "../assets/optimized/Cone-4.webp";
 import { useEffect, useRef, useState } from "react";
 import "../css/section-1.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -21,23 +21,26 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
     item5: useRef(null),
   };
   const colibriRef = useRef(null);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isTablet, setIsTablet] = useState(false);
 
   const updateTargetPositions = (isMobile) =>
     isMobile
       ? {
-          item1: { x: 0, y: -80, rotation: 65 },
-          item2: { x: 0, y: -80, rotation: 30 },
-          item3: { x: 0, y: -80, rotation: 90 },
-          item4: { x: 0, y: -80, rotation: -45 },
-          item5: { x: 0, y: -80, rotation: 180 },
-        }
+        item1: { x: 0, y: -80, rotation: 65 },
+        item2: { x: 0, y: -80, rotation: 30 },
+        item3: { x: 0, y: -80, rotation: 90 },
+        item4: { x: 0, y: -80, rotation: -45 },
+        item5: { x: 0, y: -80, rotation: 180 },
+      }
       : {
-          item1: { x: -60, y: 60, rotation: 65 },
-          item2: { x: -50, y: -50, rotation: 30 },
-          item3: { x: -80, y: 0, rotation: 90 },
-          item4: { x: 40, y: -80, rotation: -45 },
-          item5: { x: 40, y: 80, rotation: 180 },
-        };
+        item1: { x: -60, y: 60, rotation: 65 },
+        item2: { x: -50, y: -50, rotation: 30 },
+        item3: { x: -80, y: 0, rotation: 90 },
+        item4: { x: 40, y: -80, rotation: -45 },
+        item5: { x: 40, y: 80, rotation: 180 },
+      };
 
   const getInitialTargetPositions = () =>
     updateTargetPositions(window.innerWidth <= 460);
@@ -92,6 +95,37 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
   }, [])
 
   useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const updateDeviceType = () => {
+      const width = window.innerWidth;
+      setIsMobile(width <= 460);
+      setIsTablet(width > 460 && width <= 1024);
+    };
+
+    // Llama a la función cuando la página cargue
+    updateDeviceType();
+
+    // Actualiza cuando el tamaño de la ventana cambie
+    window.addEventListener("resize", updateDeviceType);
+
+    return () => {
+      window.removeEventListener("resize", updateDeviceType);
+    };
+  }, []);
+
+
+  useEffect(() => {
     for (const ref of Object.values(itemRefs)) {
       if (ref.current) {
         ref.current.style.transform = `translate(0, 0) rotate(0deg)`;
@@ -105,13 +139,37 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
 
   return (
     <>
-      <Helmet>
-        <link rel="preload" href={Cone} as="image" type="image/webp" />
-        <link rel="preload" href={Cone1} as="image" type="image/webp" />
-        <link rel="preload" href={Cone2} as="image" type="image/webp" />
-        <link rel="preload" href={Cone3} as="image" type="image/webp" />
-        <link rel="preload" href={Cone4} as="image" type="image/webp" />
-      </Helmet>
+      {/* <Helmet>
+        {windowWidth <= 460 && (
+          <>
+            <link rel="preload" href={Cone.replace('.webp', '-300.webp')} as="image" type="image/webp" />
+            <link rel="preload" href={Cone1.replace('.webp', '-300.webp')} as="image" type="image/webp" />
+            <link rel="preload" href={Cone2.replace('.webp', '-300.webp')} as="image" type="image/webp" />
+            <link rel="preload" href={Cone3.replace('.webp', '-300.webp')} as="image" type="image/webp" />
+            <link rel="preload" href={Cone4.replace('.webp', '-300.webp')} as="image" type="image/webp" />
+          </>
+        )}
+
+        {windowWidth > 461 && windowWidth < 1024 && (
+          <>
+            <link rel="preload" href={Cone.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
+            <link rel="preload" href={Cone1.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
+            <link rel="preload" href={Cone2.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
+            <link rel="preload" href={Cone3.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
+            <link rel="preload" href={Cone4.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
+          </>
+        )}
+
+        {windowWidth > 1024 && (
+          <>
+            <link rel="preload" href={Cone.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
+            <link rel="preload" href={Cone1.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
+            <link rel="preload" href={Cone2.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
+            <link rel="preload" href={Cone3.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
+            <link rel="preload" href={Cone4.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
+          </>
+        )}
+      </Helmet> */}
       <section className="seccion1" aria-labelledby="section1-title">
         <div className="sec1-contizq">
           <HummingBird
@@ -148,6 +206,14 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
                   aria-hidden="true"
                 >
                   <img
+                    srcSet={` 
+    
+                        ${[Cone, Cone1, Cone2, Cone3, Cone4][index].replace('.webp', '-300.webp')},
+                        ${[Cone, Cone1, Cone2, Cone3, Cone4][index].replace('.webp', '-600.webp')} ,
+                        ${[Cone, Cone1, Cone2, Cone3, Cone4][index].replace('.webp', '-1200.webp')} ,
+
+                    `}
+                    sizes="(max-width: 460px) 300px, (min-width: 461px) and (max-width: 1024px) 600px, (min-width: 1024px) 1200px"
                     src={[Cone, Cone1, Cone2, Cone3, Cone4][index]}
                     className={`item${index + 1}`}
                     alt={`Objeto 3D ${index + 1}`}

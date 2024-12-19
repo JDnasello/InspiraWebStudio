@@ -1,5 +1,8 @@
 import '../css/header.css'
 import { useState, useEffect, useRef } from 'react'
+import LogoColor300 from "../assets/optimized/logoColor-300.webp";
+import LogoColor600 from "../assets/optimized/logoColor-600.webp";
+import LogoColor1200 from "../assets/optimized/logoColor-1200.webp";
 
 const Header = () => {
 
@@ -28,7 +31,7 @@ const Header = () => {
   return (
     <header className={`container-header ${headerClass ? 'header-sticky' : ''}`} ref={headerRef}>
       <div className='header-logo'>
-        <img src="logoColor.webp" alt="Logo de Inspira Web Studio" aria-label='Inicio' width={80} height="auto" style={{ zIndex: 10 }} />
+        <img srcSet={` ${LogoColor300} 300w, ${LogoColor600} 600w, ${LogoColor1200} 1200w`} sizes="(max-width: 600px) 80px, (max-width: 1024px) 100px, 120px" src="../assets/optimized/logoColor.webp" alt="Logo de Inspira Web Studio" aria-label='Inicio' width={80} height="auto" style={{ zIndex: 10 }} />
         <span className={`header-title ${headerClass ? 'header-sticky-title' : ''}`} title='Inspira Web Studio, estudio de desarrollo y diseño web'>Inspira Web Studio</span>
       </div>
       <div className="header" id='header-id'>
