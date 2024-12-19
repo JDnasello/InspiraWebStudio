@@ -90,40 +90,23 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
     };
   }, [targetPositions]);
 
-  useEffect(() => {
-    adjustPositionsForScreenSize()
-  }, [])
+  
 
   useEffect(() => {
     const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    const updateDeviceType = () => {
       const width = window.innerWidth;
+      setWindowWidth(width);
       setIsMobile(width <= 460);
       setIsTablet(width > 460 && width <= 1024);
+      adjustPositionsForScreenSize();
     };
 
-    // Llama a la función cuando la página cargue
-    updateDeviceType();
-
-    // Actualiza cuando el tamaño de la ventana cambie
-    window.addEventListener("resize", updateDeviceType);
-
+    handleResize(); // Llama al inicio para sincronizar estado inicial
+    window.addEventListener("resize", handleResize);
     return () => {
-      window.removeEventListener("resize", updateDeviceType);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
-
 
   useEffect(() => {
     for (const ref of Object.values(itemRefs)) {
@@ -140,34 +123,107 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
   return (
     <>
       <Helmet>
-        {windowWidth <= 460 && (
+        {windowWidth <= 460 ? (
           <>
-            <link rel="preload" href={Cone.replace('.webp', '-300.webp')} as="image" type="image/webp" />
-            <link rel="preload" href={Cone1.replace('.webp', '-300.webp')} as="image" type="image/webp" />
-            <link rel="preload" href={Cone2.replace('.webp', '-300.webp')} as="image" type="image/webp" />
-            <link rel="preload" href={Cone3.replace('.webp', '-300.webp')} as="image" type="image/webp" />
-            <link rel="preload" href={Cone4.replace('.webp', '-300.webp')} as="image" type="image/webp" />
+            <link
+              rel="preload"
+              href={Cone.replace(".webp", "-300.webp")}
+              as="image"
+              type="image/webp"
+            />
+            <link
+              rel="preload"
+              href={Cone1.replace(".webp", "-300.webp")}
+              as="image"
+              type="image/webp"
+            />
+            <link
+              rel="preload"
+              href={Cone2.replace(".webp", "-300.webp")}
+              as="image"
+              type="image/webp"
+            />
+            <link
+              rel="preload"
+              href={Cone3.replace(".webp", "-300.webp")}
+              as="image"
+              type="image/webp"
+            />
+            <link
+              rel="preload"
+              href={Cone4.replace(".webp", "-300.webp")}
+              as="image"
+              type="image/webp"
+            />
           </>
-        )}
-
-        {windowWidth > 461 && windowWidth < 1024 && (
+        ) : windowWidth > 461 && windowWidth < 1024 ? (
           <>
-            <link rel="preload" href={Cone.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
-            <link rel="preload" href={Cone1.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
-            <link rel="preload" href={Cone2.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
-            <link rel="preload" href={Cone3.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
-            <link rel="preload" href={Cone4.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
+            <link
+              rel="preload"
+              href={Cone.replace(".webp", "-1200.webp")}
+              as="image"
+              type="image/webp"
+            />
+            <link
+              rel="preload"
+              href={Cone1.replace(".webp", "-1200.webp")}
+              as="image"
+              type="image/webp"
+            />
+            <link
+              rel="preload"
+              href={Cone2.replace(".webp", "-1200.webp")}
+              as="image"
+              type="image/webp"
+            />
+            <link
+              rel="preload"
+              href={Cone3.replace(".webp", "-1200.webp")}
+              as="image"
+              type="image/webp"
+            />
+            <link
+              rel="preload"
+              href={Cone4.replace(".webp", "-1200.webp")}
+              as="image"
+              type="image/webp"
+            />
           </>
-        )}
-
-        {windowWidth > 1024 && (
-          <>
-            <link rel="preload" href={Cone.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
-            <link rel="preload" href={Cone1.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
-            <link rel="preload" href={Cone2.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
-            <link rel="preload" href={Cone3.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
-            <link rel="preload" href={Cone4.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
-          </>
+        ) : (
+          windowWidth > 1024 && (
+            <>
+              <link
+                rel="preload"
+                href={Cone.replace(".webp", "-1200.webp")}
+                as="image"
+                type="image/webp"
+              />
+              <link
+                rel="preload"
+                href={Cone1.replace(".webp", "-1200.webp")}
+                as="image"
+                type="image/webp"
+              />
+              <link
+                rel="preload"
+                href={Cone2.replace(".webp", "-1200.webp")}
+                as="image"
+                type="image/webp"
+              />
+              <link
+                rel="preload"
+                href={Cone3.replace(".webp", "-1200.webp")}
+                as="image"
+                type="image/webp"
+              />
+              <link
+                rel="preload"
+                href={Cone4.replace(".webp", "-1200.webp")}
+                as="image"
+                type="image/webp"
+              />
+            </>
+          )
         )}
       </Helmet>
       <section className="seccion1" aria-labelledby="section1-title">
@@ -206,14 +262,16 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
                   aria-hidden="true"
                 >
                   <img
-                    srcSet={` 
-    
-                        ${[Cone, Cone1, Cone2, Cone3, Cone4][index].replace('.webp', '-300.webp')},
-                        ${[Cone, Cone1, Cone2, Cone3, Cone4][index].replace('.webp', '-600.webp')} ,
-                        ${[Cone, Cone1, Cone2, Cone3, Cone4][index].replace('.webp', '-1200.webp')} ,
-
-                    `}
-                    sizes="(max-width: 460px) 300px, (min-width: 461px) and (max-width: 1024px) 600px, (min-width: 1024px) 1200px"
+                    srcSet={`${[Cone, Cone1, Cone2, Cone3, Cone4][
+                      index
+                    ].replace(".webp", "-300.webp")} 300w, 
+                             ${[Cone, Cone1, Cone2, Cone3, Cone4][
+                               index
+                             ].replace(".webp", "-600.webp")} 600w, 
+                             ${[Cone, Cone1, Cone2, Cone3, Cone4][
+                               index
+                             ].replace(".webp", "-1200.webp")} 1200w`}
+                    sizes="(max-width: 460px) 300px,(min-width: 461px) and (max-width: 1024px) 600px,(min-width: 1024px) 1200px"
                     src={[Cone, Cone1, Cone2, Cone3, Cone4][index]}
                     className={`item${index + 1}`}
                     alt={`Objeto 3D ${index + 1}`}
