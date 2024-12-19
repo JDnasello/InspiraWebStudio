@@ -139,7 +139,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
 
   return (
     <>
-      {/* <Helmet>
+      <Helmet>
         {windowWidth <= 460 && (
           <>
             <link rel="preload" href={Cone.replace('.webp', '-300.webp')} as="image" type="image/webp" />
@@ -169,7 +169,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
             <link rel="preload" href={Cone4.replace('.webp', '-1200.webp')} as="image" type="image/webp" />
           </>
         )}
-      </Helmet> */}
+      </Helmet>
       <section className="seccion1" aria-labelledby="section1-title">
         <div className="sec1-contizq">
           <HummingBird
