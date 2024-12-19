@@ -4,40 +4,41 @@ import { useRef, useEffect } from "react";
 
 
 const Footer = () => {
-    // Función que maneja el comportamiento del parallax al hacer scroll
-    const footerRef = useRef(null); // Ref para el footer
+  // Función que maneja el comportamiento del parallax al hacer scroll
+  const footerRef = useRef(null); // Ref para el footer
 
-    const logo = "/assets/logoSinColor.webp";
-  
-    // Función que maneja el efecto de parallax
-    const handleScroll = () => {
-      const scrollOffset = window.scrollY; // Obtener desplazamiento del scroll
-      const viewportHeight = window.innerHeight; // Altura del viewport
-      const documentHeight = document.documentElement.scrollHeight; // Altura total del documento
-      const footerHeight = footerRef.current.offsetHeight; // Altura del footer
 
-      if (footerRef.current) {
-        // Calcular cuánto del footer se ha "desbloqueado" con respecto al scroll
-        const scrolledRatio =
-          (scrollOffset + viewportHeight - (documentHeight - footerHeight)) /
-          footerHeight;
+  const logo = "/assets/optimized/logoSinColor.webp";
 
-        // Limitar el rango entre 0 y 1
-        const clampedRatio = Math.min(Math.max(scrolledRatio, 0), 1);
+  // Función que maneja el efecto de parallax
+  const handleScroll = () => {
+    const scrollOffset = window.scrollY; // Obtener desplazamiento del scroll
+    const viewportHeight = window.innerHeight; // Altura del viewport
+    const documentHeight = document.documentElement.scrollHeight; // Altura total del documento
+    const footerHeight = footerRef.current.offsetHeight; // Altura del footer
 
-        // Aplicar la transformación al footer para que aparezca progresivamente
-        footerRef.current.style.transform = `translateY(${-
-          (1 - clampedRatio) * 85
-              }%)`;
-          
-      }
-    };
+    if (footerRef.current) {
+      // Calcular cuánto del footer se ha "desbloqueado" con respecto al scroll
+      const scrolledRatio =
+        (scrollOffset + viewportHeight - (documentHeight - footerHeight)) /
+        footerHeight;
 
-    useEffect(() => {
-      // Escuchar evento de scroll
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll); // Limpiar evento
-    }, []);
+      // Limitar el rango entre 0 y 1
+      const clampedRatio = Math.min(Math.max(scrolledRatio, 0), 1);
+
+      // Aplicar la transformación al footer para que aparezca progresivamente
+      footerRef.current.style.transform = `translateY(${-
+        (1 - clampedRatio) * 85
+        }%)`;
+
+    }
+  };
+
+  useEffect(() => {
+    // Escuchar evento de scroll
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll); // Limpiar evento
+  }, []);
 
   return (
     <footer ref={footerRef} aria-labelledby="footer-heading">
@@ -46,6 +47,8 @@ const Footer = () => {
           <div className="container-footer-logo">
             <a href="#" aria-label="Inspira Web Studio - Inicio">
               <img
+                srcSet={`${logo} 90w, ${logo.replace(".webp", "-600.webp")} 600w, ${logo.replace(".webp", "-1200.webp")} 1200w`}
+                sizes="(max-width: 460px) 90px, (min-width: 461px) and (max-width: 1024px) 600px, (min-width: 1024px) 1200px"
                 src={logo}
                 alt="Logo de Inspira Web Studio"
                 width={70}
@@ -87,7 +90,7 @@ const Footer = () => {
               <Instagram className="social-icon" aria-label="Síguenos en Instagram" />
             </a>
             <a>
-              <LinkedIn className="social-icon"  aria-label="Conéctate con nosotros en LinkedIn" />
+              <LinkedIn className="social-icon" aria-label="Conéctate con nosotros en LinkedIn" />
             </a>
           </div>
         </div>
