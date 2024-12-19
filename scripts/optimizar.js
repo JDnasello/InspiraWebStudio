@@ -3,11 +3,11 @@ import fs from 'fs';
 import path from 'path';
 
 // Directorios
-const inputFolder = './src/assets/original'; // Carpeta con imágenes originales
-const outputFolder = './src/assets/optimized'; // Carpeta para guardar imágenes optimizadas
+const inputFolder = '../src/assets/original'; // Carpeta con imágenes originales
+const outputFolder = '../src/assets/optimized'; // Carpeta para guardar imágenes optimizadas
 
 // Tamaños deseados
-const sizes = [300, 600, 1200]; // Anchos en píxeles
+const sizes = [100]; // Anchos en píxeles
 
 // Verifica que la carpeta de salida exista
 if (!fs.existsSync(outputFolder)) {
