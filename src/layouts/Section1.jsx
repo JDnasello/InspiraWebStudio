@@ -52,7 +52,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
   );
 
   const adjustPositionsForScreenSize = () => {
-    const isMobile = window.innerWidth <= 460;
+    const isMobile = window.innerWidth <= 1100;
     setTargetPositions(updateTargetPositions(isMobile));
 
     if (colibriRef.current) {

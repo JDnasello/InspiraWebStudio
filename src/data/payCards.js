@@ -3,7 +3,7 @@ export const payCardList = [
     id: 1,
     title: "Mantenimiento web",
     price: "50000",
-    button: true,
+    button: false,
     description:
       "Actualización de contenido, corrección de errores, y soporte técnico regular para tu sitio web.",
     characteristics: [
@@ -41,25 +41,6 @@ export const payCardList = [
     ],
   },
   {
-    id: 3,
-    title: "Desarrollo/Integración de API",
-    price: "120000",
-    description:
-      "Creación o conexión con APIs de terceros para integrar funcionalidades avanzadas en tu proyecto.",
-    characteristics: [
-      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
-      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
-      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
-      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
-      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
-      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
-      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
-      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
-      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
-      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
-    ],
-  },
-  {
     id: 4,
     chip: "Premium",
     title: "Desarrollo de web personalizada",
@@ -79,4 +60,23 @@ export const payCardList = [
       "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
     ],
   },
+  {
+    id: 3,
+    title: "Desarrollo/Integración de API",
+    price: "120000",
+    description:
+      "Creación o conexión con APIs de terceros para integrar funcionalidades avanzadas en tu proyecto.",
+    characteristics: [
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+      "aaaaaaswwadwdwvsfnshfsofhsohfseofhseofjsfspfjspfjsfejf",
+    ],
+  }
 ];

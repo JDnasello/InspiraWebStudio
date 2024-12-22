@@ -53,7 +53,7 @@
 
 .header-title{
     transition: color 0.2s ease-in-out;
-
+    color: var(--color-neutro-white);
 }
 
 .header-logo{
