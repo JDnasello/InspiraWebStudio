@@ -26,6 +26,11 @@
     /* Sombra interna ajustada */
 }
 
+#img-logo{
+    width: 80px;
+    z-index: 10;
+}
+
 /* Header 2 */
 
 .container-header {
@@ -97,8 +102,30 @@
     right: 0;
 }
 
+.menu-button{
+    display: none;
+}
+
 /*PARA IPHONE 16 PRO MAX HACIA ABAJO*/
 @media screen and (max-width: 460px) {
+
+
+    #img-logo{
+        width: 60px;
+        z-index: 10;
+    }
+
+    .menu-button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        border: none;
+    }
+
+    .menu-button path{
+        fill: var(--color-neutro-black) !important;
+    }
 
     .header{
         display: none;
@@ -106,20 +133,12 @@
 
     .header-title{
         color: var(--color-neutro-black) !important;
+        font-weight: 100;
     }
 
     .container-header {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        user-select: none;
-        position: sticky;
-        height: 90px;
-        top: 0;
-        z-index: 9999;
-        padding: 10px 15px;
-        transition: background-color 0.3s ease-in-out;
+
+        padding: 10px 25px;
     }
 
     nav{

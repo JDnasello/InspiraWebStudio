@@ -11,6 +11,7 @@
     z-index: 10;
     position: relative;
     background-color: #fffefe;
+    overflow: hidden;
 }
 
 .cards-container {

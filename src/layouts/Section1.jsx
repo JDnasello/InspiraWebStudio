@@ -129,31 +129,31 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
           <>
             <link
               rel="preload"
-              href={Cone.replace(".webp", "-90.webp")}
+              href={Cone.replace(".webp", "-300.webp")}
               as="image"
               type="image/webp"
             />
             <link
               rel="preload"
-              href={Cone1.replace(".webp", "-90.webp")}
+              href={Cone1.replace(".webp", "-300.webp")}
               as="image"
               type="image/webp"
             />
             <link
               rel="preload"
-              href={Cone2.replace(".webp", "-90.webp")}
+              href={Cone2.replace(".webp", "-300.webp")}
               as="image"
               type="image/webp"
             />
             <link
               rel="preload"
-              href={Cone3.replace(".webp", "-90.webp")}
+              href={Cone3.replace(".webp", "-300.webp")}
               as="image"
               type="image/webp"
             />
             <link
               rel="preload"
-              href={Cone4.replace(".webp", "-90.webp")}
+              href={Cone4.replace(".webp", "-300.webp")}
               as="image"
               type="image/webp"
             />
@@ -255,6 +255,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
               <span className="contder-h1">develop.</span>
               <span className="contder-h1">& style.</span>
             </h1>
+
             <div className="items-hero">
               {Object.keys(itemRefs).map((key, index) => (
                 <div
@@ -266,14 +267,14 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
                   <img
                     srcSet={`${[Cone, Cone1, Cone2, Cone3, Cone4][
                       index
-                    ].replace(".webp", "-90.webp")} 90w, 
+                    ].replace(".webp", "-300.webp")} 300w, 
                              ${[Cone, Cone1, Cone2, Cone3, Cone4][
                                index
                              ].replace(".webp", "-600.webp")} 600w, 
                              ${[Cone, Cone1, Cone2, Cone3, Cone4][
                                index
                              ].replace(".webp", "-1200.webp")} 1200w`}
-                    sizes="(max-width: 460px) 90px,(min-width: 461px) and (max-width: 1024px) 600px,(min-width: 1024px) 1200px"
+                    sizes="(max-width: 460px) 300px,(min-width: 461px) and (max-width: 1024px) 600px,(min-width: 1024px) 1200px"
                     src={[Cone, Cone1, Cone2, Cone3, Cone4][index]}
                     className={`item${index + 1}`}
                     alt={`Objeto 3D ${index + 1}`}

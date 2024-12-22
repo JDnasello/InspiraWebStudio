@@ -1,6 +1,7 @@
 import '../css/header.css';
 import { useState, useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const Header = () => {
 
@@ -35,7 +36,7 @@ const Header = () => {
       </Helmet>
       <header className={`container-header ${headerClass ? 'header-sticky' : ''}`} ref={headerRef}>
         <div className='header-logo'>
-          <img src={LogoColor100} alt="Logo de Inspira Web Studio" aria-label='Inicio' width={80} height="auto" style={{ zIndex: 10 }} />
+          <img src={LogoColor100} alt="Logo de Inspira Web Studio" aria-label='Inicio' id='img-logo' />
           <span className={`header-title ${headerClass ? 'header-sticky-title' : ''}`} title='Inspira Web Studio, estudio de desarrollo y diseño web'>Inspira Web Studio</span>
         </div>
         <div className="header" id='header-id'>
@@ -49,6 +50,9 @@ const Header = () => {
           </nav>
           <a id="header-call" href='#planing' title='Planes de pago'>Ver planes</a>
         </div>
+        <button className="menu-button" aria-label="Abrir menú">
+          <MenuIcon style={{ fontSize: 30 }} />
+        </button>
       </header>
     </>
   );
