@@ -48,8 +48,9 @@
 }
 
 .header-sticky{
-    background-color: rgba(255, 255, 255, 0.425);
+    background-color: rgba(255, 255, 255, 0.76);
     backdrop-filter: blur(30px);
+    
 }
 
 .header-sticky-title {
@@ -106,9 +107,56 @@
     display: none;
 }
 
+.menu-responsive{
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    transition: right 0.3s ease-in-out, background-color 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+}
+
+.menu-responsive .header-nav{
+    line-height: 1.2;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    text-align: center;
+}
+
+.menu-responsive.menu-open{
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.589);
+    opacity: 1;
+    
+}
+
+.menu-close{
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: none;
+}
+
+.menu-close path{
+    fill: var(--color-neutro-black) !important;
+}
+
 /*PARA IPHONE 16 PRO MAX HACIA ABAJO*/
 @media screen and (max-width: 460px) {
-
+    
 
     #img-logo{
         width: 60px;
@@ -137,7 +185,7 @@
     }
 
     .container-header {
-
+        height: 90px;
         padding: 10px 25px;
     }
 

@@ -311,19 +311,54 @@
         gap: 20px;
     }
 
-    .card-container {
-        opacity: 1;
-        transform: scale(.8) translateX(0);
-        transition: transform .5s ease, opacity .5s ease;
-    }
-
-    .card-container.slide-left {
-        transform: translateX(-100%) scale(.8);
-        opacity: 0;
-    }
+        .card-container {
+            opacity: 1;
+            transform: scale(0.8) translateX(0);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
     
-    .card-container.slide-right {
-        transform: translateX(100%) scale(.8);
-        opacity: 0;
-    }
+        /* Animations for Two Visible Cards */
+        .two-left {
+            transform: translateX(-100%);
+        }
+    
+        .two-center-to-right {
+            transform: translateX(100%);
+        }
+    
+        .two-right-to-center {
+            transform: translateX(0);
+        }
+    
+        .two-out-left {
+            transform: translateX(-200%);
+            opacity: 0;
+        }
+    
+        /* Animations for Standard Slides (More Than 2 Cards Visible) */
+        .move-left {
+            transform: translateX(-100%);
+        }
+    
+        .center-to-right {
+            transform: translateX(100%);
+        }
+    
+        .out-right {
+            transform: translateX(200%);
+            opacity: 0;
+        }
+    
+        .move-right {
+            transform: translateX(100%);
+        }
+    
+        .center-to-left {
+            transform: translateX(-100%);
+        }
+    
+        .out-left {
+            transform: translateX(-200%);
+            opacity: 0;
+        }
 }
