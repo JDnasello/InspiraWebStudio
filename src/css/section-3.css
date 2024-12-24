@@ -12,7 +12,17 @@
     overflow: hidden;
 }
 
+.swiper-button-next, .swiper-button-prev, .swiper-pagination .swiper-pagination-bullet {
+    cursor: none;
+}
 
+.swiper-button-next, .swiper-button-prev {
+    color: #50279c !important;
+}
+
+.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: #50279c !important;
+}
 
 .swiper{
     overflow: visible;
@@ -78,10 +88,6 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-}
-
-.card.basics-cards .characteristics {
-    
 }
 
 .card.no-radius {

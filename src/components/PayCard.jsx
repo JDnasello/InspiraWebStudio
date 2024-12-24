@@ -11,14 +11,27 @@ import "swiper/css/pagination";
 
 const PayCard = ({ cardContainer }) => {
 
-    const reorderedCards = [
-        payCardList[1],
-        payCardList[2],
-        payCardList[0],
-        payCardList[3],
-    ];
+    const sortCards = () => {
+        let array = []
+        if (window.innerWidth < 1400) {
+            array = [
+                payCardList[1],
+                payCardList[2],
+                payCardList[0],
+                payCardList[3]
+            ]
+        } else {
+            array = [
+                payCardList[0],
+                payCardList[1],
+                payCardList[2],
+                payCardList[3]
+            ]
+        }
+        return array;
+    }
 
-    function appearCard() {
+    const appearCard = () => {
         const section3 = document.getElementById("planing");
         const section3OffsetTop = section3.offsetTop;
         const scrollPosition = window.scrollY;
@@ -33,7 +46,6 @@ const PayCard = ({ cardContainer }) => {
             });
         }
     }
-
 
     useEffect(() => {
         const handleScroll = () => {
@@ -72,7 +84,7 @@ const PayCard = ({ cardContainer }) => {
             }}
             className="swiper-container"
         >
-            {reorderedCards.map((card) => (
+            {sortCards().map((card) => (
                 <SwiperSlide key={card.id}>
                     <article className="card-container" id={`card-container-${card.id}`}>
                         {card?.chip && (

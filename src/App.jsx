@@ -19,8 +19,18 @@ function App() {
   }, [])
 
   useEffect(() => {
-    if (!isMobile) {
+    if (isMobile) {
+      document.querySelector("body").style.cursor = "default"
+      document.querySelectorAll("button, a, .swiper-button-next, .swiper-button-prev, .swiper-pagination-bullet")
+        .forEach((el) => {
+          el.style.cursor = "pointer"
+        })
+    } else if (!isMobile) {
       document.querySelector('body').style.cursor = 'none'
+      document.querySelectorAll("button, a, .swiper-button-next, .swiper-button-prev, .swiper-pagination-bullet")
+        .forEach((el) => {
+          el.style.cursor = "none"
+        })
 
       const handleMove = e => {
         const posX = e.clientX
@@ -39,14 +49,24 @@ function App() {
       }
   
       const handleMouseEnter = (e) => {
-        if (e.target.tagName.toLowerCase() === "a" || e.target.tagName.toLowerCase() === "button") {
+        const tag = e.target.tagName.toLowerCase()
+        const isSwiperControl = e.target.classList.contains("swiper-button-next") ||
+                                e.target.classList.contains("swiper-button-prev") ||
+                                e.target.classList.contains("swiper-pagination-bullet")
+        
+        if ( tag === "a" || tag === "button" || isSwiperControl) {
           cursorRef.current.classList.add("hovered");
           innerCursorRef.current.classList.add("hovered");
         }
       }
   
       const handleMouseLeave = (e) => {
-        if (e.target.tagName.toLowerCase() === "a" || e.target.tagName.toLowerCase() === "button") {
+        const tag = e.target.tagName.toLowerCase()
+        const isSwiperControl = e.target.classList.contains("swiper-button-next") ||
+                                e.target.classList.contains("swiper-button-prev") ||
+                                e.target.classList.contains("swiper-pagination-bullet")
+        
+        if ( tag === "a" || tag === "button" || isSwiperControl) {
           cursorRef.current.classList.remove("hovered")
           innerCursorRef.current.classList.remove("hovered")
         }
