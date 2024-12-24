@@ -57,6 +57,10 @@
     height: auto;
 }
 
+#card-container-3, #card-container-1{
+    margin-top: 40px;
+}
+
 
 .card {
     height: auto;
@@ -105,6 +109,7 @@
     transform: translate(-50%, -50%);
     padding: 10px 20px;
     border-radius: 20px 20px 0 0;
+    height: 40px;
     border: none;
     color: #fff;
     text-align: center;
@@ -127,6 +132,7 @@
     flex-direction: column;
     align-items: start;
     padding: 20px 20px 0;
+    min-height: 315px;
 }
 
 .top-card h3 {

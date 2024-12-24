@@ -74,7 +74,7 @@ const PayCard = ({ cardContainer }) => {
         >
             {reorderedCards.map((card) => (
             <SwiperSlide key={card.id}>
-                <article className="card-container">
+                <article className="card-container"  id={`card-container-${card.id}`}>
                 {card?.chip && (
                     <span
                     className={`chip ${
