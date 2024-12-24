@@ -8,7 +8,9 @@ const PayCardCharacteristics = ({ card }) => {
     const handleToggleCharacteristics = () => {
         setShowAll(prev => !prev)
 
-        showAll ? card.characteristics : card.characteristics.slice(0, 5)
+        showAll ? card.characteristics
+            : card.id === 4 ? card.characteristics.slice(0, 6)
+                : card.characteristics.slice(0, 5)
     }
 
     return (

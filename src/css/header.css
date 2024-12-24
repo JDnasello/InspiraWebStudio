@@ -154,6 +154,8 @@
     fill: var(--color-neutro-black) !important;
 }
 
+
+
 /*PARA IPHONE 16 PRO MAX HACIA ABAJO*/
 @media screen and (max-width: 460px) {
     

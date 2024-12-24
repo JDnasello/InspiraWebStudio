@@ -1,8 +1,6 @@
 .seccion3 {
     height: fit-content;
-    min-height: 100vh;
     width: 100%;
-    padding: 200px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,54 +12,54 @@
     overflow: hidden;
 }
 
-.cards-container {
+
+
+.swiper{
+    overflow: visible;
+}
+
+.swiper-wrapper {
+    align-items: stretch;
+}
+
+.swiper-container {
     display: flex;
-    gap: 70px;
-    align-items: start;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: fit-content;
+    padding: 50px 0px;
 }
 
-.seccion3 .arrow {
-    display: none;
-    font-size: 3em;
-    position: absolute;
-    transition: font-size 0.3s ease-in;
+.swiper-slide {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: auto;
+    margin: 0 !important;
+    padding: 0 10px !important;
 }
 
-.seccion3 .arrow-back {
-    left: 5%;
-}
-
-.seccion3 .arrow-next {
-    right: 5%;
-}
-
-@media screen and (max-width: 400px) {
-    .seccion3 .arrow-back {
-            left: 0%;
-        }
-    
-        .seccion3 .arrow-next {
-            right: 0%;
-        }
+.swiper-pagination {
+    top: 20px !important;
+    height: 20px;
 }
 
 .card-container {
+    width: 350px;
     display: flex;
     flex-direction: column;
     position: relative;
-    opacity: 0;
-    transform: translateY(50px) scale(.8);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    opacity: 1;
+    transform: translateY(0) scale(.9);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    min-height: 650px;
+    height: auto;
 }
 
-.card-container.appear {
-    opacity: 1;
-    transform: translateY(0) scale(.8);
-}
 
 .card {
-    width: 350px;
-    height: fit-content;
+    height: auto;
     box-shadow: 1px 30px 23px 10px #00000021;
     border-radius: 15px;
     position: relative;
@@ -71,6 +69,15 @@
     opacity: 1;
     transition: transform 0.1s ease-out;
     transform-style: preserve-3d;
+    width: 100%;
+    min-height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.card.basics-cards .characteristics {
+    
 }
 
 .card.no-radius {
@@ -80,6 +87,7 @@
 .best-plans {
     position: absolute;
     right: 15px;
+    top: 15px;
 }
 
 .best-plans.recommend path {
@@ -92,7 +100,7 @@
 
 .chip {
     position: relative;
-    top: -47px;
+    top: 23px;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 10px 20px;
@@ -121,6 +129,10 @@
     padding: 20px 20px 0;
 }
 
+.top-card h3 {
+    height: 62px;
+}
+
 #card-price {
     font-weight: 700;
     font-size: 2em;
@@ -144,6 +156,11 @@
 .card-description {
     font-size: 0.8em;
     margin: 25px 0;
+    height: 83px;
+}
+
+.card-description.description-landing {
+    margin: 5px 0;
 }
 
 .card-separator {
@@ -266,99 +283,29 @@
     /* Escala el gradiente para mayor cobertura */
 }
 
-.card:nth-child(2) {
-    margin-top: -70px;
-}
-
 @media screen and (max-width: 460px) {
     
-}
-
-@media screen and (max-width: 768px) {
-    .seccion3 {
-        justify-content: center;
-        gap: 0;
-    }
-
-    .seccion3 .arrow {
-        font-size: 2.2em;
-    }
 }
 
 @media screen and (max-width: 1650px) {
     .cards-container {
         gap: 0;
     }
-
-    
 }
 
-@media screen and (min-width: 1400px) {
-
-    
-}
-
-@media screen and (max-width: 1400px) {
-    .seccion3 .arrow {
-        display: block;
-    }
-
-    .seccion3 .arrow path {
-        fill: #50279c !important;
-    }
-
-    .cards-container {
-        gap: 20px;
-    }
+@media screen and (min-width: 1401px) {
 
         .card-container {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px) scale(.9);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+    
+        .card-container.appear {
             opacity: 1;
-            transform: scale(0.8) translateX(0);
-            transition: transform 0.5s ease, opacity 0.5s ease;
-        }
-    
-        /* Animations for Two Visible Cards */
-        .two-left {
-            transform: translateX(-100%);
-        }
-    
-        .two-center-to-right {
-            transform: translateX(100%);
-        }
-    
-        .two-right-to-center {
-            transform: translateX(0);
-        }
-    
-        .two-out-left {
-            transform: translateX(-200%);
-            opacity: 0;
-        }
-    
-        /* Animations for Standard Slides (More Than 2 Cards Visible) */
-        .move-left {
-            transform: translateX(-100%);
-        }
-    
-        .center-to-right {
-            transform: translateX(100%);
-        }
-    
-        .out-right {
-            transform: translateX(200%);
-            opacity: 0;
-        }
-    
-        .move-right {
-            transform: translateX(100%);
-        }
-    
-        .center-to-left {
-            transform: translateX(-100%);
-        }
-    
-        .out-left {
-            transform: translateX(-200%);
-            opacity: 0;
+            transform: translateY(0) scale(.9);
         }
 }

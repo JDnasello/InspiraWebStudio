@@ -21,7 +21,8 @@
     "react-helmet-async": "^2.0.5",
     "react-lazy-load-image-component": "^1.6.2",
     "sharp": "^0.33.5",
-    "styled-components": "^6.1.13"
+    "styled-components": "^6.1.13",
+    "swiper": "^11.1.15"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",

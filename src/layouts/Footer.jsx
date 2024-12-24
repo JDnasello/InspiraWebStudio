@@ -10,6 +10,7 @@ const Footer = () => {
 
   const logo = "/assets/optimized/logoSinColor.webp";
 
+  const isMobile = window.innerWidth < 461;
   // Función que maneja el efecto de parallax
   const handleScroll = () => {
     const scrollOffset = window.scrollY; // Obtener desplazamiento del scroll
@@ -17,7 +18,7 @@ const Footer = () => {
     const documentHeight = document.documentElement.scrollHeight; // Altura total del documento
     const footerHeight = footerRef.current.offsetHeight; // Altura del footer
 
-    if (footerRef.current) {
+    if (footerRef.current && !isMobile) {
       // Calcular cuánto del footer se ha "desbloqueado" con respecto al scroll
       const scrolledRatio =
         (scrollOffset + viewportHeight - (documentHeight - footerHeight)) /
@@ -31,6 +32,8 @@ const Footer = () => {
         (1 - clampedRatio) * 85
         }%)`;
 
+    }else if(isMobile){
+      footerRef.current.style.transform = `translateY(0px)`;
     }
   };
 
