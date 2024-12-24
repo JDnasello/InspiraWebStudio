@@ -22,10 +22,10 @@ const PayCard = ({ cardContainer }) => {
         const section3 = document.getElementById("planing");
         const section3OffsetTop = section3.offsetTop;
         const scrollPosition = window.scrollY;
-    
+
         if (scrollPosition + window.innerHeight > section3OffsetTop) {
             const containers = cardContainer.current.querySelectorAll(".card-container")
-    
+
             containers.forEach((container, index) => {
                 setTimeout(() => {
                     container.classList.add("appear");
@@ -43,10 +43,10 @@ const PayCard = ({ cardContainer }) => {
         }
 
         // Agregar el evento scroll para ejecutar handleScroll
-            window.addEventListener("scroll", handleScroll)
-            
-            return () => window.removeEventListener("scroll", handleScroll)
-        
+        window.addEventListener("scroll", handleScroll)
+
+        return () => window.removeEventListener("scroll", handleScroll)
+
     }, [])
 
     return (
@@ -59,84 +59,87 @@ const PayCard = ({ cardContainer }) => {
             breakpoints={{
                 1: {
                     slidesPerView: 1
-            },
-            668: {
-                slidesPerView: 2,
-            },
-            1024: {
-                slidesPerView: 3,
+                },
+                668: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
                 },
                 1400: {
-                slidesPerView: 4
-            }
+                    slidesPerView: 4
+                }
             }}
             className="swiper-container"
         >
             {reorderedCards.map((card) => (
-            <SwiperSlide key={card.id}>
-                <article className="card-container"  id={`card-container-${card.id}`}>
-                {card?.chip && (
-                    <span
-                    className={`chip ${
-                        card.id === 2 ? "first-chip" : "second-chip"
-                    }`}
-                    >
-                    {card.chip}
-                    </span>
-                )}
-                <div
-                    className={`card ${
-                    card.id === 2 || card.id === 4 ? "no-radius" : "basics-cards"
-                    }`}
-                >
-                    {card.id === 2 ? (
-                    <RecommendOutlined
-                        className="best-plans recommend"
-                        aria-label="Recomendado"
-                    />
-                    ) : (
-                    card.id === 4 && (
-                        <WorkspacePremium
-                        className="best-plans premium"
-                        aria-label="Premium"
-                        />
-                    )
-                    )}
-                    <div className="top-card">
-                    <h3>{card.title}</h3>
-                    <p className={`card-description ${card.id === 2 ? "description-landing" : ''}`}>{card.description}</p>
-                    {card.id !== 2 ? (
-                        <Button
-                        buttonText="Consultar precio"
-                        buttonClassName="button-variant"
-                        aria-label="Consultar precio del plan"
-                        />
-                    ) : (
-                        <>
-                        <span className="card-quotes">
-                            3 cuotas sin interés de:
-                        </span>
-                        <span id="card-price">
-                            <span className="coin-type" aria-label="Moneda">
-                            ar$
+                <SwiperSlide key={card.id}>
+                    <article className="card-container" id={`card-container-${card.id}`}>
+                        {card?.chip && (
+                            <span
+                                className={`chip ${card.id === 2 ? "first-chip" : "second-chip"
+                                    }`}
+                            >
+                                {card.chip}
                             </span>
-                            {card.price}
-                            <span className="coin-type price-per-month">/mes</span>
-                        </span>
-                        </>
-                    )}
-                    {card.button && (
-                        <Button
-                        buttonText="Elegir plan"
-                        aria-label="Elegir este plan"
-                        />
-                    )}
-                    </div>
-                    <div className="card-separator"></div>
-                    <PayCardCharacteristics card={card} />
-                </div>
-                </article>
-            </SwiperSlide>
+                        )}
+                        <div
+                            className={`card ${card.id === 2 || card.id === 4 ? "no-radius" : "basics-cards"
+                                }`}
+                        >
+                            {card.id === 2 ? (
+                                <RecommendOutlined
+                                    className="best-plans recommend"
+                                    aria-label="Recomendado"
+                                />
+                            ) : (
+                                card.id === 4 && (
+                                    <WorkspacePremium
+                                        className="best-plans premium"
+                                        aria-label="Premium"
+                                    />
+                                )
+                            )}
+                            <div className="top-card">
+                                <div className="">
+                                    <h3>{card.title}</h3>
+                                    <p className={`card-description ${card.id === 2 ? "description-landing" : ''}`}>{card.description}</p>
+                                </div>
+                                <div>
+                                    {card.id !== 2 ? (
+                                        <Button
+                                            buttonText="Consultar precio"
+                                            buttonClassName="button-variant"
+                                            aria-label="Consultar precio del plan"
+                                        />
+                                    ) : (
+                                        <>
+                                            <span className="card-quotes">
+                                                3 cuotas sin interés de:
+                                            </span>
+                                            <span id="card-price">
+                                                <span className="coin-type" aria-label="Moneda">
+                                                    ar$
+                                                </span>
+                                                {card.price}
+                                                <span className="coin-type price-per-month">/mes</span>
+                                            </span>
+                                        </>
+                                    )}
+                                    {card.button && (
+                                        <Button
+                                            buttonText="Elegir plan"
+                                            aria-label="Elegir este plan"
+                                        />
+                                    )}
+
+                                </div>
+                            </div>
+                            <div className="card-separator"></div>
+                            <PayCardCharacteristics card={card} />
+                        </div>
+                    </article>
+                </SwiperSlide>
             ))}
         </Swiper>
     );
