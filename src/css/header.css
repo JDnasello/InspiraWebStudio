@@ -31,6 +31,15 @@
     z-index: 10;
 }
 
+.social-header path{
+    fill: var(--color-neutro-black) !important;
+}
+
+.social-header{
+    display: flex;
+    gap: 20px;
+}
+
 /* Header 2 */
 
 .container-header {
@@ -154,10 +163,16 @@
     fill: var(--color-neutro-black) !important;
 }
 
+@media screen and (max-width: 1100px){
 
+    .header-title{
+        color: var(--color-neutro-black) !important;
+        font-weight: 100;
+    }
+}
 
 /*PARA IPHONE 16 PRO MAX HACIA ABAJO*/
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 768px) {
     
 
     #img-logo{
@@ -181,10 +196,7 @@
         display: none;
     }
 
-    .header-title{
-        color: var(--color-neutro-black) !important;
-        font-weight: 100;
-    }
+    
 
     .container-header {
         height: 90px;
@@ -193,5 +205,11 @@
 
     nav{
         display: none;
+    }
+}
+
+@media screen and (max-width: 460px){
+    .container-header{
+        height: 80px;
     }
 }

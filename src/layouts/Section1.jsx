@@ -92,7 +92,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
     };
   }, [targetPositions]);
 
-  
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -254,6 +254,9 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
               <span className="contder-h1">imagine.</span>
               <span className="contder-h1">develop.</span>
               <span className="contder-h1">& style.</span>
+              <button className="planing-btn"><a id="header-call" href="#planing" title="Planes de pago">
+                Ver planes
+              </a></button>
             </h1>
 
             <div className="items-hero">
@@ -269,11 +272,11 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
                       index
                     ].replace(".webp", "-300.webp")} 300w, 
                              ${[Cone, Cone1, Cone2, Cone3, Cone4][
-                               index
-                             ].replace(".webp", "-600.webp")} 600w, 
+                        index
+                      ].replace(".webp", "-600.webp")} 600w, 
                              ${[Cone, Cone1, Cone2, Cone3, Cone4][
-                               index
-                             ].replace(".webp", "-1200.webp")} 1200w`}
+                        index
+                      ].replace(".webp", "-1200.webp")} 1200w`}
                     sizes="(max-width: 460px) 300px,(min-width: 461px) and (max-width: 1024px) 600px,(min-width: 1024px) 1200px"
                     src={[Cone, Cone1, Cone2, Cone3, Cone4][index]}
                     className={`item${index + 1}`}

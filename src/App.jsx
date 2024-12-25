@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react"
 import IwStudioPage from "./pages/IwStudioPage"
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 
 
 function App() {
@@ -95,6 +96,9 @@ function App() {
         )
       }
       <IwStudioPage cursorRef={cursorRef} innerCursorRef={innerCursorRef} />
+      <button className="whatsapp-container">
+      <WhatsAppIcon className="whatsapp-icon" />
+      </button>
     </>
   );
 }

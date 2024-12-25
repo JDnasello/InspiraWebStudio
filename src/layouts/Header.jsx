@@ -32,8 +32,29 @@ const Header = () => {
   }, []); // Ejecutarse solo al montar el componente
 
   const toggleMenu = () => {
-    setOpenMenu(!openMenu);
+    setOpenMenu(!openMenu);    
   };
+
+  const closeMenu = () => {
+    setOpenMenu(false);
+  };
+
+  const scrollToPlaning = () => {
+    const targetElement = document.querySelector("#planing");
+  
+    if (targetElement) {
+      // Obtenemos el offsetTop del elemento con respecto al documento
+      const targetPosition = targetElement.offsetTop - 40;
+  
+      // Realizamos el desplazamiento suave hasta el offsetTop del target
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth',
+      });
+    }
+  }
+
+ 
 
   return (
     <>
@@ -42,13 +63,13 @@ const Header = () => {
       </Helmet>
       <div className={`menu-responsive ${openMenu ? "menu-open" : ""}`}>
         <nav className="header-nav" title="Menú de navegación">
-          <a className="nav-link" href="#" title="Nosotros">
+          <a className="nav-link" href="#footer" title="Nosotros" onClick={closeMenu}>
             Nosotros
           </a>
-          <a className="nav-link" href="#objectives" title="Objetivos">
+          <a className="nav-link" href="#objectives" title="Objetivos" onClick={closeMenu}>
             Objetivos
           </a>
-          <a className="nav-link" href="#objectives" title="Objetivos">
+          <a className="nav-link" href="#planing" title="Planes de pago" onClick={() => {closeMenu(); scrollToPlaning()}}>
             Ver planes
           </a>
 
@@ -98,14 +119,14 @@ const Header = () => {
         </div>
         <div className="header" id="header-id">
           <nav className="header-nav" title="Menú de navegación">
-            <a className="nav-link" href="#" title="Nosotros">
+            <a className="nav-link" href="#footer" title="Nosotros"  >
               Nosotros
             </a>
-            <a className="nav-link" href="#objectives" title="Objetivos">
+            <a className="nav-link" href="#objectives" title="Objetivos"  >
               Objetivos
             </a>
           </nav>
-          <a id="header-call" href="#planing" title="Planes de pago">
+          <a id="header-call" href="#planing" title="Planes de pago" onClick={(e) => {e.preventDefault(); scrollToPlaning();}}  >
             Ver planes
           </a>
         </div>

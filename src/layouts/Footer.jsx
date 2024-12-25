@@ -44,7 +44,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer ref={footerRef} aria-labelledby="footer-heading">
+    <footer ref={footerRef} aria-labelledby="footer-heading" id="footer">
       <div className="container-footer">
         <div className="nav-footer">
           <div className="container-footer-logo">

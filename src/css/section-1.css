@@ -8,6 +8,10 @@
   margin-top: -90px;
 }
 
+.planing-btn {
+  display: none;
+}
+
 .span-hero {
   opacity: 0;
   transform: translateX(-50px);
@@ -59,6 +63,7 @@
   padding: 110px 50px 50px 50px;
   background-color: #fff;
   transition: width 0.3s ease-in;
+  z-index: 11;
 }
 
 .sec1-contder .contder-presentation {
@@ -94,6 +99,7 @@
   z-index: -1;
   opacity: 1;
 }
+
 
 #colibri {
   width: 80%;
@@ -264,6 +270,18 @@ svg path {
     flex-direction: column;
   }
 
+  .sec1-contizq::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    z-index: 10;
+    opacity: 1;
+  }
+
   .sec1-contizq {
     width: 100%;
     height: 30%;
@@ -406,6 +424,26 @@ svg path {
 
 }
 
+@media screen and (max-width: 768px) {
+  .planing-btn {
+    background-color: transparent;
+    border: none;
+    width: fit-content;
+    margin-top: 15%;
+    display: block;
+    padding: 0;
+  }
+
+  .planing-btn #header-call {
+    width: 100%;
+    padding: 12px 55px;
+  }
+
+  .span-hero .contder-h1:nth-child(3){
+    margin-bottom: 10% !important;
+  }
+}
+
 /*PARA IPHONE 16 PRO MAX HACIA ABAJO*/
 @media screen and (max-width: 560px) {
   .seccion1 {
@@ -418,6 +456,11 @@ svg path {
     perspective: 1000px;
     overflow: hidden;
     margin-top: -90px;
+  }
+
+  .planing-btn #header-call {
+    width: 100%;
+    padding: 10px 30px;
   }
 
   .sec1-contizq {
@@ -475,10 +518,11 @@ svg path {
   }
 
   .sec1-contder .contder-presentation .contder-h1 {
-    font-size: 70px;
+    font-size: 65px;
     font-weight: 700;
     color: var(--color-neutro-black);
     z-index: 1;
+    width: 100%;
   }
 
   .sec1-contder .contder-presentation .contder-h1:nth-child(2) {}
@@ -533,7 +577,7 @@ svg path {
   .parallax:nth-child(2) {
     /* cuadrao */
     left: 0%;
-    top: -25%;
+    top: -30%;
   }
 
   .parallax:nth-child(3) {
@@ -555,7 +599,21 @@ svg path {
   }
 }
 
-@media screen and (max-width: 400px) and (max-height: 840px) {
+@media screen and (max-width: 400px) and (max-height: 915px) {
+
+  .planing-btn{
+    transform: scale(1);
+  }
+
+  .planing-btn #header-call {
+    width: 100%;
+    padding: 10px 20px;
+  }
+
+
+  .span-hero .contder-h1:nth-child(3){
+    margin-bottom: 6% !important;
+  }
 
   .sec1-contder .contder-presentation .contder-h1 {
     font-size: 50px;

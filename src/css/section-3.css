@@ -1,5 +1,5 @@
 .seccion3 {
-    height: fit-content;
+    height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
@@ -51,7 +51,7 @@
 }
 
 .swiper-pagination {
-    top: 20px !important;
+    top: 35px !important;
     height: 20px;
 }
 
