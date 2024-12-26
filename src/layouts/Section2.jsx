@@ -29,18 +29,7 @@ const Section2 = () => {
   const Cone5 = "/assets/optimized/Cone-5.webp"
   const Cone6 = "/assets/optimized/Cone-6.webp";
 
-  useEffect(() => {
-    const handleAnimation = () => {
-      objectivesList.forEach((_, index) => {
-        setTimeout(() => {
-          setVisibleIndexes((prev) => [...prev, index]);
-        }, index * 300); // Ajusta el retraso (300ms por fila)
-      });
-    };
-
-    handleAnimation();
-  }, [objectivesList]);
-
+  
   // Función que maneja el comportamiento del parallax al hacer scroll
   const handleScroll = () => {
     if (!isMobile) {
