@@ -1,44 +1,44 @@
 export const objectivesList = [
     {
         id: 1,
-        title: "Objetivo 1",
+        title: "Diseños personalizados",
         type: "custom",
         description:
-        "Diseños personalizados: Creamos sitios web únicos y adaptados a las necesidades de tu marca.",
+        "Creamos sitios web únicos y adaptados a las necesidades de tu marca.",
     },
     {
         id: 2,
-        title: "Objetivo 2",
+        title: "SEO",
         type: "SEO",
         description:
-        "Optimización SEO: Aumenta tu visibilidad en buscadores con nuestras estrategias integradas.",
+        "Aumenta tu visibilidad en buscadores con nuestras estrategias integradas.",
     },
     {
         id: 3,
-        title: "Objetivo 3",
+        title: "Desarrollo responsive",
         type: "responsive",
         description:
-        "Desarrollo responsive: Garantizamos una experiencia impecable en cualquier dispositivo.",
+        "Garantizamos una experiencia impecable en cualquier dispositivo.",
     },
     {
         id: 4,
-        title: "Objetivo 4",
+        title: "Velocidad y rendimiento",
         type: "fast",
         description:
-        "Velocidad y rendimiento: Sitios web rápidos y eficientes para maximizar conversiones.",
+        "Sitios web rápidos y eficientes para maximizar conversiones.",
     },
     {
         id: 5,
-        title: "Objetivo 5",
+        title: "Seguridad garantizada",
         type: "secure",
         description:
-        "Seguridad garantizada: Protegemos tu web contra vulnerabilidades y amenazas.",
+        "Protegemos tu web contra vulnerabilidades y amenazas.",
     },
     {
         id: 6,
-        title: "Objetivo 6",
+        title: "Soporte continuo",
         type: "support",
         description:
-        "Soporte continuo: Acompañamos tu proyecto con mantenimiento y actualizaciones.",
+        "Acompañamos tu proyecto con mantenimiento y actualizaciones.",
     }
 ]

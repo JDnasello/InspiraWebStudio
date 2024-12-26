@@ -130,7 +130,7 @@ const Section2 = () => {
           effect="blur"
         />
       </div>
-      <h2 className='seccion2-title'>Nuestros Objetivos</h2>
+      <h2 className='seccion2-title'>¿Qué ofrecemos?</h2>
       <div className="container-objectives">
         {
           objectivesList.map((obj, index) => (

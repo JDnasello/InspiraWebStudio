@@ -11,6 +11,7 @@ const Header = () => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const LogoColor100 = "logoColor-100.webp";
+  const navItems = ['High quality', 'User friendly', 'Custom made', 'Innovative solutions', 'On time']
 
   useEffect(() => {
     // Función para manejar el scroll
@@ -72,7 +73,15 @@ const Header = () => {
           <a className="nav-link" href="#planing" title="Planes de pago" onClick={() => { closeMenu(); scrollToPlaning() }}>
             Ver planes
           </a>
-
+          <div className="menu-slider">
+            <div className="menu-slider-track">
+              {
+                navItems.concat(navItems).map((item, index) => (
+                  <span className="menu-slider-item" key={index}>{item}</span>
+                ))
+              }
+            </div>
+          </div>
           <div className="social-header">
             <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram">
               <Instagram className="social-icon" />
@@ -91,7 +100,7 @@ const Header = () => {
           }`}
         ref={headerRef}
       >
-        <div className="header-logo">
+        <a className="header-logo" href="#">
           <img
             src={LogoColor100}
             alt="Logo de Inspira Web Studio"
@@ -105,7 +114,7 @@ const Header = () => {
           >
             Inspira Web Studio
           </span>
-        </div>
+        </a>
         <div className="header" id="header-id">
           <nav className="header-nav" title="Menú de navegación">
             <a className="nav-link" href="#footer" title="Nosotros"  >

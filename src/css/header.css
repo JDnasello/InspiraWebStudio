@@ -88,6 +88,43 @@
 .header-nav {
     display: flex;
     gap: 30px;
+    width: 80%;
+    overflow: hidden;
+}
+
+.menu-slider {
+    overflow: hidden;
+    width: 80%;
+    height: 40px;
+    display: flex;
+    white-space: nowrap;
+    margin: 20px 0;
+    position: relative;
+}
+
+.menu-slider-track {
+    animation: scrollX 10s linear infinite;
+    -webkit-animation: scrollX 10s linear infinite;
+}
+
+.menu-slider-item {
+    font-size: .7em;
+    font-weight: 300;
+    display: inline-block;
+    margin-right: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+@keyframes scrollX {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
 }
 
 .header .nav-link {
