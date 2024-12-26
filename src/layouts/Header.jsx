@@ -32,7 +32,7 @@ const Header = () => {
   }, []); // Ejecutarse solo al montar el componente
 
   const toggleMenu = () => {
-    setOpenMenu(!openMenu);    
+    setOpenMenu(!openMenu);
   };
 
   const closeMenu = () => {
@@ -41,11 +41,11 @@ const Header = () => {
 
   const scrollToPlaning = () => {
     const targetElement = document.querySelector("#planing");
-  
+
     if (targetElement) {
       // Obtenemos el offsetTop del elemento con respecto al documento
       const targetPosition = targetElement.offsetTop - 40;
-  
+
       // Realizamos el desplazamiento suave hasta el offsetTop del target
       window.scrollTo({
         top: targetPosition,
@@ -54,7 +54,7 @@ const Header = () => {
     }
   }
 
- 
+
 
   return (
     <>
@@ -69,36 +69,26 @@ const Header = () => {
           <a className="nav-link" href="#objectives" title="Objetivos" onClick={closeMenu}>
             Objetivos
           </a>
-          <a className="nav-link" href="#planing" title="Planes de pago" onClick={() => {closeMenu(); scrollToPlaning()}}>
+          <a className="nav-link" href="#planing" title="Planes de pago" onClick={() => { closeMenu(); scrollToPlaning() }}>
             Ver planes
           </a>
 
           <div className="social-header">
-            <a>
-              <Facebook
-                className="social-icon"
-                aria-label="Visita nuestra página de Facebook"
-              />
+            <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram">
+              <Instagram className="social-icon" />
             </a>
-            <a>
-              <Instagram
-                className="social-icon"
-                aria-label="Síguenos en Instagram"
-              />
+            {/* <a href="#" aria-label="Visita nuestro perfil en Facebook">
+              <Facebook className="social-icon" />
             </a>
-            <a>
-              <LinkedIn
-                className="social-icon"
-                aria-label="Conéctate con nosotros en LinkedIn"
-              />
-            </a>
+            <a href="#" aria-label="Visita nuestro perfil en LinkedIn">
+              <LinkedIn className="social-icon" />
+            </a> */}
           </div>
         </nav>
       </div>
       <header
-        className={`container-header ${
-          headerClass && !openMenu ? "header-sticky" : ""
-        }`}
+        className={`container-header ${headerClass && !openMenu ? "header-sticky" : ""
+          }`}
         ref={headerRef}
       >
         <div className="header-logo">
@@ -109,9 +99,8 @@ const Header = () => {
             id="img-logo"
           />
           <span
-            className={`header-title ${
-              headerClass ? "header-sticky-title" : ""
-            }`}
+            className={`header-title ${headerClass ? "header-sticky-title" : ""
+              }`}
             title="Inspira Web Studio, estudio de desarrollo y diseño web"
           >
             Inspira Web Studio
@@ -126,7 +115,7 @@ const Header = () => {
               Objetivos
             </a>
           </nav>
-          <a id="header-call" href="#planing" title="Planes de pago" onClick={(e) => {e.preventDefault(); scrollToPlaning();}}  >
+          <a id="header-call" href="#planing" title="Planes de pago" onClick={(e) => { e.preventDefault(); scrollToPlaning(); }}  >
             Ver planes
           </a>
         </div>

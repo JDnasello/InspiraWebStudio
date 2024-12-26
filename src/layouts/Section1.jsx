@@ -85,7 +85,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
 
   useEffect(() => {
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -236,15 +236,15 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
             innerCursorRef={innerCursorRef}
           />
           <div className="social-hero">
-            <a href="#" aria-label="Visita nuestro perfil en Instagram">
+            <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram">
               <Instagram className="social-icon" />
             </a>
-            <a href="#" aria-label="Visita nuestro perfil en Facebook">
+            {/* <a href="#" aria-label="Visita nuestro perfil en Facebook">
               <Facebook className="social-icon" />
             </a>
             <a href="#" aria-label="Visita nuestro perfil en LinkedIn">
               <LinkedIn className="social-icon" />
-            </a>
+            </a> */}
           </div>
         </div>
 

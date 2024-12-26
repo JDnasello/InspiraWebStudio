@@ -55,7 +55,7 @@ const PayCard = ({ cardContainer }) => {
         }
 
         // Agregar el evento scroll para ejecutar handleScroll
-        window.addEventListener("scroll", handleScroll)
+        window.addEventListener("scroll", handleScroll, { passive: true })
 
         return () => window.removeEventListener("scroll", handleScroll)
 

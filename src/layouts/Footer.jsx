@@ -32,7 +32,7 @@ const Footer = () => {
         (1 - clampedRatio) * 85
         }%)`;
 
-    }else if(isMobile){
+    } else if (isMobile) {
       footerRef.current.style.transform = `translateY(0px)`;
     }
   };
@@ -86,15 +86,15 @@ const Footer = () => {
           </div>
           <p className="copyright">&copy; 2024, Inspira Web Studio.</p>
           <div className="social-media">
-            <a>
-              <Facebook className="social-icon" aria-label="Visita nuestra página de Facebook" />
+            <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram">
+              <Instagram className="social-icon" />
             </a>
-            <a>
-              <Instagram className="social-icon" aria-label="Síguenos en Instagram" />
+            {/* <a href="#" aria-label="Visita nuestro perfil en Facebook">
+              <Facebook className="social-icon" />
             </a>
-            <a>
-              <LinkedIn className="social-icon" aria-label="Conéctate con nosotros en LinkedIn" />
-            </a>
+            <a href="#" aria-label="Visita nuestro perfil en LinkedIn">
+              <LinkedIn className="social-icon" />
+            </a> */}
           </div>
         </div>
       </div>

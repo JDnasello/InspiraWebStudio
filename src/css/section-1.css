@@ -8,6 +8,10 @@
   margin-top: -90px;
 }
 
+a#default-ar-button {
+  display: none;
+}
+
 .planing-btn {
   display: none;
 }

@@ -96,7 +96,7 @@ function App() {
         )
       }
       <IwStudioPage cursorRef={cursorRef} innerCursorRef={innerCursorRef} />
-      <button className="whatsapp-container">
+      <button className="whatsapp-container" aria-label="Contactar por WhatsApp">
       <WhatsAppIcon className="whatsapp-icon" />
       </button>
     </>

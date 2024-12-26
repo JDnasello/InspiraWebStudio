@@ -14,6 +14,8 @@ const Section2 = () => {
     item7: useRef(null)
   };
 
+  const isMobile = window.innerWidth <= 460;
+
   const colibriRef = useRef(null);
 
   const targetPositions = {
@@ -41,15 +43,18 @@ const Section2 = () => {
 
   // Función que maneja el comportamiento del parallax al hacer scroll
   const handleScroll = () => {
-    const scrollOffset = window.scrollY; // Obtener desplazamiento vertical
+    if (!isMobile) {
 
-    // Mover los elementos con efecto parallax
-    for (const [key, ref] of Object.entries(itemRefs)) {
-      moverElemento(ref.current, targetPositions[key], scrollOffset, 0.2);
-    }
+      const scrollOffset = window.scrollY; // Obtener desplazamiento vertical
 
-    if (colibriRef.current) {
-      moverColibri(colibriRef.current, scrollOffset, 0.1);
+      // Mover los elementos con efecto parallax
+      for (const [key, ref] of Object.entries(itemRefs)) {
+        moverElemento(ref.current, targetPositions[key], scrollOffset, 0.2);
+      }
+
+      if (colibriRef.current) {
+        moverColibri(colibriRef.current, scrollOffset, 0.1);
+      }
     }
   };
 
@@ -80,7 +85,7 @@ const Section2 = () => {
   }, [])
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -92,13 +97,13 @@ const Section2 = () => {
       case 'SEO':
         return <QueryStats className='objective-icon' />;
       case 'responsive':
-        return <Phonelink  className='objective-icon'/>;
+        return <Phonelink className='objective-icon' />;
       case 'fast':
-        return <RocketLaunch  className='objective-icon'/>;
+        return <RocketLaunch className='objective-icon' />;
       case 'secure':
-        return <ShieldTwoTone  className='objective-icon'/>;
+        return <ShieldTwoTone className='objective-icon' />;
       case 'support':
-        return <SupportAgent  className='objective-icon'/>;
+        return <SupportAgent className='objective-icon' />;
       default:
         return null;
     }
