@@ -1,6 +1,6 @@
 .seccion2 {
-    padding: 500px 0px;
-    height: 110vh;
+    padding: 100px 0px;
+    height: fit-content;
     background-color: var(--color-neutro-white);
     width: 100%;
     position: relative;
@@ -36,14 +36,32 @@
     margin: 0 20px;
 }
 
+.top-objective-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .objective-article {
     backdrop-filter: blur(9px);
     box-shadow: 1px 1px 40px 10px #00000021;
-    padding: 40px 25px;
-    max-width: 500px;
-    height: 300px;
+    padding: 40px 40px;
+    width: 400px;
+    height: 400px;  
     max-height: 500px;
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.objective-icon{
+    font-size: 40px !important;
+}
+
+.objective-icon path{
+    fill: #50279c !important;
 }
 
 .objective-article .objective-h3 {
@@ -52,8 +70,17 @@
     color: var(--color-neutro-black);
 }
 
+.container-objective-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 .objective-article .objective-p {
     color: #505050;
+    text-align: center;
+    font-size: 1.5em;
 }
 
 .parallax-section1{
@@ -133,7 +160,8 @@
         display: none;
     }
 
-    .objective-article .objective-h3 {
+    
+    .objective-h3 {
         font-size: 1.2em;
         margin-bottom: 10px;
         color: var(--color-neutro-black);

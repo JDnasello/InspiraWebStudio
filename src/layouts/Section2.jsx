@@ -1,3 +1,4 @@
+import { Brush, ElectricBolt, Phonelink, QueryStats, RocketLaunch, ShieldTwoTone, SupportAgent } from '@mui/icons-material';
 import '../css/section-2.css'
 import { objectivesList } from '../data/objectives.js';
 import { useRef, useEffect, useState } from 'react';
@@ -84,6 +85,25 @@ const Section2 = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const getIcon = (type) => {
+    switch (type) {
+      case 'custom':
+        return <Brush className='objective-icon' />;
+      case 'SEO':
+        return <QueryStats className='objective-icon' />;
+      case 'responsive':
+        return <Phonelink  className='objective-icon'/>;
+      case 'fast':
+        return <RocketLaunch  className='objective-icon'/>;
+      case 'secure':
+        return <ShieldTwoTone  className='objective-icon'/>;
+      case 'support':
+        return <SupportAgent  className='objective-icon'/>;
+      default:
+        return null;
+    }
+  };
+
   return (
     <section className="seccion2" id='objectives' aria-labelledby='section2-title'>
       <span className="background-h1">Inspira</span>
@@ -125,20 +145,27 @@ const Section2 = () => {
                 }`}
               key={obj.id}
             >
-              <h3
-                className="objective-h3"
-                title={obj.title}
-                aria-label={obj.title}
-              >
-                {obj.title}
-              </h3>
-              <p
-                className="objective-p"
-                title={obj.description}
-                aria-label={obj.description}
-              >
-                {obj.description}
-              </p>
+              <div className="top-objective-container">
+                <div className="icon-container">
+                  {getIcon(obj.type)}
+                </div>
+                <h3
+                  className="objective-h3"
+                  title={obj.title}
+                  aria-label={obj.title}
+                >
+                  {obj.title}
+                </h3>
+              </div>
+              <div className="container-objective-body">
+                <p
+                  className="objective-p"
+                  title={obj.description}
+                  aria-label={obj.description}
+                >
+                  {obj.description}
+                </p>
+              </div>
             </article>
           ))
         }
