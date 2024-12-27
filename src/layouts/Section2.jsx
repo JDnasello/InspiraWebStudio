@@ -17,6 +17,7 @@ const Section2 = () => {
   const isMobile = window.innerWidth <= 460;
 
   const colibriRef = useRef(null);
+  const articleRef = useRef(null)
 
   const targetPositions = {
     item6: { x: 0, y: -30, rotation: 0 },
@@ -44,6 +45,24 @@ const Section2 = () => {
       if (colibriRef.current) {
         moverColibri(colibriRef.current, scrollOffset, 0.1);
       }
+    }
+
+    if (articleRef.current) {
+      const articles =
+        articleRef.current.querySelectorAll(".objective-article");
+      const newVisibleIndexes = [];
+
+      articles.forEach((article, index) => {
+        const rect = article.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          // Si la tarjeta está visible en el viewport, agrega su índice
+          newVisibleIndexes.push(index);
+        }
+      });
+
+      setVisibleIndexes((prevIndexes) => [
+        ...new Set([...prevIndexes, ...newVisibleIndexes]),
+      ]);
     }
   };
 
@@ -131,7 +150,7 @@ const Section2 = () => {
         />
       </div>
       <h2 className='seccion2-title'>¿Qué ofrecemos?</h2>
-      <div className="container-objectives">
+      <div className="container-objectives" ref={articleRef}>
         {
           objectivesList.map((obj, index) => (
             <article

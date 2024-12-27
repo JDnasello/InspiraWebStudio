@@ -5,6 +5,9 @@
     padding: 7px 20px;
     border-style: none;
     border-radius: 50px;
+    width: 250px;
+    
+    text-align: center;
     font-size: 1.5em;
     color: var(--color-neutro-white);
     box-shadow:
@@ -87,9 +90,13 @@
 
 .header-nav {
     display: flex;
-    gap: 30px;
+    justify-content: flex-end;
     width: 80%;
     overflow: hidden;
+}
+
+.nav-link:first-child {
+    margin-right: 30px;
 }
 
 .menu-slider {
@@ -205,6 +212,13 @@
     .header-title{
         color: var(--color-neutro-black) !important;
         font-weight: 100;
+    }
+}
+
+@media screen and (max-width: 820px) {
+    #header-call {
+        width: 200px;
+        font-size: 1.3em;
     }
 }
 

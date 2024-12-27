@@ -223,6 +223,14 @@
 @media screen and (max-width: 906px) {
     .objective-article {
         max-width: 600px !important;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity .7s ease-out, transform .7s ease-out;
+    }
+
+    .objective-article.visible {
+        transform: translateY(0);
+        opacity: 1;
     }
 }
 
