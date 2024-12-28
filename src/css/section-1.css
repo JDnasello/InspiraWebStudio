@@ -8,8 +8,8 @@
   margin-top: -90px;
 }
 
-a#default-ar-button {
-  display: none;
+#default-ar-button {
+  display: none !important;
 }
 
 .planing-btn {
@@ -192,6 +192,7 @@ a#default-ar-button {
   position: absolute;
   right: 20px;
   bottom: 20px;
+  z-index: 1000;
 }
 
 svg path {
@@ -459,7 +460,7 @@ svg path {
     align-items: center;
     perspective: 1000px;
     overflow: hidden;
-    margin-top: -90px;
+    margin-top: -80px;
   }
 
   .planing-btn #header-call {

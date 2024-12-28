@@ -1,4 +1,4 @@
-import { RecommendOutlined, WorkspacePremium } from '@mui/icons-material';
+import { RecommendOutlined, Storefront, WorkspacePremium } from '@mui/icons-material';
 import { payCardList } from '../data/payCards';
 import { useEffect } from 'react';
 import PayCardCharacteristics from './PayCardCharacteristics';
@@ -17,6 +17,7 @@ const PayCard = ({ cardContainer }) => {
             array = [
                 payCardList[1],
                 payCardList[2],
+                payCardList[4],
                 payCardList[0],
                 payCardList[3]
             ]
@@ -25,6 +26,7 @@ const PayCard = ({ cardContainer }) => {
                 payCardList[0],
                 payCardList[1],
                 payCardList[2],
+                payCardList[4],
                 payCardList[3]
             ]
         }
@@ -89,14 +91,14 @@ const PayCard = ({ cardContainer }) => {
                     <article className="card-container" id={`card-container-${card.id}`}>
                         {card?.chip && (
                             <span
-                                className={`chip ${card.id === 2 ? "first-chip" : "second-chip"
+                                className={`chip ${card.id === 2 ? "first-chip" : card.id === 4 ? "second-chip" : "third-chip"
                                     }`}
                             >
                                 {card.chip}
                             </span>
                         )}
                         <div
-                            className={`card ${card.id === 2 || card.id === 4 ? "no-radius" : "basics-cards"
+                            className={`card ${card.id === 2 || card.id === 4 || card.id === 5 ? "no-radius" : "basics-cards"
                                 }`}
                         >
                             {card.id === 2 ? (
@@ -104,6 +106,8 @@ const PayCard = ({ cardContainer }) => {
                                     className="best-plans recommend"
                                     aria-label="Recomendado"
                                 />
+                            ) : card.id === 5 ? (
+                                <Storefront className="best-plans e-commerce" aria-label="Tienda en línea" />
                             ) : (
                                 card.id === 4 && (
                                     <WorkspacePremium

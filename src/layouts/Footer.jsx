@@ -10,7 +10,7 @@ const Footer = () => {
 
   const logo = "/assets/optimized/logoSinColor.webp";
 
-  const isMobile = window.innerWidth < 461;
+  const isMobile = window.innerWidth < 768;
   // Función que maneja el efecto de parallax
   const handleScroll = () => {
     const scrollOffset = window.scrollY; // Obtener desplazamiento del scroll
@@ -64,18 +64,17 @@ const Footer = () => {
             <h4 className="nav-section-title">Nosotros</h4>
 
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-              laudantium aliquid id accusantium provident, quaerat voluptatum
-              eius necessitatibus quo totam consectetur exercitationem
-              aspernatur corporis, dolore odio magni, delectus hic velit.
+              Somos un equipo creativo inspirado en diseñar páginas web con onda y personalidad.
+              Investigamos las últimas tendencias, pero siempre le ponemos nuestro toque único.
+              Creamos espacios digitales que ayudan a las marcas a conectar con sus clientes,
+              combinando creatividad, innovación y nuestra propia esencia.
             </p>
           </div>
           <div className="nav-section section-2">
             <h4 className="nav-section-title">Menú</h4>
             <ul>
-              <li><a className="a-us" href="#" aria-label="Conoce más sobre nosotros">Nosotros</a></li>
-              <li><a href="#objectives" aria-label="Nuestros objetivos">Objetivos</a></li>
-              <li><a href="#" aria-label="Explora nuestro portfolio">Portfolio</a></li>
+              <li><a className="a-us" href="#footer" aria-label="Conoce más sobre nosotros">Nosotros</a></li>
+              <li><a href="#objectives" aria-label="¿Qué ofrecemos?">¿Qué ofrecemos?</a></li>
               <li><a href="#planing" aria-label="Ver planes disponibles">Ver planes</a></li>
             </ul>
           </div>
@@ -86,7 +85,7 @@ const Footer = () => {
           </div>
           <p className="copyright">&copy; 2024, Inspira Web Studio.</p>
           <div className="social-media">
-            <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram">
+            <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram" target="_blank" rel="noopener noreferrer">
               <Instagram className="social-icon" />
             </a>
             {/* <a href="#" aria-label="Visita nuestro perfil en Facebook">

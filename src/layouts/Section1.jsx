@@ -236,7 +236,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
             innerCursorRef={innerCursorRef}
           />
           <div className="social-hero">
-            <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram">
+            <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram" target="_blank" rel="noopener noreferrer">
               <Instagram className="social-icon" />
             </a>
             {/* <a href="#" aria-label="Visita nuestro perfil en Facebook">

@@ -67,8 +67,8 @@ const Header = () => {
           <a className="nav-link" href="#footer" title="Nosotros" onClick={closeMenu}>
             Nosotros
           </a>
-          <a className="nav-link" href="#objectives" title="Objetivos" onClick={closeMenu}>
-            Objetivos
+          <a className="nav-link" href="#objectives" title="¿Qué ofrecemos?" onClick={closeMenu}>
+          ¿Qué ofrecemos?
           </a>
           <a className="nav-link" href="#planing" title="Planes de pago" onClick={() => { closeMenu(); scrollToPlaning() }}>
             Ver planes
@@ -83,7 +83,7 @@ const Header = () => {
             </div>
           </div>
           <div className="social-header">
-            <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram">
+            <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram" target="_blank" rel="noopener noreferrer">
               <Instagram className="social-icon" />
             </a>
             {/* <a href="#" aria-label="Visita nuestro perfil en Facebook">
@@ -120,8 +120,8 @@ const Header = () => {
             <a className="nav-link" href="#footer" title="Nosotros"  >
               Nosotros
             </a>
-            <a className="nav-link" href="#objectives" title="Objetivos"  >
-              Objetivos
+            <a className="nav-link" href="#objectives" title="¿Qué ofrecemos?"  >
+            ¿Qué ofrecemos?
             </a>
           </nav>
           <a id="header-call" href="#planing" title="Planes de pago" onClick={(e) => { e.preventDefault(); scrollToPlaning(); }}  >

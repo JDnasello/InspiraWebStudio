@@ -108,6 +108,10 @@
     fill: #ffae00 !important;
 }
 
+.best-plans.e-commerce path {
+    fill: #50279c !important;
+}
+
 .chip {
     position: relative;
     top: 23px;
@@ -130,6 +134,10 @@
 
 .chip.second-chip {
     background-color: #ffae00;
+}
+
+.chip.third-chip {
+    background-color: #50279c;
 }
 
 .top-card {
@@ -184,7 +192,7 @@
 .characteristics {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     word-break: break-all;
     margin: 20px;
     padding: 0;
@@ -193,32 +201,46 @@
 .characteristic-container {
     display: flex;
     gap: 10px;
-    height: 0;
+    max-height: 0;
+    min-height: 0;
+    width: 100%;
     opacity: 0;
-    transition: height .2s ease, opacity .4s ease, transform .2s ease;
-    overflow: hidden;
+    transition: max-height .2s ease, min-height .2s ease, opacity .2s ease, transform .2s ease;
     list-style: none;
+    align-items: center;
+    position: relative;
 }
 
 .characteristic-container.show {
     margin-bottom: 10px;
-    height: 40px;
+    min-height: 45px;
+    max-height: 45px;
     opacity: 1;
 }
 
 .characteristic-container.hide {
-    height: 0;
+    max-height: 0;
     opacity: 0;
     pointer-events: none;
 }
 
-.characteristic-container svg path {
+.characteristic-container .check-icon path {
     fill: #4CAF50 !important;
+}
+
+.characteristic-container .info-icon path {
+    fill: #797979 !important;
+}
+
+.characteristic-container .cross-icon path {
+    fill: #ce3c3c !important;
 }
 
 .characteristic-container .characteristic-txt {
     font-size: .7em;
     color: #414141;
+    white-space: normal;
+    word-break: normal;
 }
 
 .characteristic-btn{
@@ -238,6 +260,35 @@
 .characteristic-btn:hover{
     scale: 1.1;
 }
+
+.info-container p{
+    color: #444444 !important;
+
+}
+
+.info-container{
+    position: absolute;
+    left: 0;
+    top: calc(-100%);
+    background-color: rgb(231, 231, 231);
+    border-radius: 15px;
+    padding: 10px 15px;
+    border: 1px solid rgb(212, 212, 212);
+    max-width: 500px;
+    font-size: 0.7em;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-container.show{
+    opacity: 1;
+}
+
 
 @keyframes rotate-down {
     from {
