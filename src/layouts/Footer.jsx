@@ -37,63 +37,106 @@ const Footer = () => {
     }
   };
 
+  // Función para manejar la animación escalonada en pantallas menores a 768px
+  const animateMobileFooter = () => {
+    if (!footerRef.current) return;
+  
+    const footerRect = footerRef.current.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+  
+    // Verificar si alguna parte del footer está visible
+    const isFooterVisible =
+      footerRect.top < viewportHeight && footerRect.bottom > 0;
+  
+    console.log("Footer Rect:", footerRect);
+    console.log("Viewport Height:", viewportHeight);
+    console.log("El footer es visible:", isFooterVisible);
+  
+    if (isFooterVisible) {
+      console.log("El footer es visible. Animando elementos...");
+  
+      const footerElements = footerRef.current.querySelectorAll(".animate-item");
+      footerElements.forEach((element, index) => {
+        setTimeout(() => {
+          element.classList.add("fade-in");
+        }, index * 300); // Animación escalonada
+      });
+  
+      // Remover listener después de animar
+      window.removeEventListener("scroll", animateMobileFooter);
+    } else {
+      console.log("El footer aún no es visible.");
+    }
+  };
+
   useEffect(() => {
-    // Escuchar evento de scroll
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll); // Limpiar evento
+    if (isMobile) {
+      // Añadir el listener para `scroll` en modo móvil
+      window.addEventListener("scroll", animateMobileFooter);
+      console.log("Modo móvil detectado.");
+    } else {
+      // Listener para la animación de scroll en modo no móvil
+      window.addEventListener("scroll", handleScroll);
+    }
+  
+    return () => {
+      // Eliminar ambos listeners cuando el componente se desmonte
+      window.removeEventListener("scroll", animateMobileFooter);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <footer ref={footerRef} aria-labelledby="footer-heading" id="footer">
       <div className="container-footer">
         <div className="nav-footer">
-          <div className="container-footer-logo">
+          <div className="container-footer-logo animate-item">
             <a href="#" aria-label="Inspira Web Studio - Inicio">
               <img
-                srcSet={`${logo} 90w, ${logo.replace(".webp", "-600.webp")} 600w, ${logo.replace(".webp", "-1200.webp")} 1200w`}
-                sizes="(max-width: 460px) 90px, (min-width: 461px) and (max-width: 1024px) 600px, (min-width: 1024px) 1200px"
-                src={logo}
+                src="/assets/optimized/logoSinColor.webp"
                 alt="Logo de Inspira Web Studio"
                 width={70}
-                height="auto"
               />
               <span className="footer-title">Inspira Web Studio</span>
             </a>
           </div>
-          <div className="nav-section section-1">
+          <div className="nav-section section-1 animate-item">
             <h4 className="nav-section-title">Nosotros</h4>
-
             <p>
-              Somos un equipo creativo inspirado en diseñar páginas web con onda y personalidad.
-              Investigamos las últimas tendencias, pero siempre le ponemos nuestro toque único.
-              Creamos espacios digitales que ayudan a las marcas a conectar con sus clientes,
-              combinando creatividad, innovación y nuestra propia esencia.
+              Somos un equipo creativo inspirado en diseñar páginas web con onda
+              y personalidad.
             </p>
           </div>
-          <div className="nav-section section-2">
+          <div className="nav-section section-2 animate-item">
             <h4 className="nav-section-title">Menú</h4>
             <ul>
-              <li><a className="a-us" href="#footer" aria-label="Conoce más sobre nosotros">Nosotros</a></li>
-              <li><a href="#objectives" aria-label="¿Qué ofrecemos?">¿Qué ofrecemos?</a></li>
-              <li><a href="#planing" aria-label="Ver planes disponibles">Ver planes</a></li>
+              <li>
+                <a className="a-us" href="#footer">
+                  Nosotros
+                </a>
+              </li>
+              <li>
+                <a href="#objectives">¿Qué ofrecemos?</a>
+              </li>
+              <li>
+                <a href="#planing">Ver planes</a>
+              </li>
             </ul>
           </div>
         </div>
-        <div className="social-media-and-email">
+        <div className="social-media-and-email animate-item">
           <div>
-            <a href="" aria-label="Envía un correo a Inspira Web Studio">inspira@webstudio.com</a>
+            <a href="mailto:inspira@webstudio.com">inspira@webstudio.com</a>
           </div>
           <p className="copyright">&copy; 2024, Inspira Web Studio.</p>
           <div className="social-media">
-            <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.instagram.com/inspirawebstudio/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Instagram className="social-icon" />
             </a>
-            {/* <a href="#" aria-label="Visita nuestro perfil en Facebook">
-              <Facebook className="social-icon" />
-            </a>
-            <a href="#" aria-label="Visita nuestro perfil en LinkedIn">
-              <LinkedIn className="social-icon" />
-            </a> */}
           </div>
         </div>
       </div>

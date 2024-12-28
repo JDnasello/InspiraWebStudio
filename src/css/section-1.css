@@ -397,6 +397,10 @@ svg path {
 
 @media screen and (max-width: 820px) {
 
+  #colibri::part(ar-button) {
+    display: none !important;
+  }
+
   .sec1-contder .contder-presentation .contder-h1 {
     font-size: 3em;
   }
@@ -448,6 +452,9 @@ svg path {
     margin-bottom: 10% !important;
   }
 }
+
+
+
 
 /*PARA IPHONE 16 PRO MAX HACIA ABAJO*/
 @media screen and (max-width: 560px) {
@@ -601,6 +608,23 @@ svg path {
     /* circulo */
     left: 65%;
     top: 65%;
+  }
+}
+
+@media screen and (max-width: 550px) and (max-height: 800px) {
+
+  .sec1-contder .contder-presentation .contder-h1 {
+    font-size: 55px;
+
+  }
+
+  .sec1-contder{
+    height: 75%;
+
+  }
+
+  .sec1-contizq{
+    height: 25%;
   }
 }
 
