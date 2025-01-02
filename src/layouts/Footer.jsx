@@ -43,6 +43,8 @@ const Footer = () => {
     return () => window.removeEventListener("scroll", handleScroll); // Limpiar evento
   }, []);
 
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer ref={footerRef} aria-labelledby="footer-heading" id="footer">
       <div className="container-footer">
@@ -84,7 +86,7 @@ const Footer = () => {
           <div>
             <a href="" aria-label="Envía un correo a Inspira Web Studio">inspira@webstudio.com</a>
           </div>
-          <p className="copyright">&copy; 2024, Inspira Web Studio.</p>
+          <p className="copyright">&copy; {currentYear}, Inspira Web Studio.</p>
           <div className="social-media">
             <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram">
               <Instagram className="social-icon" />
