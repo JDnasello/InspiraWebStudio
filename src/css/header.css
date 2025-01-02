@@ -185,6 +185,7 @@
     align-items: center;
     justify-content: start;
     text-align: center;
+    gap: 35px;
 }
 
 .menu-responsive.menu-open{
@@ -229,6 +230,10 @@
     #img-logo{
         width: 60px;
         z-index: 10;
+    }
+
+    .nav-link:first-child {
+        margin-right: 0;
     }
 
     .menu-button{

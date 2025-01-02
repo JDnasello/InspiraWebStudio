@@ -30,7 +30,7 @@ const Section2 = () => {
   const Cone5 = "/assets/optimized/Cone-5.webp"
   const Cone6 = "/assets/optimized/Cone-6.webp";
 
-  
+
   // Función que maneja el comportamiento del parallax al hacer scroll
   const handleScroll = () => {
     if (!isMobile) {
@@ -118,7 +118,12 @@ const Section2 = () => {
   };
 
   return (
-    <section className="seccion2" id='objectives' aria-labelledby='section2-title'>
+    <section
+      className="seccion2"
+      id='objectives'
+      aria-labelledby='section2-title'
+      aria-label="Sección sobre servicios de diseño web y SEO"
+    >
       <span className="background-h1">Inspira</span>
       <div className="parallax-section1" ref={itemRefs.item6}>
         <LazyLoadImage
@@ -131,7 +136,8 @@ const Section2 = () => {
           src={Cone5}
           ref={itemRefs.item6}
           className="item6"
-          alt="Resorte 3D"
+          alt="Diseño web con Resorte 3D"
+          title="Diseño web con Resorte 3D"
           effect="blur"
         />
       </div><div className="parallax-section2" ref={itemRefs.item7}>
@@ -145,7 +151,8 @@ const Section2 = () => {
           src={Cone6}
           ref={itemRefs.item7}
           className="item7"
-          alt="Piramide 3D"
+          alt="Diseño web con Piramide 3D"
+          title="Diseño web con Piramide 3D"
           effect="blur"
         />
       </div>

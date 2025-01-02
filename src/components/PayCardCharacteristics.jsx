@@ -1,30 +1,45 @@
-import { Check, KeyboardArrowDown } from '@mui/icons-material'
+import { Check, Close, Info, InfoOutlined, KeyboardArrowDown } from '@mui/icons-material'
 import { useState } from 'react'
+import InfoCard from './InfoCard'
 
 const PayCardCharacteristics = ({ card }) => {
 
     const [showAll, setShowAll] = useState(false)
+    const [hoverIndex, setHoverIndex] = useState(null)
+
+    const handleEnter = index => {
+        setHoverIndex(index)
+    }
+
+    const handleLeave = () => {
+        setHoverIndex(null)
+    }
 
     const handleToggleCharacteristics = () => {
         setShowAll(prev => !prev)
 
-        showAll ? card.characteristics
-            : card.id === 4 ? card.characteristics.slice(0, 6)
-                : card.characteristics.slice(0, 5)
+        
     }
 
     return (
         <div>
             <ul className="characteristics" id="characteristics-list">
                 {card.characteristics.map((char, index) => (
-                    <li
-                        key={index}
-                        className={`characteristic-container ${index < 5 || showAll ? 'show' : 'hide'}`}
-                        style={{ transitionDelay: `${index >= 5 && showAll ? (index - 5) * 100 : 0}ms` }}
-                    >
-                        <Check sx={{ fill: 'red' }} aria-hidden='true' />
-                        <span className="characteristic-txt">{char}</span>
-                    </li>
+                        <li
+                        key={char.id}
+                            className={`characteristic-container ${index < 6 || showAll ? 'show' : 'hide'}`}
+                            style={{ transitionDelay: `${index >= 5 && showAll ? (index - 5) * 100 : 0}ms` }}
+                            onMouseEnter={char.type === 'info' ? () => handleEnter(index) : undefined}
+                            onMouseLeave={char.type === 'info' ? handleLeave : undefined}
+                        >   
+                            {
+                                char.type === 'checked' ? <Check className='check-icon' aria-hidden='true' />
+                                    : char.type === 'info' ? <InfoOutlined className='info-icon' aria-hidden='true' />
+                                        : <Close className='cross-icon' aria-hidden='true' />
+                                }
+                            <span className="characteristic-txt" >{char.text}</span>
+                            <InfoCard infotext={char.info} isVisible={hoverIndex === index} />
+                        </li>
                 ))}
             </ul>
             <button className="characteristic-btn" onClick={handleToggleCharacteristics} aria-expanded={showAll} aria-controls='characteristics-list'>

@@ -11,5 +11,8 @@
   "autoRotate": true,
   "disableZoom": true,
   "cameraOrbit": "-45deg 60deg",
-  "id": "colibri"
+  "id": "colibri",
+  "interaction-prompt": "none"
+  
+  
 }

@@ -1,7 +1,7 @@
 export const objectivesList = [
     {
         id: 1,
-        title: "Diseños personalizados",
+        title: "Diseño web personalizado",
         type: "custom",
         description:
         "Creamos sitios web únicos y adaptados a las necesidades de tu marca.",
@@ -15,21 +15,21 @@ export const objectivesList = [
     },
     {
         id: 3,
-        title: "Desarrollo responsive",
+        title: "Diseño web responsive",
         type: "responsive",
         description:
-        "Garantizamos una experiencia impecable en cualquier dispositivo.",
+        "Creamos páginas web con una experiencia de usuario impecable en cualquier dispositivo.",
     },
     {
         id: 4,
-        title: "Velocidad y rendimiento",
+        title: "Velocidad y optimización web",
         type: "fast",
         description:
-        "Sitios web rápidos y eficientes para maximizar conversiones.",
+        "Sitios web rápidos y eficientes para potenciar su rendimiento.",
     },
     {
         id: 5,
-        title: "Seguridad garantizada",
+        title: "Seguridad web garantizada",
         type: "secure",
         description:
         "Protegemos tu web contra vulnerabilidades y amenazas.",
@@ -39,6 +39,6 @@ export const objectivesList = [
         title: "Soporte continuo",
         type: "support",
         description:
-        "Acompañamos tu proyecto con mantenimiento y actualizaciones.",
+        "Acompañamos tu proyecto web con mantenimiento y actualizaciones.",
     }
 ]
