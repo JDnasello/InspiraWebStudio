@@ -1,121 +1,33 @@
-import { Brush, ElectricBolt, Phonelink, QueryStats, RocketLaunch, ShieldTwoTone, SupportAgent } from '@mui/icons-material';
 import '../css/section-2.css'
-import { objectivesList } from '../data/objectives.js';
-import { useRef, useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import useParallax from '../hooks/useParallax.jsx';
+import ObjectiveCards from '../components/ObjectiveCards.jsx';
 
 
 
 const Section2 = () => {
+
 
   const itemRefs = {
     item6: useRef(null),
     item7: useRef(null)
   };
 
-  const isMobile = window.innerWidth <= 460;
-
-  const colibriRef = useRef(null);
-  const articleRef = useRef(null)
-
-  const targetPositions = {
+  const targetPos = {
     item6: { x: 0, y: -30, rotation: 0 },
     item7: { x: 0, y: -30, rotation: 0 }
 
   };
 
-  const [visibleIndexes, setVisibleIndexes] = useState([]);
+  useParallax(itemRefs, targetPos, window.innerWidth >= 1100 ? 0.2 : 0);
 
   const Cone5 = "/assets/optimized/Cone-5.webp"
   const Cone6 = "/assets/optimized/Cone-6.webp";
 
 
-  // Función que maneja el comportamiento del parallax al hacer scroll
-  const handleScroll = () => {
-    if (!isMobile) {
 
-      const scrollOffset = window.scrollY; // Obtener desplazamiento vertical
-
-      // Mover los elementos con efecto parallax
-      for (const [key, ref] of Object.entries(itemRefs)) {
-        moverElemento(ref.current, targetPositions[key], scrollOffset, 0.2);
-      }
-
-      if (colibriRef.current) {
-        moverColibri(colibriRef.current, scrollOffset, 0.1);
-      }
-    }
-
-    if (articleRef.current) {
-      const articles =
-        articleRef.current.querySelectorAll(".objective-article");
-      const newVisibleIndexes = [];
-
-      articles.forEach((article, index) => {
-        const rect = article.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          // Si la tarjeta está visible en el viewport, agrega su índice
-          newVisibleIndexes.push(index);
-        }
-      });
-
-      setVisibleIndexes((prevIndexes) => [
-        ...new Set([...prevIndexes, ...newVisibleIndexes]),
-      ]);
-    }
-  };
-
-  const moverElemento = (elemento, targetPos, scrollOffset, velocidad) => {
-    // Calcular la posición actual basada en el desplazamiento del scroll
-    const currentX = (targetPos.x * scrollOffset * velocidad) / 100;
-    const currentY = (targetPos.y * scrollOffset * velocidad) / 100;
-
-    // Calcular la rotación basada en el desplazamiento del scroll
-    const currentRotation =
-      (targetPos.rotation * scrollOffset * velocidad) / 100;
-
-    // Aplicar transformación al elemento (movimiento + rotación)
-    elemento.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${currentRotation}deg)`;
-  };
-
-  // Efecto que se renderiza al montar el componente por primera vez
-  useEffect(() => {
-    function moverOrigen() {
-      for (const ref of Object.values(itemRefs)) {
-        if (ref.current) {
-          ref.current.style.transform = `translate(0, 0) rotate(0deg)`
-        }
-      }
-    }
-
-    moverOrigen()
-  }, [])
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const getIcon = (type) => {
-    switch (type) {
-      case 'custom':
-        return <Brush className='objective-icon' />;
-      case 'SEO':
-        return <QueryStats className='objective-icon' />;
-      case 'responsive':
-        return <Phonelink className='objective-icon' />;
-      case 'fast':
-        return <RocketLaunch className='objective-icon' />;
-      case 'secure':
-        return <ShieldTwoTone className='objective-icon' />;
-      case 'support':
-        return <SupportAgent className='objective-icon' />;
-      default:
-        return null;
-    }
-  };
 
   return (
     <section
@@ -157,39 +69,7 @@ const Section2 = () => {
         />
       </div>
       <h2 className='seccion2-title'>¿Qué ofrecemos?</h2>
-      <div className="container-objectives" ref={articleRef}>
-        {
-          objectivesList.map((obj, index) => (
-            <article
-              className={`objective-article ${visibleIndexes.includes(index) ? 'visible' : ''
-                }`}
-              key={obj.id}
-            >
-              <div className="top-objective-container">
-                <div className="icon-container">
-                  {getIcon(obj.type)}
-                </div>
-                <h3
-                  className="objective-h3"
-                  title={obj.title}
-                  aria-label={obj.title}
-                >
-                  {obj.title}
-                </h3>
-              </div>
-              <div className="container-objective-body">
-                <p
-                  className="objective-p"
-                  title={obj.description}
-                  aria-label={obj.description}
-                >
-                  {obj.description}
-                </p>
-              </div>
-            </article>
-          ))
-        }
-      </div>
+      <ObjectiveCards />
     </section>
   );
 }

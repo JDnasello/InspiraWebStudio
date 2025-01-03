@@ -1,13 +1,17 @@
 import "@google/model-viewer";
 import HummingBird from "../components/HummingBird";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
+import debounce from "lodash.debounce";
 import "../css/section-1.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
+import Instagram from "@mui/icons-material/Instagram";
 import { Helmet } from 'react-helmet-async'
+import useParallax from "../hooks/useParallax";
 
 const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
+
+  const [windowWidth] = useState(window.innerWidth);
   const spanRef = useRef(null);
   const itemRefs = {
     item1: useRef(null),
@@ -17,9 +21,6 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
     item5: useRef(null),
   };
   const colibriRef = useRef(null);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isTablet, setIsTablet] = useState(false);
 
   const Cone = "/assets/optimized/Cone.webp"
   const Cone1 = "/assets/optimized/Cone-1.webp";
@@ -27,88 +28,21 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
   const Cone3 = "/assets/optimized/Cone-3.webp";
   const Cone4 = "/assets/optimized/Cone-4.webp";
 
-  const updateTargetPositions = (isMobile) =>
-    isMobile
-      ? {
-        item1: { x: 0, y: -80, rotation: 65 },
-        item2: { x: 0, y: -80, rotation: 30 },
-        item3: { x: 0, y: -80, rotation: 90 },
-        item4: { x: 0, y: -80, rotation: -45 },
-        item5: { x: 0, y: -80, rotation: 180 },
-      }
-      : {
-        item1: { x: -60, y: 60, rotation: 65 },
-        item2: { x: -50, y: -50, rotation: 30 },
-        item3: { x: -80, y: 0, rotation: 90 },
-        item4: { x: 40, y: -80, rotation: -45 },
-        item5: { x: 40, y: 80, rotation: 180 },
-      };
+  const targetPos = {
+    item1: { x: 0, y: -80, rotation: 65 },
+    item2: { x: 0, y: -80, rotation: 30 },
+    item3: { x: 0, y: -80, rotation: 90 },
+    item4: { x: 0, y: -80, rotation: -45 },
+    item5: { x: 0, y: -80, rotation: 180 },
+  }
 
-  const getInitialTargetPositions = () =>
-    updateTargetPositions(window.innerWidth <= 460);
-
-  const [targetPositions, setTargetPositions] = useState(
-    getInitialTargetPositions
-  );
-
-  const adjustPositionsForScreenSize = () => {
-    const isMobile = window.innerWidth <= 1100;
-    setTargetPositions(updateTargetPositions(isMobile));
-
-    if (colibriRef.current) {
-      if (isMobile) {
-        colibriRef.current.removeAttribute("camera-controls");
-        colibriRef.current.style.touchAction = "none";
-      } else {
-        colibriRef.current.setAttribute("camera-controls", "");
-        colibriRef.current.style.touchAction = "auto";
-      }
-    }
+  const getSrcSet = (baseImage) => {
+    return `
+      ${baseImage.replace(".webp", "-300.webp")} 300w,
+      ${baseImage.replace(".webp", "-600.webp")} 600w,
+      ${baseImage.replace(".webp", "-1200.webp")} 1200w
+    `;
   };
-
-  const moverElemento = (elemento, targetPos, scrollOffset, velocidad) => {
-    const currentX = (targetPos.x * scrollOffset * velocidad) / 100;
-    const currentY = (targetPos.y * scrollOffset * velocidad) / 100;
-    const currentRotation =
-      (targetPos.rotation * scrollOffset * velocidad) / 100;
-
-    elemento.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${currentRotation}deg)`;
-  };
-
-  const handleScroll = () => {
-    const scrollOffset = window.scrollY;
-
-    for (const [key, ref] of Object.entries(itemRefs)) {
-      moverElemento(ref.current, targetPositions[key], scrollOffset, 0.2);
-    }
-  };
-
-  useEffect(() => {
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [targetPositions]);
-
-
-
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      setWindowWidth(width);
-      setIsMobile(width <= 460);
-      setIsTablet(width > 460 && width <= 1024);
-      adjustPositionsForScreenSize();
-    };
-
-    handleResize(); // Llama al inicio para sincronizar estado inicial
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     for (const ref of Object.values(itemRefs)) {
@@ -121,6 +55,8 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
       spanRef.current.classList.add("animation");
     }
   }, []);
+
+ useParallax(itemRefs, targetPos, 0.2);
 
   return (
     <>
@@ -239,12 +175,6 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
             <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram" target="_blank" rel="noopener noreferrer">
               <Instagram className="social-icon" />
             </a>
-            {/* <a href="#" aria-label="Visita nuestro perfil en Facebook">
-              <Facebook className="social-icon" />
-            </a>
-            <a href="#" aria-label="Visita nuestro perfil en LinkedIn">
-              <LinkedIn className="social-icon" />
-            </a> */}
           </div>
         </div>
 
@@ -268,15 +198,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
                   aria-hidden="true"
                 >
                   <img
-                    srcSet={`${[Cone, Cone1, Cone2, Cone3, Cone4][
-                      index
-                    ].replace(".webp", "-300.webp")} 300w, 
-                             ${[Cone, Cone1, Cone2, Cone3, Cone4][
-                        index
-                      ].replace(".webp", "-600.webp")} 600w, 
-                             ${[Cone, Cone1, Cone2, Cone3, Cone4][
-                        index
-                      ].replace(".webp", "-1200.webp")} 1200w`}
+                    srcSet={getSrcSet([Cone, Cone1, Cone2, Cone3, Cone4][index])}
                     sizes="(max-width: 460px) 300px,(min-width: 461px) and (max-width: 1024px) 600px,(min-width: 1024px) 1200px"
                     src={[Cone, Cone1, Cone2, Cone3, Cone4][index]}
                     className={`item${index + 1}`}

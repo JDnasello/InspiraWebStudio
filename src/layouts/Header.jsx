@@ -3,7 +3,10 @@ import { useState, useEffect, useRef } from "react";
 import { Helmet } from "react-helmet-async";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
+import Instagram from "@mui/icons-material/Instagram";
+import debounce from "lodash.debounce";
+import NavLinks from "../components/NavLinks";
+
 
 const Header = () => {
   const [headerClass, setHeaderClass] = useState(false);
@@ -14,23 +17,16 @@ const Header = () => {
   const navItems = ['High quality', 'User friendly', 'Custom made', 'Innovative solutions', 'On time']
 
   useEffect(() => {
-    // Función para manejar el scroll
-    const handleScroll = () => {
-      if (window.scrollY > 0) {
-        setHeaderClass(true);
-      } else {
-        setHeaderClass(false);
-      }
-    };
+  const handleScroll = debounce(() => {
+    setHeaderClass(window.scrollY > 0);
+  }, 20); // Ajusta el tiempo según tus necesidades
 
-    // Añadir el listener de scroll
-    window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll);
 
-    // Limpiar el listener cuando el componente se desmonta
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []); // Ejecutarse solo al montar el componente
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
 
   const toggleMenu = () => {
     setOpenMenu(!openMenu);
@@ -64,15 +60,7 @@ const Header = () => {
       </Helmet>
       <div className={`menu-responsive ${openMenu ? "menu-open" : ""}`}>
         <nav className="header-nav" title="Menú de navegación">
-          <a className="nav-link" href="#footer" title="Nosotros" onClick={closeMenu}>
-            Nosotros
-          </a>
-          <a className="nav-link" href="#objectives" title="¿Qué ofrecemos?" onClick={closeMenu}>
-          ¿Qué ofrecemos?
-          </a>
-          <a className="nav-link" href="#planing" title="Planes de pago" onClick={() => { closeMenu(); scrollToPlaning() }}>
-            Ver planes
-          </a>
+          <NavLinks closeMenu={closeMenu} scrollToPlaning={scrollToPlaning} />
           <div className="menu-slider">
             <div className="menu-slider-track">
               {
@@ -86,12 +74,7 @@ const Header = () => {
             <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram" target="_blank" rel="noopener noreferrer">
               <Instagram className="social-icon" />
             </a>
-            {/* <a href="#" aria-label="Visita nuestro perfil en Facebook">
-              <Facebook className="social-icon" />
-            </a>
-            <a href="#" aria-label="Visita nuestro perfil en LinkedIn">
-              <LinkedIn className="social-icon" />
-            </a> */}
+
           </div>
         </nav>
       </div>

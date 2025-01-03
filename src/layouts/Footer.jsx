@@ -1,92 +1,83 @@
 import "../css/footer.css";
-import { Facebook, Instagram, LinkedIn } from "@mui/icons-material";
-import { useRef, useEffect } from "react";
-
+import Instagram from "@mui/icons-material/Instagram";
+import debounce from 'lodash.debounce';
+import { useRef, useEffect, useState, useCallback } from "react";
 
 const Footer = () => {
-  // Función que maneja el comportamiento del parallax al hacer scroll
   const footerRef = useRef(null); // Ref para el footer
-
-
   const logo = "/assets/optimized/logoSinColor.webp";
 
-  const isMobile = window.innerWidth < 768;
-  // Función que maneja el efecto de parallax
-  const handleScroll = () => {
-    const scrollOffset = window.scrollY; // Obtener desplazamiento del scroll
-    const viewportHeight = window.innerHeight; // Altura del viewport
-    const documentHeight = document.documentElement.scrollHeight; // Altura total del documento
-    const footerHeight = footerRef.current.offsetHeight; // Altura del footer
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-    if (footerRef.current && !isMobile) {
-      // Calcular cuánto del footer se ha "desbloqueado" con respecto al scroll
-      const scrolledRatio =
-        (scrollOffset + viewportHeight - (documentHeight - footerHeight)) /
-        footerHeight;
+  // Usamos resizeObserver para ajustar el tamaño del dispositivo en tiempo real
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver(() => {
+      setIsMobile(window.innerWidth < 768);
+    });
+    resizeObserver.observe(document.body);
 
-      // Limitar el rango entre 0 y 1
-      const clampedRatio = Math.min(Math.max(scrolledRatio, 0), 1);
+    return () => resizeObserver.disconnect();
+  }, []);
 
-      // Aplicar la transformación al footer para que aparezca progresivamente
-      footerRef.current.style.transform = `translateY(${-
-        (1 - clampedRatio) * 85
-        }%)`;
-
-    } else if (isMobile) {
-      footerRef.current.style.transform = `translateY(0px)`;
-    }
-  };
-
-  // Función para manejar la animación escalonada en pantallas menores a 768px
-  const animateMobileFooter = () => {
+  // Usamos requestAnimationFrame para sincronizar con el ciclo de renderizado
+  const handleParallaxScroll = useCallback(() => {
     if (!footerRef.current) return;
-  
-    const footerRect = footerRef.current.getBoundingClientRect();
+
+    const scrollOffset = window.scrollY;
     const viewportHeight = window.innerHeight;
-  
-    // Verificar si alguna parte del footer está visible
-    const isFooterVisible =
-      footerRect.top < viewportHeight && footerRect.bottom > 0;
-  
-    console.log("Footer Rect:", footerRect);
-    console.log("Viewport Height:", viewportHeight);
-    console.log("El footer es visible:", isFooterVisible);
-  
+    const documentHeight = document.documentElement.scrollHeight;
+    const footerHeight = footerRef.current.offsetHeight;
+
+    const scrolledRatio = (scrollOffset + viewportHeight - (documentHeight - footerHeight)) / footerHeight;
+    const clampedRatio = Math.min(Math.max(scrolledRatio, 0), 1);
+    footerRef.current.style.transform = `translateY(${-(1 - clampedRatio) * 85}%)`;
+  }, []);
+
+  // Guardamos las animaciones en una variable para evitar la consulta del DOM cada vez
+  const animateItems = useCallback(() => {
+    if (!footerRef.current) return;
+
+    const footerElements = footerRef.current.querySelectorAll(".animate-item");
+    return footerElements;
+  }, []);
+
+  // Función que maneja la animación de fade-in con debounce
+  const handleFadeInScroll = debounce(() => {
+    if (!footerRef.current) return;
+
+    const scrollOffset = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    const footerRect = footerRef.current.getBoundingClientRect();
+    const isFooterVisible = footerRect.top < viewportHeight && footerRect.bottom > 0;
+
     if (isFooterVisible) {
-      console.log("El footer es visible. Animando elementos...");
-  
-      const footerElements = footerRef.current.querySelectorAll(".animate-item");
+      const footerElements = animateItems();
       footerElements.forEach((element, index) => {
         setTimeout(() => {
           element.classList.add("fade-in");
         }, index * 300); // Animación escalonada
       });
-  
+
       // Remover listener después de animar
-      window.removeEventListener("scroll", animateMobileFooter);
-    } else {
-      console.log("El footer aún no es visible.");
+      window.removeEventListener("scroll", handleFadeInScroll);
     }
-  };
+  }, 50); // Limitar la ejecución a cada 50ms para evitar llamadas rápidas
 
   useEffect(() => {
+    // Añadir un único listener para el evento de scroll
     if (isMobile) {
-      // Añadir el listener para `scroll` en modo móvil
-      window.addEventListener("scroll", animateMobileFooter);
-      console.log("Modo móvil detectado.");
+      window.addEventListener("scroll", handleFadeInScroll, { passive: true });
     } else {
-      // Listener para la animación de scroll en modo no móvil
-      window.addEventListener("scroll", handleScroll);
+      window.addEventListener("scroll", handleParallaxScroll, { passive: true });
     }
-  
-    return () => {
-      // Eliminar ambos listeners cuando el componente se desmonte
-      window.removeEventListener("scroll", animateMobileFooter);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
-  const currentYear = new Date().getFullYear()
+    return () => {
+      window.removeEventListener("scroll", handleFadeInScroll); // Limpiar al desmontar
+      window.removeEventListener("scroll", handleParallaxScroll); // Limpiar al desmontar
+    };
+  }, [isMobile, handleFadeInScroll, handleParallaxScroll]); // Se actualiza solo cuando cambian las dependencias
+
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer ref={footerRef} aria-labelledby="footer-heading" id="footer">
@@ -95,7 +86,7 @@ const Footer = () => {
           <div className="container-footer-logo animate-item">
             <a href="#" aria-label="Inspira Web Studio - Inicio">
               <img
-                src="/assets/optimized/logoSinColor.webp"
+                src={logo}
                 alt="Logo de Inspira Web Studio"
                 width={70}
               />

@@ -1,45 +1,34 @@
 import { RecommendOutlined, Storefront, WorkspacePremium } from '@mui/icons-material';
 import { payCardList } from '../data/payCards';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import PayCardCharacteristics from './PayCardCharacteristics';
 import Button from './Button'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from "swiper/modules";
+import debounce from 'lodash.debounce';
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const PayCard = ({ cardContainer }) => {
 
-    const sortCards = () => {
-        let array = []
-        if (window.innerWidth < 1400) {
-            array = [
-                payCardList[1],
-                payCardList[2],
-                payCardList[4],
-                payCardList[0],
-                payCardList[3]
-            ]
-        } else {
-            array = [
-                payCardList[0],
-                payCardList[1],
-                payCardList[2],
-                payCardList[4],
-                payCardList[3]
-            ]
-        }
-        return array;
-    }
+    const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1400);
 
-    const appearCard = () => {
+
+    const sortCards = useCallback(() => {
+        return isLargeScreen
+            ? [payCardList[0], payCardList[1], payCardList[2], payCardList[4], payCardList[3]]
+            : [payCardList[1], payCardList[2], payCardList[4], payCardList[0], payCardList[3]];
+    }, [isLargeScreen]);
+
+    const appearCard = useCallback(() => {
         const section3 = document.getElementById("planing");
-        const section3OffsetTop = section3.offsetTop;
+        const section3OffsetTop = section3?.offsetTop || 0;
         const scrollPosition = window.scrollY;
 
         if (scrollPosition + window.innerHeight > section3OffsetTop) {
-            const containers = cardContainer.current.querySelectorAll(".card-container")
+            const containers = cardContainer.current.querySelectorAll(".card-container");
 
             containers.forEach((container, index) => {
                 setTimeout(() => {
@@ -47,21 +36,29 @@ const PayCard = ({ cardContainer }) => {
                 }, index * 200);
             });
         }
-    }
+    }, [cardContainer]);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.innerWidth > 1400) {
-                appearCard()
+        const handleResize = debounce(() => {
+            setIsLargeScreen(window.innerWidth >= 1400);
+        }, 50);
+    
+        const handleScroll = debounce(() => {
+            if (isLargeScreen) {
+                appearCard();
             }
-        }
-
-        // Agregar el evento scroll para ejecutar handleScroll
-        window.addEventListener("scroll", handleScroll, { passive: true })
-
-        return () => window.removeEventListener("scroll", handleScroll)
-
-    }, [])
+        }, 25);
+    
+        window.addEventListener("resize", handleResize);
+        window.addEventListener("scroll", handleScroll, { passive: true });
+    
+        appearCard();  // Llama a la función inmediatamente al montar
+    
+        return () => {
+            window.removeEventListener("resize", handleResize);
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [isLargeScreen, appearCard]);
 
     return (
         <Swiper
