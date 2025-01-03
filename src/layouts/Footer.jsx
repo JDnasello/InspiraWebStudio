@@ -61,7 +61,7 @@ const Footer = () => {
       // Remover listener después de animar
       window.removeEventListener("scroll", handleFadeInScroll);
     }
-  }, 50); // Limitar la ejecución a cada 50ms para evitar llamadas rápidas
+  }, 10); // Limitar la ejecución a cada 50ms para evitar llamadas rápidas
 
   useEffect(() => {
     // Añadir un único listener para el evento de scroll

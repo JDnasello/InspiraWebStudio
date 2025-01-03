@@ -26,7 +26,7 @@ const ObjectiveCards = () => {
                 ...new Set([...prevIndexes, ...newVisibleIndexes]),
             ]);
         }
-    }, 50); // Ajusta el tiempo de debounce según sea necesario
+    }, 10); // Ajusta el tiempo de debounce según sea necesario
 
     const getIcon = (type) => {
         switch (type) {
