@@ -1,4 +1,4 @@
-import { Check, Close, Info, InfoOutlined, KeyboardArrowDown } from '@mui/icons-material'
+import { Check, Close, InfoOutlined, KeyboardArrowDown } from '@mui/icons-material'
 import { useState } from 'react'
 import InfoCard from './InfoCard'
 

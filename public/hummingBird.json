@@ -1,7 +1,5 @@
 {
   "src": "opt2.glb",
-  "ar": true,
-  "arModes": ["webxr", "scene-viewer", "quick-look"],
   "cameraControls": true,
   "toneMapping": "neutral",
   "shadowIntensity": 1.12,

@@ -12,6 +12,11 @@
   display: none !important;
 }
 
+model-viewer::part(default-ar-button) {
+  display: none;
+  /* Oculta el botón */
+}
+
 .planing-btn {
   display: none;
 }

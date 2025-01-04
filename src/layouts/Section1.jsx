@@ -8,7 +8,7 @@ import Instagram from "@mui/icons-material/Instagram";
 import { Helmet } from 'react-helmet-async';
 import useParallax from "../hooks/useParallax";
 
-const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
+const Section1 = ({ cursorRef, innerCursorRef }) => {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const spanRef = useRef(null);
@@ -37,9 +37,9 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
 
   const getSrcSet = (baseImage) => {
     return ` 
-      ${baseImage.replace(".webp", "-300.webp")} 300w,
-      ${baseImage.replace(".webp", "-600.webp")} 600w,
-      ${baseImage.replace(".webp", "-1200.webp")} 1200w
+      ${baseImage.replace(".webp", "-100.webp")} 100w,
+      ${baseImage.replace(".webp", "-120.webp")} 120w,
+      ${baseImage.replace(".webp", "-170.webp")} 170w
     `;
   };
 
@@ -74,28 +74,28 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
       <Helmet>
         {windowWidth <= 460 ? (
           <>
-            <link rel="preload" href={Cone.replace(".webp", "-300.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone1.replace(".webp", "-300.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone2.replace(".webp", "-300.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone3.replace(".webp", "-300.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone4.replace(".webp", "-300.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone.replace(".webp", "-100.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone1.replace(".webp", "-100.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone2.replace(".webp", "-100.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone3.replace(".webp", "-100.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone4.replace(".webp", "-100.webp")} as="image" type="image/webp" />
           </>
         ) : windowWidth > 461 && windowWidth < 1024 ? (
           <>
-            <link rel="preload" href={Cone.replace(".webp", "-600.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone1.replace(".webp", "-600.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone2.replace(".webp", "-600.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone3.replace(".webp", "-600.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone4.replace(".webp", "-600.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone.replace(".webp", "-120.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone1.replace(".webp", "-120.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone2.replace(".webp", "-120.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone3.replace(".webp", "-120.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone4.replace(".webp", "-120.webp")} as="image" type="image/webp" />
           </>
         ) : (
           windowWidth > 1024 && (
             <>
-              <link rel="preload" href={Cone.replace(".webp", "-1200.webp")} as="image" type="image/webp" />
-              <link rel="preload" href={Cone1.replace(".webp", "-1200.webp")} as="image" type="image/webp" />
-              <link rel="preload" href={Cone2.replace(".webp", "-1200.webp")} as="image" type="image/webp" />
-              <link rel="preload" href={Cone3.replace(".webp", "-1200.webp")} as="image" type="image/webp" />
-              <link rel="preload" href={Cone4.replace(".webp", "-1200.webp")} as="image" type="image/webp" />
+              <link rel="preload" href={Cone.replace(".webp", "-170.webp")} as="image" type="image/webp" />
+              <link rel="preload" href={Cone1.replace(".webp", "-170.webp")} as="image" type="image/webp" />
+              <link rel="preload" href={Cone2.replace(".webp", "-170.webp")} as="image" type="image/webp" />
+              <link rel="preload" href={Cone3.replace(".webp", "-170.webp")} as="image" type="image/webp" />
+              <link rel="preload" href={Cone4.replace(".webp", "-170.webp")} as="image" type="image/webp" />
             </>
           )
         )}
@@ -123,11 +123,13 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
                 <div key={key} className="parallax" ref={itemRefs[key]} aria-hidden="true">
                   <img
                     srcSet={getSrcSet([Cone, Cone1, Cone2, Cone3, Cone4][index])}
-                    sizes="(max-width: 460px) 300px,(min-width: 461px) and (max-width: 1024px) 600px,(min-width: 1024px) 1200px"
+                    sizes="(max-width: 460px) 100px,(min-width: 461px) and (max-width: 1024px) 120px,(min-width: 1024px) 170px"
                     src={[Cone, Cone1, Cone2, Cone3, Cone4][index]}
                     className={`item${index + 1}`}
                     alt={`Objeto 3D ${index + 1}`}
                     loading="eager"
+                    width={170}
+                    height={"auto"}
                   />
                 </div>
               ))}

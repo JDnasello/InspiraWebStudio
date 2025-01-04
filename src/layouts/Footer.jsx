@@ -45,7 +45,6 @@ const Footer = () => {
   const handleFadeInScroll = debounce(() => {
     if (!footerRef.current) return;
 
-    const scrollOffset = window.scrollY;
     const viewportHeight = window.innerHeight;
     const footerRect = footerRef.current.getBoundingClientRect();
     const isFooterVisible = footerRect.top < viewportHeight && footerRect.bottom > 0;
@@ -57,25 +56,18 @@ const Footer = () => {
           element.classList.add("fade-in");
         }, index * 300); // Animación escalonada
       });
-
-      // Remover listener después de animar
-      window.removeEventListener("scroll", handleFadeInScroll);
     }
   }, 10); // Limitar la ejecución a cada 50ms para evitar llamadas rápidas
 
   useEffect(() => {
-    // Añadir un único listener para el evento de scroll
-    if (isMobile) {
-      window.addEventListener("scroll", handleFadeInScroll, { passive: true });
-    } else {
-      window.addEventListener("scroll", handleParallaxScroll, { passive: true });
-    }
+    const handleScroll = isMobile ? handleFadeInScroll : handleParallaxScroll;
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", handleFadeInScroll); // Limpiar al desmontar
-      window.removeEventListener("scroll", handleParallaxScroll); // Limpiar al desmontar
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [isMobile, handleFadeInScroll, handleParallaxScroll]); // Se actualiza solo cuando cambian las dependencias
+  }, [isMobile, handleFadeInScroll, handleParallaxScroll]);
 
   const currentYear = new Date().getFullYear();
 
@@ -85,11 +77,7 @@ const Footer = () => {
         <div className="nav-footer">
           <div className="container-footer-logo animate-item">
             <a href="#" aria-label="Inspira Web Studio - Inicio">
-              <img
-                src={logo}
-                alt="Logo de Inspira Web Studio"
-                width={70}
-              />
+              <img src={logo} alt="Logo de Inspira Web Studio" width={70} />
               <span className="footer-title">Inspira Web Studio</span>
             </a>
           </div>
@@ -127,6 +115,7 @@ const Footer = () => {
               href="https://www.instagram.com/inspirawebstudio/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visita nuestro perfil en Instagram"
             >
               <Instagram className="social-icon" />
             </a>

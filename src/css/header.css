@@ -29,8 +29,15 @@
     /* Sombra interna ajustada */
 }
 
-#img-logo{
+.logo-container {
     width: 80px;
+    height: 80px;
+}
+
+#img-logo{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
     z-index: 10;
 }
 
@@ -220,16 +227,16 @@
     #header-call {
         width: 200px;
         font-size: 1.3em;
-    }
+    }   
 }
 
 /*PARA IPHONE 16 PRO MAX HACIA ABAJO*/
 @media screen and (max-width: 768px) {
     
 
-    #img-logo{
+    .logo-container {
         width: 60px;
-        z-index: 10;
+        height: 60px;
     }
 
     .nav-link:first-child {

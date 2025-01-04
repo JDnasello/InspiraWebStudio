@@ -51,17 +51,11 @@ const HummingBird = ({ colibriRef, cursorRef, innerCursorRef }) => {
           as="fetch"
           crossOrigin="anonymous"
         />
-        <link
-          rel="preload"
-          href={modelConfig.environmentImage}
-          as="image"
-        />
+        <link rel="preload" href={modelConfig.environmentImage} as="image" />
       </Helmet>
       <model-viewer
         ref={colibriRef}
         src={modelConfig.src}
-        ar={modelConfig.ar}
-        ar-modes={modelConfig.arModes.join(" ")}
         camera-controls={modelConfig.cameraControls}
         tone-mapping={modelConfig.toneMapping}
         shadow-intensity={modelConfig.shadowIntensity}
@@ -74,9 +68,10 @@ const HummingBird = ({ colibriRef, cursorRef, innerCursorRef }) => {
         id={modelConfig.id}
         onMouseEnter={hideCursor}
         touch-action="pan-y"
+        tabindex="0"
         onMouseLeave={showCursor}
       ></model-viewer>
-  </>
+    </>
   );
 };
 
