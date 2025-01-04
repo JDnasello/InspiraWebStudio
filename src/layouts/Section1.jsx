@@ -37,7 +37,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
 
   const getSrcSet = (baseImage) => {
     return ` 
-      ${baseImage.replace(".webp", "-300.webp")} 300w,
+      ${baseImage.replace(".webp", "-90.webp")} 90w,
       ${baseImage.replace(".webp", "-600.webp")} 600w,
       ${baseImage.replace(".webp", "-1200.webp")} 1200w
     `;
