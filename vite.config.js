@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
 import compression from 'vite-plugin-compression';
-
+import preload from 'vite-plugin-preload';
 
 export default defineConfig({
   plugins: [
@@ -11,6 +11,14 @@ export default defineConfig({
       open: true, // Abre automáticamente el reporte en el navegador
     }),
     compression(),
+    preload({
+      rel: 'preload',
+      href: [
+        '/assets/index-C5pB7-P9.js',
+        '/assets/index-Cw41rQMN.css',
+      ],
+      as: ['script', 'stylesheet'],
+    }),
   ],
   build: {
     target: 'esnext',  // Especifica el nivel de compatibilidad ECMAScript
