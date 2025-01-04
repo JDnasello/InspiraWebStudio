@@ -1,17 +1,16 @@
 import "@google/model-viewer";
 import HummingBird from "../components/HummingBird";
-
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import debounce from "lodash.debounce";
 import "../css/section-1.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Instagram from "@mui/icons-material/Instagram";
-import { Helmet } from 'react-helmet-async'
+import { Helmet } from 'react-helmet-async';
 import useParallax from "../hooks/useParallax";
 
 const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
 
-  const [windowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const spanRef = useRef(null);
   const itemRefs = {
     item1: useRef(null),
@@ -37,12 +36,24 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
   }
 
   const getSrcSet = (baseImage) => {
-    return `
+    return ` 
       ${baseImage.replace(".webp", "-300.webp")} 300w,
       ${baseImage.replace(".webp", "-600.webp")} 600w,
       ${baseImage.replace(".webp", "-1200.webp")} 1200w
     `;
   };
+
+  useEffect(() => {
+    const handleResize = debounce(() => {
+      setWindowWidth(window.innerWidth);
+    }, 100);
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     for (const ref of Object.values(itemRefs)) {
@@ -56,147 +67,60 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
     }
   }, []);
 
- useParallax(itemRefs, targetPos, 0.2);
+  useParallax(itemRefs, targetPos, 0.2);
 
   return (
     <>
       <Helmet>
         {windowWidth <= 460 ? (
           <>
-            <link
-              rel="preload"
-              href={Cone.replace(".webp", "-300.webp")}
-              as="image"
-              type="image/webp"
-            />
-            <link
-              rel="preload"
-              href={Cone1.replace(".webp", "-300.webp")}
-              as="image"
-              type="image/webp"
-            />
-            <link
-              rel="preload"
-              href={Cone2.replace(".webp", "-300.webp")}
-              as="image"
-              type="image/webp"
-            />
-            <link
-              rel="preload"
-              href={Cone3.replace(".webp", "-300.webp")}
-              as="image"
-              type="image/webp"
-            />
-            <link
-              rel="preload"
-              href={Cone4.replace(".webp", "-300.webp")}
-              as="image"
-              type="image/webp"
-            />
+            <link rel="preload" href={Cone.replace(".webp", "-300.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone1.replace(".webp", "-300.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone2.replace(".webp", "-300.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone3.replace(".webp", "-300.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone4.replace(".webp", "-300.webp")} as="image" type="image/webp" />
           </>
         ) : windowWidth > 461 && windowWidth < 1024 ? (
           <>
-            <link
-              rel="preload"
-              href={Cone.replace(".webp", "-600.webp")}
-              as="image"
-              type="image/webp"
-            />
-            <link
-              rel="preload"
-              href={Cone1.replace(".webp", "-600.webp")}
-              as="image"
-              type="image/webp"
-            />
-            <link
-              rel="preload"
-              href={Cone2.replace(".webp", "-600.webp")}
-              as="image"
-              type="image/webp"
-            />
-            <link
-              rel="preload"
-              href={Cone3.replace(".webp", "-600.webp")}
-              as="image"
-              type="image/webp"
-            />
-            <link
-              rel="preload"
-              href={Cone4.replace(".webp", "-600.webp")}
-              as="image"
-              type="image/webp"
-            />
+            <link rel="preload" href={Cone.replace(".webp", "-600.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone1.replace(".webp", "-600.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone2.replace(".webp", "-600.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone3.replace(".webp", "-600.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone4.replace(".webp", "-600.webp")} as="image" type="image/webp" />
           </>
         ) : (
           windowWidth > 1024 && (
             <>
-              <link
-                rel="preload"
-                href={Cone.replace(".webp", "-1200.webp")}
-                as="image"
-                type="image/webp"
-              />
-              <link
-                rel="preload"
-                href={Cone1.replace(".webp", "-1200.webp")}
-                as="image"
-                type="image/webp"
-              />
-              <link
-                rel="preload"
-                href={Cone2.replace(".webp", "-1200.webp")}
-                as="image"
-                type="image/webp"
-              />
-              <link
-                rel="preload"
-                href={Cone3.replace(".webp", "-1200.webp")}
-                as="image"
-                type="image/webp"
-              />
-              <link
-                rel="preload"
-                href={Cone4.replace(".webp", "-1200.webp")}
-                as="image"
-                type="image/webp"
-              />
+              <link rel="preload" href={Cone.replace(".webp", "-1200.webp")} as="image" type="image/webp" />
+              <link rel="preload" href={Cone1.replace(".webp", "-1200.webp")} as="image" type="image/webp" />
+              <link rel="preload" href={Cone2.replace(".webp", "-1200.webp")} as="image" type="image/webp" />
+              <link rel="preload" href={Cone3.replace(".webp", "-1200.webp")} as="image" type="image/webp" />
+              <link rel="preload" href={Cone4.replace(".webp", "-1200.webp")} as="image" type="image/webp" />
             </>
           )
         )}
       </Helmet>
       <section className="seccion1" aria-labelledby="section1-title">
         <div className="sec1-contizq">
-          <HummingBird
-            colibriRef={colibriRef}
-            cursorRef={cursorRef}
-            innerCursorRef={innerCursorRef}
-          />
+          <HummingBird colibriRef={colibriRef} cursorRef={cursorRef} innerCursorRef={innerCursorRef} />
           <div className="social-hero">
             <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram" target="_blank" rel="noopener noreferrer">
               <Instagram className="social-icon" />
             </a>
           </div>
         </div>
-
         <div className="sec1-contder">
           <div className="contder-presentation">
             <h1 className="span-hero" ref={spanRef}>
               <span className="contder-h1">imagine.</span>
               <span className="contder-h1">develop.</span>
               <span className="contder-h1">& style.</span>
-              <button className="planing-btn"><a id="header-call" href="#planing" title="Planes de pago">
-                Ver planes
-              </a></button>
+              <button className="planing-btn"><a id="header-call" href="#planing" title="Planes de pago">Ver planes</a></button>
             </h1>
 
             <div className="items-hero">
               {Object.keys(itemRefs).map((key, index) => (
-                <div
-                  key={key}
-                  className="parallax"
-                  ref={itemRefs[key]}
-                  aria-hidden="true"
-                >
+                <div key={key} className="parallax" ref={itemRefs[key]} aria-hidden="true">
                   <img
                     srcSet={getSrcSet([Cone, Cone1, Cone2, Cone3, Cone4][index])}
                     sizes="(max-width: 460px) 300px,(min-width: 461px) and (max-width: 1024px) 600px,(min-width: 1024px) 1200px"
