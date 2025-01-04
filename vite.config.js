@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
+import compression from 'vite-plugin-compression';
+
 
 export default defineConfig({
   plugins: [
@@ -8,6 +10,7 @@ export default defineConfig({
     visualizer({
       open: true, // Abre automáticamente el reporte en el navegador
     }),
+    compression(),
   ],
   build: {
     target: 'esnext',  // Especifica el nivel de compatibilidad ECMAScript
@@ -33,6 +36,14 @@ export default defineConfig({
     port: 5173,  // Puerto de desarrollo
     open: true,  // Abre automáticamente el navegador
     hmr: true,  // Habilita Hot Module Replacement
+  },
+  chunkSizeWarningLimit: 500,  // Divide chunks grandes
+  rollupOptions: {
+    output: {
+      manualChunks: {
+        react: ['react', 'react-dom']  // Divide React en un chunk separado
+      }
+    }
   },
   assetsInclude: ['**/*.webp'],  // Asegura que los archivos .webp sean tratados como activos
 });
