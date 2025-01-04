@@ -14,7 +14,7 @@ export default defineConfig({
     preload({
       rel: 'preload',
       href: [
-        '/assets/index-C5pB7-P9.js',
+        '/assets/index-4xly70wp.js',
         '/assets/index-Cw41rQMN.css',
       ],
       as: ['script', 'stylesheet'],

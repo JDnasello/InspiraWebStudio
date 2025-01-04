@@ -37,7 +37,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
 
   const getSrcSet = (baseImage) => {
     return ` 
-      ${baseImage.replace(".webp", "-90.webp")} 90w,
+      ${baseImage.replace(".webp", "-300.webp")} 300w,
       ${baseImage.replace(".webp", "-600.webp")} 600w,
       ${baseImage.replace(".webp", "-1200.webp")} 1200w
     `;
@@ -74,11 +74,11 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
       <Helmet>
         {windowWidth <= 460 ? (
           <>
-            <link rel="preload" href={Cone.replace(".webp", "-90.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone1.replace(".webp", "-90.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone2.replace(".webp", "-90.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone3.replace(".webp", "-90.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone4.replace(".webp", "-90.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone.replace(".webp", "-300.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone1.replace(".webp", "-300.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone2.replace(".webp", "-300.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone3.replace(".webp", "-300.webp")} as="image" type="image/webp" />
+            <link rel="preload" href={Cone4.replace(".webp", "-300.webp")} as="image" type="image/webp" />
           </>
         ) : windowWidth > 461 && windowWidth < 1024 ? (
           <>
@@ -123,7 +123,7 @@ const Section1 = ({ cursorRef, innerCursorRef, headerRef }) => {
                 <div key={key} className="parallax" ref={itemRefs[key]} aria-hidden="true">
                   <img
                     srcSet={getSrcSet([Cone, Cone1, Cone2, Cone3, Cone4][index])}
-                    sizes="(max-width: 460px) 90px,(min-width: 461px) and (max-width: 1024px) 600px,(min-width: 1024px) 1200px"
+                    sizes="(max-width: 460px) 300px,(min-width: 461px) and (max-width: 1024px) 600px,(min-width: 1024px) 1200px"
                     src={[Cone, Cone1, Cone2, Cone3, Cone4][index]}
                     className={`item${index + 1}`}
                     alt={`Objeto 3D ${index + 1}`}
