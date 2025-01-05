@@ -1,3 +1,38 @@
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 100;
+    src: url('/src/assets/fonts/poppins100.woff2') format('woff2'),
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    src: url('/src/assets/fonts/poppins300.woff2') format('woff2'),
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/src/assets/fonts/poppins400.woff2') format('woff2'),
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    src: url('/src/assets/fonts/poppins600.woff2') format('woff2'),
+}
+
+@font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    src: url('/src/assets/fonts/poppins700.woff2') format('woff2'),
+}
+
 :root {
     --color-primary: #5900ff;
     --color-secondary: #fce38a;
