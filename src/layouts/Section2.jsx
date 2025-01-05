@@ -1,5 +1,5 @@
 import '../css/section-2.css'
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import useParallax from '../hooks/useParallax.jsx';
