@@ -49,11 +49,11 @@ const PayCardCharacteristics = ({ card }) => {
             </ul>
             <button className="characteristic-btn" onClick={handleToggleCharacteristics} aria-expanded={showAll} aria-controls='characteristics-list'>
                 {showAll ? 'Ver menos características' : 'Ver todas las características'}
-                (
+                
                 <Suspense>
                     <KeyboardArrowDownLazy className={`characteristic-btn-arrow ${showAll ? 'rotate-arrow' : ''}`} />
                 </Suspense>
-                )
+                
             </button>
         </div>
     )

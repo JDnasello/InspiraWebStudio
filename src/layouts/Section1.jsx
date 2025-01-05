@@ -44,6 +44,10 @@ const Section1 = ({ cursorRef, innerCursorRef }) => {
   };
 
   useEffect(() => {
+    setWindowWidth(window.innerWidth);
+  }, []);
+
+  useEffect(() => {
     const handleResize = debounce(() => {
       setWindowWidth(window.innerWidth);
     }, 100);
