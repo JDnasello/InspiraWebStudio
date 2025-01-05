@@ -38,7 +38,7 @@ const PayCardCharacteristics = ({ card }) => {
                             onMouseLeave={char.type === 'info' ? handleLeave : undefined}
                         >   
                             {
-                                char.type === 'checked' ? (<Suspense><CheckLazy className='check-icon' aria-hidden='true' /></Suspense>)
+                                char.type === 'checked' ? <Suspense><CheckLazy className='check-icon' aria-hidden='true' /></Suspense>
                                     : char.type === 'info' ? (<Suspense><InfoOutlinedLazy className='info-icon' aria-hidden='true' /></Suspense>)
                                         : (<Suspense><CloseLazy className='cross-icon' aria-hidden='true' /></Suspense>)
                                 }

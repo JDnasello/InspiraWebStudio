@@ -93,7 +93,7 @@ const Section1 = ({ cursorRef, innerCursorRef }) => {
                     alt={`Objeto 3D ${index + 1}`}
                     loading="eager"
                     width={170}
-                    height={"auto"}
+                    height={170}
                   />
                 </div>
               ))}
