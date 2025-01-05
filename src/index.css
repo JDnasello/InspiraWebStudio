@@ -106,6 +106,7 @@ a {
     text-align: center;
     font-size: 1em;
     color: #fff;
+    display: block;
     scale: 0.9;
     width: 300px;
     background-color: #50279c;

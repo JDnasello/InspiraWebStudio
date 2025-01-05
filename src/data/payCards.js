@@ -4,6 +4,7 @@ export const payCardList = [
     title: "Mantenimiento web",
     price: "50000",
     button: false,
+    textForContact: "Hola, quiero consultar por el plan de mantenimiento web",
     description:
       "Actualización de contenido, corrección de errores, y soporte técnico regular para tu sitio web.",
     characteristics: [
@@ -31,6 +32,7 @@ export const payCardList = [
     title: "Landing page",
     price: "70000",
     button: true,
+    textForContact: "Hola, quiero consultar por el plan de landing page",
     description:
       "Diseñada para quienes buscan destacar online con una página rápida, efectiva y rentable.",
     characteristics: [
@@ -59,6 +61,7 @@ export const payCardList = [
     price: "800000",
     description:
       "Creación de sitios web multi-página completamente personalizados y optimizados para tus necesidades.",
+    textForContact: "Hola, quiero consultar por el plan premium",
     characteristics: [
       { id: 23, text: "Diseño completamente personalizado", type: "checked" },
       { id: 24, text: "Optimización SEO avanzada", type: "checked" },
@@ -79,6 +82,7 @@ export const payCardList = [
     price: "500000",
     description:
       "Creación o conexión con APIs de terceros para integrar funcionalidades avanzadas en tu proyecto.",
+    textForContact: "Hola, quiero consultar por el plan de Desarrollo/Integración de API",
     characteristics: [
       { id: 34, text: "Diseño de API personalizada", type: "checked" },
       { id: 35, text: "Integración con APIs de terceros", type: "checked" },
@@ -100,6 +104,7 @@ export const payCardList = [
     price: "1000000",
     description:
       "Tiendas online profesionales y optimizadas, utilizando WordPress y WooCommerce para la gestión de tu negocio en línea.",
+    textForContact: "Hola, quiero consultar por el plan de tienda online",
     characteristics: [
       { id: 42, text: "Diseño personalizado para tu tienda", type: "checked" },
       { id: 43, text: "Compatibilidad con WooCommerce", type: "checked" },
