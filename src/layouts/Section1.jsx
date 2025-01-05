@@ -41,17 +41,17 @@ const Section1 = ({ cursorRef, innerCursorRef }) => {
     `;
   };
 
-  useEffect(() => {
-    for (const ref of Object.values(itemRefs)) {
-      if (ref.current) {
-        ref.current.style.transform = `translate(0, 0) rotate(0deg)`;
-      }
-    }
+  // useEffect(() => {
+  //   for (const ref of Object.values(itemRefs)) {
+  //     if (ref.current) {
+  //       ref.current.style.transform = `translate(0, 0) rotate(0deg)`;
+  //     }
+  //   }
 
-    if (spanRef.current) {
-      spanRef.current.classList.add("animation");
-    }
-  }, []);
+  //   if (spanRef.current) {
+  //     spanRef.current.classList.add("animation");
+  //   }
+  // }, []);
 
   useParallax(itemRefs, targetPos, 0.2);
 
