@@ -195,7 +195,7 @@ const PayCard = ({ cardContainer }) => {
                     </div>
                     </div>
                     <div className="card-separator"></div>
-                    (<Suspense><PayCardCharacteristicsLazy card={card} /></Suspense>)
+                    <Suspense><PayCardCharacteristicsLazy card={card} /></Suspense>
                 </div>
                 </article>
             </SwiperSlide>
