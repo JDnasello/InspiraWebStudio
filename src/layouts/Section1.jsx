@@ -1,7 +1,6 @@
 import "@google/model-viewer";
 import HummingBird from "../components/HummingBird";
-import { useEffect, useRef, useState } from "react";
-import debounce from "lodash.debounce";
+import { useEffect, useRef} from "react";
 import "../css/section-1.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Instagram from "@mui/icons-material/Instagram";
@@ -10,7 +9,6 @@ import useParallax from "../hooks/useParallax";
 
 const Section1 = ({ cursorRef, innerCursorRef }) => {
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const spanRef = useRef(null);
   const itemRefs = {
     item1: useRef(null),
@@ -44,22 +42,6 @@ const Section1 = ({ cursorRef, innerCursorRef }) => {
   };
 
   useEffect(() => {
-    setWindowWidth(window.innerWidth);
-  }, []);
-
-  useEffect(() => {
-    const handleResize = debounce(() => {
-      setWindowWidth(window.innerWidth);
-    }, 100);
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
     for (const ref of Object.values(itemRefs)) {
       if (ref.current) {
         ref.current.style.transform = `translate(0, 0) rotate(0deg)`;
@@ -76,33 +58,11 @@ const Section1 = ({ cursorRef, innerCursorRef }) => {
   return (
     <>
       <Helmet>
-        {windowWidth <= 460 ? (
-          <>
-            <link rel="preload" href={Cone.replace(".webp", "-100.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone1.replace(".webp", "-100.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone2.replace(".webp", "-100.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone3.replace(".webp", "-100.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone4.replace(".webp", "-100.webp")} as="image" type="image/webp" />
-          </>
-        ) : windowWidth > 461 && windowWidth < 1024 ? (
-          <>
-            <link rel="preload" href={Cone.replace(".webp", "-120.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone1.replace(".webp", "-120.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone2.replace(".webp", "-120.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone3.replace(".webp", "-120.webp")} as="image" type="image/webp" />
-            <link rel="preload" href={Cone4.replace(".webp", "-120.webp")} as="image" type="image/webp" />
-          </>
-        ) : (
-          windowWidth > 1024 && (
-            <>
-              <link rel="preload" href={Cone.replace(".webp", "-170.webp")} as="image" type="image/webp" />
-              <link rel="preload" href={Cone1.replace(".webp", "-170.webp")} as="image" type="image/webp" />
-              <link rel="preload" href={Cone2.replace(".webp", "-170.webp")} as="image" type="image/webp" />
-              <link rel="preload" href={Cone3.replace(".webp", "-170.webp")} as="image" type="image/webp" />
-              <link rel="preload" href={Cone4.replace(".webp", "-170.webp")} as="image" type="image/webp" />
-            </>
-          )
-        )}
+        <link rel="preload" href={Cone.replace(".webp", "-170.webp")} as="image" type="image/webp" />
+        <link rel="preload" href={Cone1.replace(".webp", "-170.webp")} as="image" type="image/webp" />
+        <link rel="preload" href={Cone2.replace(".webp", "-170.webp")} as="image" type="image/webp" />
+        <link rel="preload" href={Cone3.replace(".webp", "-170.webp")} as="image" type="image/webp" />
+        <link rel="preload" href={Cone4.replace(".webp", "-170.webp")} as="image" type="image/webp" />
       </Helmet>
       <section className="seccion1" aria-labelledby="section1-title">
         <div className="sec1-contizq">
