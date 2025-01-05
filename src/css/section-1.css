@@ -23,17 +23,17 @@ model-viewer::part(default-ar-button) {
 
 .span-hero {
   opacity: 1;
-  /* transform: translateX(-50px);
-  transition: transform 0.3s ease-in, opacity 0.3s ease-in; */
+  transform: translateX(-50px);
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
   display: flex;
   flex-direction: column;
   width: 55%;
 }
 
-/* .span-hero.animation {
+.span-hero.animation {
   opacity: 1;
   transform: translateX(0px);
-} */
+}
 
 .sec1-contizq {
   display: flex;
