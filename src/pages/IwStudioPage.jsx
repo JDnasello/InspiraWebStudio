@@ -1,8 +1,10 @@
-import Footer from "../layouts/Footer"
 import Section1 from "../layouts/Section1"
-import Section2 from "../layouts/Section2"
-import Section3 from "../layouts/Section3"
 import Header from "../layouts/Header"
+import { lazy, Suspense } from "react"
+
+const Section2Lazy = lazy(() => import('../layouts/Section2'))
+const Section3Lazy = lazy(() => import("../layouts/Section3"))
+const FooterLazy = lazy(() => import('../layouts/Footer'))
 
 const IwStudioPage = ({ cursorRef, innerCursorRef}) => {
 
@@ -10,9 +12,17 @@ const IwStudioPage = ({ cursorRef, innerCursorRef}) => {
         <>
             <Header />
             <Section1 cursorRef={cursorRef} innerCursorRef={innerCursorRef} />
-            <Section2 />
-            <Section3 />
-            <Footer />
+            <Suspense>
+                <Section2Lazy />
+            </Suspense>
+
+            <Suspense>
+                <Section3Lazy />
+            </Suspense>
+
+            <Suspense>
+                <FooterLazy />
+            </Suspense>
         </>
     )
 }
