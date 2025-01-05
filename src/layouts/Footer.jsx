@@ -116,7 +116,7 @@ const Footer = () => {
         </div>
         <div className="social-media-and-email animate-item">
           <div>
-            <a href="mailto:inspirawebstudio@gmail.com">
+            <a href="mailto:inspirawebstudio@gmail.com" target="_blank" rel="noopener norefrerrer">
               inspirawebstudio@gmail.com
             </a>
           </div>
