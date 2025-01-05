@@ -14,11 +14,12 @@ export const payCardList = [
       { id: 5, text: "Gestión de copias de seguridad", type: "checked" },
       { id: 6, text: "Integración de nuevas funcionalidades", type: "info", info: "Consultar costo adicional" },
       { id: 7, text: "Gestión de base de datos", type: "info", info: "Consultar costo adicional" },
-      { id: 8, 
+      {
+        id: 8, 
         text: "Multi-idioma", 
         type: "info",
         info: "Costo adicional de ar$20000"
-       },
+      },
       { id: 9, text: "Integración de diseño responsivo", type: "cross" },
       { id: 10, text: "Desarrollo de nuevas páginas", type: "cross" },
       { id: 11, text: "Integración con APIs externas", type: "cross" },
@@ -28,7 +29,7 @@ export const payCardList = [
     id: 2,
     chip: "Recomendado",
     title: "Landing page",
-    price: "80000",
+    price: "70000",
     button: true,
     description:
       "Diseñada para quienes buscan destacar online con una página rápida, efectiva y rentable.",
@@ -41,11 +42,12 @@ export const payCardList = [
       { id: 17, text: "Integración con redes sociales", type: "checked" },
       { id: 18, text: "Reportes de rendimiento", type: "checked" },
       { id: 19, text: "Mantenimiento por 3 meses", type: "checked" },
-      { id: 20, 
+      {
+        id: 20, 
         text: "Multi-idioma", 
         type: "info",
         info: "Costo adicional de ar$20000"
-       },
+      },
       { id: 21, text: "Funcionalidades avanzadas", type: "cross" },
       { id: 22, text: "Integración con APIs externas", type: "cross" },
     ],
@@ -54,7 +56,7 @@ export const payCardList = [
     id: 4,
     chip: "Premium",
     title: "Desarrollo de web personalizada",
-    price: "150000",
+    price: "800000",
     description:
       "Creación de sitios web multi-página completamente personalizados y optimizados para tus necesidades.",
     characteristics: [
@@ -74,7 +76,7 @@ export const payCardList = [
   {
     id: 3,
     title: "Desarrollo/Integración de API",
-    price: "120000",
+    price: "500000",
     description:
       "Creación o conexión con APIs de terceros para integrar funcionalidades avanzadas en tu proyecto.",
     characteristics: [
@@ -95,7 +97,7 @@ export const payCardList = [
     id: 5,
     chip: "E-Commerce",
     title: "Tiendas online gestionables",
-    price: "120000",
+    price: "1000000",
     description:
       "Tiendas online profesionales y optimizadas, utilizando WordPress y WooCommerce para la gestión de tu negocio en línea.",
     characteristics: [

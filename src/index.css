@@ -2,35 +2,40 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 100;
-    src: url('/src/assets/fonts/poppins100.woff2') format('woff2'),
+    src: url('/src/assets/fonts/poppins100.woff2') format('woff2');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 300;
-    src: url('/src/assets/fonts/poppins300.woff2') format('woff2'),
+    src: url('/src/assets/fonts/poppins300.woff2') format('woff2');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    src: url('/src/assets/fonts/poppins400.woff2') format('woff2'),
+    src: url('/src/assets/fonts/poppins400.woff2') format('woff2');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 600;
-    src: url('/src/assets/fonts/poppins600.woff2') format('woff2'),
+    src: url('/src/assets/fonts/poppins600.woff2') format('woff2');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 700;
-    src: url('/src/assets/fonts/poppins700.woff2') format('woff2'),
+    src: url('/src/assets/fonts/poppins700.woff2') format('woff2');
+    font-display: swap;
 }
 
 :root {
@@ -154,7 +159,7 @@ a {
 }
 
 .whatsapp-icon {
-    font-size: 3.5em !important;
+    font-size: 3em !important;
 }
 
 .whatsapp-icon path {
