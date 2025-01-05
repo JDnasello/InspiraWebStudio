@@ -1,6 +1,6 @@
 import "@google/model-viewer"
 import { useEffect, useState } from "react";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { Helmet } from "react-helmet-async";
 
 // eslint-disable-next-line react/prop-types
 const HummingBird = ({ colibriRef, cursorRef, innerCursorRef }) => {

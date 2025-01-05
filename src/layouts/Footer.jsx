@@ -2,10 +2,11 @@ import "../css/footer.css";
 import Instagram from "@mui/icons-material/Instagram";
 import debounce from 'lodash.debounce';
 import { useRef, useEffect, useState, useCallback } from "react";
+import { LazyLoadImage }   from "react-lazy-load-image-component";
 
 const Footer = () => {
   const footerRef = useRef(null); // Ref para el footer
-  const logo = "/assets/optimized/logoSinColor.webp";
+  const logo = "/assets/optimized/logoSinColor-80.webp";
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
@@ -77,7 +78,7 @@ const Footer = () => {
         <div className="nav-footer">
           <div className="container-footer-logo animate-item">
             <a href="#" aria-label="Inspira Web Studio - Inicio">
-              <img src={logo} alt="Logo de Inspira Web Studio" width={70} />
+              <LazyLoadImage src={logo} alt="Logo de Inspira Web Studio" width={70} effect="blur" />
               <span className="footer-title">Inspira Web Studio</span>
             </a>
           </div>

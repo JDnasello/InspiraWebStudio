@@ -1,6 +1,11 @@
-import { Check, Close, InfoOutlined, KeyboardArrowDown } from '@mui/icons-material'
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import InfoCard from './InfoCard'
+
+const CheckLazy = lazy(() => import('@mui/icons-material/Check'))
+const CloseLazy = lazy(() => import("@mui/icons-material/Close"));
+const InfoOutlinedLazy = lazy(() => import("@mui/icons-material/InfoOutlined"));
+const KeyboardArrowDownLazy = lazy(() => import("@mui/icons-material/KeyboardArrowDown"));
+
 
 const PayCardCharacteristics = ({ card }) => {
 
@@ -33,9 +38,9 @@ const PayCardCharacteristics = ({ card }) => {
                             onMouseLeave={char.type === 'info' ? handleLeave : undefined}
                         >   
                             {
-                                char.type === 'checked' ? <Check className='check-icon' aria-hidden='true' />
-                                    : char.type === 'info' ? <InfoOutlined className='info-icon' aria-hidden='true' />
-                                        : <Close className='cross-icon' aria-hidden='true' />
+                                char.type === 'checked' ? (<Suspense><CheckLazy className='check-icon' aria-hidden='true' /></Suspense>)
+                                    : char.type === 'info' ? (<Suspense><InfoOutlinedLazy className='info-icon' aria-hidden='true' /></Suspense>)
+                                        : (<Suspense><CloseLazy className='cross-icon' aria-hidden='true' /></Suspense>)
                                 }
                             <span className="characteristic-txt" >{char.text}</span>
                             <InfoCard infotext={char.info} isVisible={hoverIndex === index} />
@@ -43,7 +48,12 @@ const PayCardCharacteristics = ({ card }) => {
                 ))}
             </ul>
             <button className="characteristic-btn" onClick={handleToggleCharacteristics} aria-expanded={showAll} aria-controls='characteristics-list'>
-                {showAll ? 'Ver menos características' : 'Ver todas las características'} <KeyboardArrowDown className={`characteristic-btn-arrow ${showAll ? 'rotate-arrow' : ''}`} />
+                {showAll ? 'Ver menos características' : 'Ver todas las características'}
+                (
+                <Suspense>
+                    <KeyboardArrowDownLazy className={`characteristic-btn-arrow ${showAll ? 'rotate-arrow' : ''}`} />
+                </Suspense>
+                )
             </button>
         </div>
     )

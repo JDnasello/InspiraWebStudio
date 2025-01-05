@@ -1,7 +1,13 @@
-import { useEffect, useRef, useState } from "react";
-import { Brush, Phonelink, QueryStats, RocketLaunch, ShieldTwoTone, SupportAgent } from '@mui/icons-material';
+import { useEffect, useRef, useState, Suspense, lazy } from "react";
 import { objectivesList } from "../data/objectives";
 import debounce from "lodash.debounce";
+
+const LazyBrush = lazy(() => import("@mui/icons-material/Brush"));
+const LazyQueryStats = lazy(() => import("@mui/icons-material/QueryStats"));
+const LazyPhonelink = lazy(() => import("@mui/icons-material/Phonelink"));
+const LazyRocketLaunch = lazy(() => import("@mui/icons-material/RocketLaunch"));
+const LazyShieldTwoTone = lazy(() => import("@mui/icons-material/ShieldTwoTone"));
+const LazySupportAgent = lazy(() => import("@mui/icons-material/SupportAgent"));
 
 const ObjectiveCards = () => {
 
@@ -29,24 +35,47 @@ const ObjectiveCards = () => {
     }, 10); // Ajusta el tiempo de debounce según sea necesario
 
     const getIcon = (type) => {
-        switch (type) {
-            case 'custom':
-                return <Brush className='objective-icon' />;
-            case 'SEO':
-                return <QueryStats className='objective-icon' />;
-            case 'responsive':
-                return <Phonelink className='objective-icon' />;
-            case 'fast':
-                return <RocketLaunch className='objective-icon' />;
-            case 'secure':
-                return <ShieldTwoTone className='objective-icon' />;
-            case 'support':
-                return <SupportAgent className='objective-icon' />;
-            default:
-                return null;
-        }
-    };
-
+    switch (type) {
+        case 'custom':
+            return (
+                <Suspense fallback={<div className="loading-icon" />}>
+                    <LazyBrush className="objective-icon" />
+                </Suspense>
+            );
+        case 'SEO':
+            return (
+                <Suspense fallback={<div className="loading-icon" />}>
+                    <LazyQueryStats className="objective-icon" />
+                </Suspense>
+            );
+        case 'responsive':
+            return (
+                <Suspense fallback={<div className="loading-icon" />}>
+                    <LazyPhonelink className="objective-icon" />
+                </Suspense>
+            );
+        case 'fast':
+            return (
+                <Suspense fallback={<div className="loading-icon" />}>
+                    <LazyRocketLaunch className="objective-icon" />
+                </Suspense>
+            );
+        case 'secure':
+            return (
+                <Suspense fallback={<div className="loading-icon" />}>
+                    <LazyShieldTwoTone className="objective-icon" />
+                </Suspense>
+            );
+        case 'support':
+            return (
+                <Suspense fallback={<div className="loading-icon" />}>
+                    <LazySupportAgent className="objective-icon" />
+                </Suspense>
+            );
+        default:
+            return null;
+    }
+};
     useEffect(() => {
         window.addEventListener("scroll", handleScroll, { passive: true });
 
