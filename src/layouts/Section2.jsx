@@ -40,11 +40,11 @@ const Section2 = () => {
       <div className="parallax-section1" ref={itemRefs.item6}>
         <LazyLoadImage
           srcSet={`
-          ${Cone5.replace('.webp', '-300.webp')} 300w,
-          ${Cone5.replace('.webp', '-600.webp')} 600w,
-          ${Cone5.replace('.webp', '-1200.webp')} 1200w
+          ${Cone5.replace('.webp', '-100.webp')} 100w,
+          ${Cone5.replace('.webp', '-120.webp')} 120w,
+          ${Cone5.replace('.webp', '-170.webp')} 170w,
         `}
-          sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+          sizes="(max-width: 600px) 100w, (max-width: 1024px) 120w, 170w"
           src={Cone5}
           ref={itemRefs.item6}
           className="item6"
@@ -55,11 +55,11 @@ const Section2 = () => {
       </div><div className="parallax-section2" ref={itemRefs.item7}>
         <LazyLoadImage
           srcSet={`
-          ${Cone6.replace('.webp', '-300.webp')} 300w,
-          ${Cone6.replace('.webp', '-600.webp')} 600w,
-          ${Cone6.replace('.webp', '-1200.webp')} 1200w
+          ${Cone6.replace('.webp', '-100.webp')} 100w,
+          ${Cone6.replace('.webp', '-120.webp')} 120w,
+          ${Cone6.replace('.webp', '-170.webp')} 170w
         `}
-          sizes="(max-width: 600px) 300px, (max-width: 1024px) 600px, 1200px"
+          sizes="(max-width: 600px) 100, (max-width: 1024px) 120px, 170px"
           src={Cone6}
           ref={itemRefs.item7}
           className="item7"
