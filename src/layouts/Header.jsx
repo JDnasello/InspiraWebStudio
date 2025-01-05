@@ -21,7 +21,7 @@ const Header = () => {
     setHeaderClass(window.scrollY > 0);
   }, 20); // Ajusta el tiempo según tus necesidades
 
-  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll, {passive: true});
 
   return () => {
     window.removeEventListener("scroll", handleScroll);

@@ -136,6 +136,7 @@ model-viewer::part(default-ar-button) {
 .parallax {
   transition: transform 0.1s linear;
   position: absolute;
+  width: 140px;
 }
 
 .parallax:first-child {
@@ -163,29 +164,9 @@ model-viewer::part(default-ar-button) {
   top: 65%;
 }
 
-.item1 {
-  /* rombo */
-  width: 144px;
-}
-
-.item2 {
-  /* cuadrao */
-  width: 144px;
-}
-
-.item3 {
-  /* triangulop */
-  width: 144px;
-}
-
-.item4 {
-  /* pretzel */
-  width: 144px;
-}
-
-.item5 {
-  /* circulo */
-  width: 144px;
+.item1, .item2, .item3, .item4, .item5 {
+  width: 100%;
+  height: 100%;
 }
 
 .social-hero {
@@ -234,30 +215,7 @@ svg path {
     top: 16em;
   }
 
-  .item1 {
-    /* rombo */
-    width: 128px;
-  }
-
-  .item2 {
-    /* cuadrao */
-    width: 128px;
-  }
-
-  .item3 {
-    /* triangulop */
-    width: 128px;
-  }
-
-  .item4 {
-    /* pretzel */
-    width: 128px;
-  }
-
-  .item5 {
-    /* circulo */
-    width: 128px;
-  }
+  
 
   .sec1-contder .contder-presentation .contder-h1 {
     font-size: 4em;
@@ -347,6 +305,10 @@ svg path {
     font-size: 3em;
   }
 
+  .parallax{
+    width: 110px;
+  }
+
   .parallax:first-child {
     left: -5%;
     bottom: 25%;
@@ -372,31 +334,7 @@ svg path {
     top: 55%;
   }
 
-  .item1 {
-    /* rombo */
-    width: 96px;
-  }
-
-  .item2 {
-    /* cuadrao */
-    width: 112px;
-
-  }
-
-  .item3 {
-    /* triangulop */
-    width: 112px;
-  }
-
-  .item4 {
-    /* pretzel */
-    width: 96px;
-  }
-
-  .item5 {
-    /* circulo */
-    width: 120px;
-  }
+  
 
 }
 
@@ -410,31 +348,10 @@ svg path {
     font-size: 3em;
   }
 
-  .item1 {
-    /* rombo */
+  .parallax{
     width: 112px;
   }
 
-  .item2 {
-    /* cuadrao */
-    width: 112px;
-
-  }
-
-  .item3 {
-    /* triangulop */
-    width: 112px;
-  }
-
-  .item4 {
-    /* pretzel */
-    width: 112px;
-  }
-
-  .item5 {
-    /* circulo */
-    width: 112px;
-  }
 
 }
 
@@ -548,31 +465,10 @@ svg path {
     line-height: 1.2;
   }
 
-  .item1 {
-    /* rombo */
+  .parallax{
     width: 96px;
   }
 
-  .item2 {
-    /* cuadrao */
-    width: 96px;
-    z-index: -1;
-  }
-
-  .item3 {
-    /* triangulop */
-    width: 96px;
-  }
-
-  .item4 {
-    /* pretzel */
-    width: 80px;
-  }
-
-  .item5 {
-    /* circulo */
-    width: 80px;
-  }
 
   .items-hero {
     position: relative;
@@ -668,30 +564,9 @@ svg path {
     top: 60%;
   }
 
-  .item1 {
-    /* rombo */
+  .parallax{
     width: 80px;
   }
 
-  .item2 {
-    /* cuadrao */
-    width: 80px;
-    z-index: -1;
-  }
-
-  .item3 {
-    /* triangulop */
-    width: 80px;
-  }
-
-  .item4 {
-    /* pretzel */
-    width: 80px;
-  }
-
-  .item5 {
-    /* circulo */
-    width: 80px;
-  }
-
+  
 }
