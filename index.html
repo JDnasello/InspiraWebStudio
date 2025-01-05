@@ -6,7 +6,19 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Agencia de desarrollo web profesional. Ofrecemos diseño web moderno, soluciones digitales, optimización SEO, desarrollo de e-commerce y estrategias de branding personalizadas. Mejora tu presencia digital con nosotros.">
-  
+  <script>
+    // Código para hacer los eventos pasivos
+    const originalAddEventListener = Element.prototype.addEventListener;
+
+    Element.prototype.addEventListener = function(type, listener, options) {
+        if (['wheel', 'touchmove', 'scroll'].includes(type)) {
+            options = options || {};  // Asegúrate de que options no sea undefined
+            options.passive = true;  // Hacemos que estos eventos sean pasivos
+        }
+
+        originalAddEventListener.call(this, type, listener, options);
+    };
+  </script>
   <!-- Preconnect para optimizar las conexiones -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
