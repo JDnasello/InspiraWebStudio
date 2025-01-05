@@ -1,6 +1,6 @@
 import "@google/model-viewer";
 import HummingBird from "../components/HummingBird";
-import { useEffect, useRef} from "react";
+import { useEffect, useRef } from "react";
 import "../css/section-1.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Instagram from "@mui/icons-material/Instagram";
@@ -58,6 +58,9 @@ const Section1 = ({ cursorRef, innerCursorRef }) => {
   return (
     <>
       <Helmet>
+        <link rel="preload" href="../css/section-1.css" as="style" />
+
+
         <link rel="preload" href={Cone.replace(".webp", "-170.webp")} as="image" type="image/webp" />
         <link rel="preload" href={Cone1.replace(".webp", "-170.webp")} as="image" type="image/webp" />
         <link rel="preload" href={Cone2.replace(".webp", "-170.webp")} as="image" type="image/webp" />

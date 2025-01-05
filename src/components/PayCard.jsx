@@ -1,6 +1,5 @@
 import { payCardList } from '../data/payCards';
 import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
-import PayCardCharacteristics from './PayCardCharacteristics';
 import Button from './Button'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import debounce from 'lodash.debounce';
@@ -10,6 +9,7 @@ import "swiper/css";
 const RecommendOutlinedLazy = lazy(() => import('@mui/icons-material/RecommendOutlined'))
 const StorefrontLazy = lazy(() => import('@mui/icons-material/Storefront'))
 const WorkspacePremiumLazy = lazy(() => import('@mui/icons-material/WorkspacePremium'))
+const PayCardCharacteristicsLazy = lazy(() => import('./PayCardCharacteristics'));
 
 const PayCard = ({ cardContainer }) => {
 
@@ -195,7 +195,7 @@ const PayCard = ({ cardContainer }) => {
                     </div>
                     </div>
                     <div className="card-separator"></div>
-                    <PayCardCharacteristics card={card} />
+                    (<Suspense><PayCardCharacteristicsLazy card={card} /></Suspense>)
                 </div>
                 </article>
             </SwiperSlide>

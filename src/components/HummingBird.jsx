@@ -1,6 +1,5 @@
 import "@google/model-viewer";
 import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
 
 // eslint-disable-next-line react/prop-types
 const HummingBird = ({ colibriRef, cursorRef, innerCursorRef }) => {
@@ -47,15 +46,6 @@ const HummingBird = ({ colibriRef, cursorRef, innerCursorRef }) => {
 
   return (
     <>
-      <Helmet>
-        <link
-          rel="preload"
-          href={modelConfig.src}
-          as="fetch"
-          crossOrigin="anonymous"
-        />
-        <link rel="preload" href={modelConfig.environmentImage} as="image" />
-      </Helmet>
       <model-viewer
         ref={colibriRef}
         src={modelConfig.src}
