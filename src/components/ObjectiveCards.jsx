@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState, Suspense, lazy } from "react";
 import { objectivesList } from "../data/objectives";
-import debounce from "lodash.debounce";
 
 const LazyBrush = lazy(() => import("@mui/icons-material/Brush"));
 const LazyQueryStats = lazy(() => import("@mui/icons-material/QueryStats"));
@@ -10,113 +9,117 @@ const LazyShieldTwoTone = lazy(() => import("@mui/icons-material/ShieldTwoTone")
 const LazySupportAgent = lazy(() => import("@mui/icons-material/SupportAgent"));
 
 const ObjectiveCards = () => {
-
-    const articleRef = useRef(null)
+    const articleRef = useRef(null);
     const [visibleIndexes, setVisibleIndexes] = useState([]);
 
-    // Función que maneja el comportamiento del parallax al hacer scroll
-    const handleScroll = debounce(() => {
-        if (articleRef.current) {
-            const articles = articleRef.current.querySelectorAll(".objective-article");
-            const newVisibleIndexes = [];
+    // Función para obtener el icono dependiendo del tipo de objetivo
+    const getIcon = (type) => {
+        switch (type) {
+            case 'custom':
+                return (
+                    <Suspense fallback={<div className="loading-icon" />}>
+                        <LazyBrush className="objective-icon" />
+                    </Suspense>
+                );
+            case 'SEO':
+                return (
+                    <Suspense fallback={<div className="loading-icon" />}>
+                        <LazyQueryStats className="objective-icon" />
+                    </Suspense>
+                );
+            case 'responsive':
+                return (
+                    <Suspense fallback={<div className="loading-icon" />}>
+                        <LazyPhonelink className="objective-icon" />
+                    </Suspense>
+                );
+            case 'fast':
+                return (
+                    <Suspense fallback={<div className="loading-icon" />}>
+                        <LazyRocketLaunch className="objective-icon" />
+                    </Suspense>
+                );
+            case 'secure':
+                return (
+                    <Suspense fallback={<div className="loading-icon" />}>
+                        <LazyShieldTwoTone className="objective-icon" />
+                    </Suspense>
+                );
+            case 'support':
+                return (
+                    <Suspense fallback={<div className="loading-icon" />}>
+                        <LazySupportAgent className="objective-icon" />
+                    </Suspense>
+                );
+            default:
+                return null;
+        }
+    };
 
-            articles.forEach((article, index) => {
-                const rect = article.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    // Si la tarjeta está visible en el viewport, agrega su índice
-                    newVisibleIndexes.push(index);
+    // UseEffect para configurar el IntersectionObserver
+    useEffect(() => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                const index = entry.target.getAttribute('data-index');
+
+                if (entry.isIntersecting) {
+                    // Cuando el artículo entra en el viewport, lo agregamos a los índices visibles
+                    setVisibleIndexes((prevIndexes) => [
+                        ...new Set([...prevIndexes, Number(index)]),
+                    ]);
                 }
             });
+        }, { threshold: 0.2 }); // Threshold al 20% de visibilidad
 
-            setVisibleIndexes((prevIndexes) => [
-                ...new Set([...prevIndexes, ...newVisibleIndexes]),
-            ]);
-        }
-    }, 10); // Ajusta el tiempo de debounce según sea necesario
+        // Obtenemos todas las tarjetas (artículos) dentro del contenedor
+        const articles = articleRef.current.querySelectorAll(".objective-article");
 
-    const getIcon = (type) => {
-    switch (type) {
-        case 'custom':
-            return (
-                <Suspense fallback={<div className="loading-icon" />}>
-                    <LazyBrush className="objective-icon" />
-                </Suspense>
-            );
-        case 'SEO':
-            return (
-                <Suspense fallback={<div className="loading-icon" />}>
-                    <LazyQueryStats className="objective-icon" />
-                </Suspense>
-            );
-        case 'responsive':
-            return (
-                <Suspense fallback={<div className="loading-icon" />}>
-                    <LazyPhonelink className="objective-icon" />
-                </Suspense>
-            );
-        case 'fast':
-            return (
-                <Suspense fallback={<div className="loading-icon" />}>
-                    <LazyRocketLaunch className="objective-icon" />
-                </Suspense>
-            );
-        case 'secure':
-            return (
-                <Suspense fallback={<div className="loading-icon" />}>
-                    <LazyShieldTwoTone className="objective-icon" />
-                </Suspense>
-            );
-        case 'support':
-            return (
-                <Suspense fallback={<div className="loading-icon" />}>
-                    <LazySupportAgent className="objective-icon" />
-                </Suspense>
-            );
-        default:
-            return null;
-    }
-};
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll, { passive: true });
+        // Observamos cada artículo para saber cuándo entra al viewport
+        articles.forEach((article) => {
+            observer.observe(article);
+        });
 
-        return () => window.removeEventListener("scroll", handleScroll);
+        // Cleanup al desmontar el componente
+        return () => {
+            articles.forEach((article) => {
+                observer.unobserve(article);
+            });
+        };
     }, []);
 
     return (
         <div className="container-objectives" ref={articleRef}>
-            {
-                objectivesList.map((obj, index) => (
-                    <article
-                        className={`objective-article ${visibleIndexes.includes(index) ? 'visible' : ''
-                            }`}
-                        key={obj.id}
-                    >
-                        <div className="top-objective-container">
-                            <div className="icon-container">
-                                {getIcon(obj.type)}
-                            </div>
-                            <h3
-                                className="objective-h3"
-                                title={obj.title}
-                                aria-label={obj.title}
-                            >
-                                {obj.title}
-                            </h3>
+            {objectivesList.map((obj, index) => (
+                <article
+                    key={obj.id}
+                    data-index={index} // Añadimos el índice como atributo para identificar el artículo
+                    className={`objective-article ${visibleIndexes.includes(index) ? 'visible' : ''}`}
+                >
+                    <div className="top-objective-container">
+                        <div className="icon-container">
+                            {getIcon(obj.type)}
                         </div>
-                        <div className="container-objective-body">
-                            <p
-                                className="objective-p"
-                                title={obj.description}
-                                aria-label={obj.description}
-                            >
-                                {obj.description}
-                            </p>
-                        </div>
-                    </article>
-                ))
-            }
+                        <h3
+                            className="objective-h3"
+                            title={obj.title}
+                            aria-label={obj.title}
+                        >
+                            {obj.title}
+                        </h3>
+                    </div>
+                    <div className="container-objective-body">
+                        <p
+                            className="objective-p"
+                            title={obj.description}
+                            aria-label={obj.description}
+                        >
+                            {obj.description}
+                        </p>
+                    </div>
+                </article>
+            ))}
         </div>
-    )
-}
+    );
+};
 
-export default ObjectiveCards
+export default ObjectiveCards;
