@@ -1,24 +1,13 @@
 import "../css/footer.css";
 import Instagram from "@mui/icons-material/Instagram";
-import debounce from 'lodash.debounce';
 import { useRef, useEffect, useState, useCallback } from "react";
-import { LazyLoadImage }   from "react-lazy-load-image-component";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Footer = () => {
   const footerRef = useRef(null); // Ref para el footer
   const logo = "/assets/optimized/logoSinColor-80.webp";
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
-  // Usamos resizeObserver para ajustar el tamaño del dispositivo en tiempo real
-  useEffect(() => {
-    const resizeObserver = new ResizeObserver(() => {
-      setIsMobile(window.innerWidth < 768);
-    });
-    resizeObserver.observe(document.body);
-
-    return () => resizeObserver.disconnect();
-  }, []);
 
   // Usamos requestAnimationFrame para sincronizar con el ciclo de renderizado
   const handleParallaxScroll = useCallback(() => {
@@ -34,41 +23,59 @@ const Footer = () => {
     footerRef.current.style.transform = `translateY(${-(1 - clampedRatio) * 85}%)`;
   }, []);
 
-  // Guardamos las animaciones en una variable para evitar la consulta del DOM cada vez
-  const animateItems = useCallback(() => {
-    if (!footerRef.current) return;
-
-    const footerElements = footerRef.current.querySelectorAll(".animate-item");
-    return footerElements;
-  }, []);
-
-  // Función que maneja la animación de fade-in con debounce
-  const handleFadeInScroll = debounce(() => {
-    if (!footerRef.current) return;
-
-    const viewportHeight = window.innerHeight;
-    const footerRect = footerRef.current.getBoundingClientRect();
-    const isFooterVisible = footerRect.top < viewportHeight && footerRect.bottom > 0;
-
-    if (isFooterVisible) {
-      const footerElements = animateItems();
-      footerElements.forEach((element, index) => {
-        setTimeout(() => {
-          element.classList.add("fade-in");
-        }, index * 300); // Animación escalonada
-      });
-    }
-  }, 10); // Limitar la ejecución a cada 50ms para evitar llamadas rápidas
-
+  // Use Intersection Observer for mobile
   useEffect(() => {
-    const handleScroll = isMobile ? handleFadeInScroll : handleParallaxScroll;
+    if (isMobile) {
+      const footerItems = document.querySelectorAll('.animate-item');
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1, // When 10% of the footer is visible, trigger the animation
+      });
+
+      footerItems.forEach(item => observer.observe(item));
+
+      // Cleanup observer when unmounting or resizing
+      return () => {
+        footerItems.forEach(item => observer.unobserve(item));
+      };
+    }
+  }, [isMobile]); // Re-run when isMobile changes
+
+  // Handle resizing and adjust isMobile state
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
-  }, [isMobile, handleFadeInScroll, handleParallaxScroll]);
+  }, []);
+
+  // Scroll handling for desktop and parallax effect
+  useEffect(() => {
+    const handleScroll = !isMobile ? handleParallaxScroll : null;
+
+    if (handleScroll) {
+      window.addEventListener("scroll", handleScroll, { passive: true });
+    }
+
+    return () => {
+      if (handleScroll) {
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, [isMobile, handleParallaxScroll]);
 
   const currentYear = new Date().getFullYear();
 
@@ -78,7 +85,12 @@ const Footer = () => {
         <div className="nav-footer">
           <div className="container-footer-logo animate-item">
             <a href="#" aria-label="Inspira Web Studio - Inicio">
-              <LazyLoadImage src={logo} alt="Logo de Inspira Web Studio" width={70} effect="blur" />
+              <LazyLoadImage
+                src={logo}
+                alt="Logo de Inspira Web Studio"
+                width={70}
+                effect="blur"
+              />
               <span className="footer-title">Inspira Web Studio</span>
             </a>
           </div>
