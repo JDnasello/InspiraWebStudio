@@ -169,6 +169,7 @@ const PayCard = ({ cardContainer }) => {
                             buttonText="Consultar precio"
                             buttonClassName="button-variant"
                             aria-label="Consultar precio del plan"
+                            textForWhatsapp={card.textForContact}
                         />
                         ) : (
                         <>
@@ -190,6 +191,7 @@ const PayCard = ({ cardContainer }) => {
                         <Button
                             buttonText="Elegir plan"
                             aria-label="Elegir este plan"
+                            textForWhatsapp={card.textForContact}
                         />
                         )}
                     </div>

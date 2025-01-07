@@ -98,7 +98,10 @@ const Footer = () => {
             <h4 className="nav-section-title">Nosotros</h4>
             <p>
               Somos un equipo creativo inspirado en diseñar páginas web con onda
-              y personalidad.
+              y personalidad. Investigamos las últimas tendencias, pero siempre
+              le ponemos nuestro toque único. Creamos espacios digitales que
+              ayudan a las marcas a conectar con sus clientes, combinando
+              creatividad, innovación y nuestra propia esencia.
             </p>
           </div>
           <div className="nav-section section-2 animate-item">
@@ -120,7 +123,9 @@ const Footer = () => {
         </div>
         <div className="social-media-and-email animate-item">
           <div>
-            <a href="mailto:inspira@webstudio.com">inspira@webstudio.com</a>
+            <a href="mailto:inspirawebstudio@gmail.com" target="_blank" rel="noopener norefrerrer">
+              inspirawebstudio@gmail.com
+            </a>
           </div>
           <p className="copyright">&copy; {currentYear}, Inspira Web Studio.</p>
           <div className="social-media">

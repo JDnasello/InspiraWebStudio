@@ -96,9 +96,15 @@ function App() {
         )
       }
       <IwStudioPage cursorRef={cursorRef} innerCursorRef={innerCursorRef} />
-      <button className="whatsapp-container" aria-label="Contactar por WhatsApp">
+      <a
+        href="https://wa.me/+5492284472217?text=Hola%2C%20estoy%20interesado%20en%20tus%20servicios" 
+        className="whatsapp-container" 
+        aria-label="Contactar por WhatsApp"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
       <WhatsAppIcon className="whatsapp-icon" />
-      </button>
+      </a>
     </>
   );
 }
