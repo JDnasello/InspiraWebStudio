@@ -30,7 +30,7 @@ export const payCardList = [
     id: 2,
     chip: "Recomendado",
     title: "Landing page",
-    price: "70000",
+    price: "50000",
     button: true,
     textForContact: "Hola, quiero consultar por el plan de landing page",
     description:
