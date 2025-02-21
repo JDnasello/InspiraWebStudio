@@ -3,6 +3,8 @@ import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
 import Button from './Button';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import debounce from 'lodash.debounce';
+import tattoo from '../assets/original/pruebaTattoo4.png';
+import tattooMachine from '../assets/original/tattoMachineIcon.webp';
 
 import "swiper/css";
 
@@ -18,8 +20,8 @@ const PayCard = ({ cardContainer }) => {
 
     const sortCards = useCallback(() => {
         return isLargeScreen
-            ? [payCardList[0], payCardList[1], payCardList[2], payCardList[4], payCardList[3]]
-            : [payCardList[1], payCardList[2], payCardList[4], payCardList[0], payCardList[3]];
+            ? [payCardList[1], payCardList[5], payCardList[2], payCardList[4], payCardList[0], payCardList[3]]
+            : [payCardList[1], payCardList[5], payCardList[2], payCardList[4], payCardList[0], payCardList[3]];
     }, [isLargeScreen]);
 
     // Función para manejar la aparición de tarjetas
@@ -74,13 +76,13 @@ const PayCard = ({ cardContainer }) => {
     }, [appearCards]);
 
     if (!swiperModules) return <div
-                                style={{
-                                    minHeight: '100vh',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }}
-                            >Loading...</div>;
+        style={{
+            minHeight: '100vh',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+        }}
+    >Loading...</div>;
 
     return (
         <Swiper
@@ -106,13 +108,13 @@ const PayCard = ({ cardContainer }) => {
                     >
                         {card?.chip && (
                             <span
-                                className={`chip ${card.id === 2 ? "first-chip" : card.id === 4 ? "second-chip" : "third-chip"}`}
+                                className={`chip ${card.id === 2 ? "first-chip" : card.id === 4 ? "second-chip" : card.id === 5 ? "third-chip" : "fourth-chip"}`}
                             >
                                 {card.chip}
                             </span>
                         )}
                         <div
-                            className={`card ${card.id === 2 || card.id === 4 || card.id === 5 ? "no-radius" : "basics-cards"}`}
+                            className={`card ${card.id === 2 || card.id === 4 || card.id === 5 || card.id === 6 ? "no-radius" : "basics-cards"}`}
                         >
                             {card.id === 2 ? (
                                 <Suspense>
@@ -127,6 +129,10 @@ const PayCard = ({ cardContainer }) => {
                                         className="best-plans e-commerce"
                                         aria-label="Tienda en línea"
                                     />
+                                </Suspense>
+                            ) : card.id === 6 ? (
+                                <Suspense>
+                                    <img src={tattooMachine} alt="Máquina de tatuajes" className='best-plans tattoo-machine' />
                                 </Suspense>
                             ) : (
                                 card.id === 4 && (
@@ -148,23 +154,38 @@ const PayCard = ({ cardContainer }) => {
                                     </p>
                                 </div>
                                 <div>
-                                    {card.id !== 2 ? (
+                                {card.id === 6 ? (
+                                    <>
+                                            <span className="card-quotes">Desde 3 cuotas sin interés de:</span>
+                                        <span id="card-price">
+                                            <span className="coin-type" aria-label="Moneda">ar$</span>
+                                            {card.price}
+                                            <span className="coin-type price-per-month">/mes</span>
+                                        </span>
                                         <Button
-                                            buttonText="Consultar precio"
-                                            buttonClassName="button-variant"
-                                            aria-label="Consultar precio del plan"
-                                            textForWhatsapp={card.textForContact}
-                                        />
-                                    ) : (
-                                        <>
-                                            <span className="card-quotes">3 cuotas sin interés de:</span>
-                                            <span id="card-price">
-                                                <span className="coin-type" aria-label="Moneda">ar$</span>
-                                                {card.price}
-                                                <span className="coin-type price-per-month">/mes</span>
-                                            </span>
-                                        </>
-                                    )}
+                                        buttonText="Consultar precio"
+                                        buttonClassName="button-variant"
+                                        aria-label="Consultar precio del plan"
+                                        textForWhatsapp={card.textForContact}
+                                    />
+                                    </>
+                                ) : card.id === 2 ? (
+                                    <>
+                                        <span className="card-quotes">3 cuotas sin interés de:</span>
+                                        <span id="card-price">
+                                            <span className="coin-type" aria-label="Moneda">ar$</span>
+                                            {card.price}
+                                            <span className="coin-type price-per-month">/mes</span>
+                                        </span>
+                                    </>
+                                ) : (
+                                    <Button
+                                        buttonText="Consultar precio"
+                                        buttonClassName="button-variant"
+                                        aria-label="Consultar precio del plan"
+                                        textForWhatsapp={card.textForContact}
+                                    />
+                                )}
                                     {card.button && (
                                         <Button
                                             buttonText="Elegir plan"
@@ -178,6 +199,7 @@ const PayCard = ({ cardContainer }) => {
                             <Suspense>
                                 <PayCardCharacteristicsLazy card={card} />
                             </Suspense>
+                            {card.id === 6 && <img src={tattoo} alt="Tatuaje trival" className='tattooImage' />}
                         </div>
                     </article>
                 </SwiperSlide>

@@ -112,6 +112,11 @@
     fill: #50279c !important;
 }
 
+.best-plans.tattoo-machine {
+    width: 22px;
+    height: auto;
+}
+
 .chip {
     position: relative;
     top: 23px;
@@ -140,13 +145,28 @@
     background-color: #50279c;
 }
 
+.chip.fourth-chip {
+    background-color: #0a0a0a;
+}
+
+.tattooImage{
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    z-index: -2;
+    filter: blur(3px);
+    width: 150px;
+    opacity: 0.3;
+    height: auto;
+}
+
 .top-card {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
     padding: 20px 20px 0;
-    min-height: 315px;
+    min-height: 354px;
 }
 
 .top-card h3 {
@@ -158,6 +178,11 @@
     font-size: 2em;
     align-self: center;
     color: #2a0f5c;
+}
+
+#card-price .price-text {
+    font-size: 0.5em;
+    font-weight: 400;
 }
 
 .coin-type {

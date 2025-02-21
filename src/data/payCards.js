@@ -16,8 +16,8 @@ export const payCardList = [
       { id: 6, text: "Integración de nuevas funcionalidades", type: "info", info: "Consultar costo adicional" },
       { id: 7, text: "Gestión de base de datos", type: "info", info: "Consultar costo adicional" },
       {
-        id: 8, 
-        text: "Multi-idioma", 
+        id: 8,
+        text: "Multi-idioma",
         type: "info",
         info: "Costo adicional de ar$20000"
       },
@@ -30,7 +30,7 @@ export const payCardList = [
     id: 2,
     chip: "Recomendado",
     title: "Landing page",
-    price: "50000",
+    price: "60000",
     button: true,
     textForContact: "Hola, quiero consultar por el plan de landing page",
     description:
@@ -45,8 +45,8 @@ export const payCardList = [
       { id: 18, text: "Reportes de rendimiento", type: "checked" },
       { id: 19, text: "Mantenimiento por 3 meses", type: "checked" },
       {
-        id: 20, 
-        text: "Multi-idioma", 
+        id: 20,
+        text: "Multi-idioma",
         type: "info",
         info: "Costo adicional de ar$20000"
       },
@@ -90,10 +90,11 @@ export const payCardList = [
       { id: 37, text: "Optimización del rendimiento de API", type: "checked" },
       { id: 38, text: "Documentación técnica", type: "checked" },
       { id: 39, text: "Mantenimiento de api por 3 meses", type: "checked" },
-      { id: 40, 
-        text: "Integración con frontend", 
+      {
+        id: 40,
+        text: "Integración con frontend",
         type: "info",
-        info: "Consultar costo adicional" 
+        info: "Consultar costo adicional"
       },
     ],
   },
@@ -119,4 +120,38 @@ export const payCardList = [
       { id: 52, text: "Mantenimiento por 3 meses", type: "checked" },
     ],
   },
+  {
+    id: 6,
+    chip: "Tatuadores",
+    title: "Web para tatuadores que quieren destacar",
+    price: "50000",
+    description:
+      "Mostrá tu arte, conseguí más clientes y organizá tus reservas sin estrés.",
+    textForContact: "Hola, quiero una web para mi estudio de tatuajes",
+    characteristics: [
+      { id: 53, text: "Diseño único que refleje tu estilo", type: "checked" },
+      { id: 54, text: "Galería pro para mostrar tus tatuajes", type: "checked" },
+      { id: 55, text: "Reservas online fácil y sin vueltas", type: "checked" },
+      // { id: 56, text: "Integración con Instagram y redes", type: "checked" },
+      { id: 57, text: "Optimización SEO para que te encuentren", type: "checked" },
+      { id: 58, text: "Diseño responsivo", type: "checked" },
+      { id: 59, text: "Hosting y dominio gratis el primer año", type: "checked" },
+      { id: 60, text: "Mantenimiento por 3 meses", type: "checked" },
+      {
+        id: 61,
+        text: "Blog autogestionado",
+        type: "info",
+        info: "Costo adicional, consultanos"
+      },
+      {
+        id: 62,
+        text: "Multi-idioma",
+        type: "info",
+        info: "Costo adicional de ar$20000"
+      },
+      {
+        id: 63, text: "Tienda online para vender merch y productos", type: "info", info: "Costo adicional, consultanos",
+      },
+    ],
+  }
 ];
