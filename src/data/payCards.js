@@ -132,7 +132,7 @@ export const payCardList = [
       { id: 53, text: "Diseño único que refleje tu estilo", type: "checked" },
       { id: 54, text: "Galería pro para mostrar tus tatuajes", type: "checked" },
       { id: 55, text: "Reservas online fácil y sin vueltas", type: "checked" },
-      // { id: 56, text: "Integración con Instagram y redes", type: "checked" },
+      { id: 56, text: "Enlaces a redes sociales", type: "checked" },
       { id: 57, text: "Optimización SEO para que te encuentren", type: "checked" },
       { id: 58, text: "Diseño responsivo", type: "checked" },
       { id: 59, text: "Hosting y dominio gratis el primer año", type: "checked" },
