@@ -305,6 +305,20 @@ svg path {
     left: 50%;
     top: 65%;
   }
+
+  .planing-btn {
+    background-color: transparent;
+    border: none;
+    width: fit-content;
+    margin-top: 10%;
+    display: block;
+    padding: 0;
+  }
+
+  .planing-btn #header-call {
+    width: 100%;
+    padding: 12px 55px;
+  }
 }
 
 @media screen and (max-width: 1024px) and (max-height: 600px) {

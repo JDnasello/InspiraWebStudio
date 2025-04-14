@@ -105,7 +105,7 @@ const Footer = () => {
             </p>
           </div>
           <div className="nav-section section-2 animate-item">
-            <h4 className="nav-section-title">Menú</h4>
+            <h4 className="nav-section-title">Menu</h4>
             <ul>
               <li>
                 <a className="a-us" href="#footer">

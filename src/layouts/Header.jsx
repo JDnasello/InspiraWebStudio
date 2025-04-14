@@ -6,27 +6,38 @@ import CloseIcon from "@mui/icons-material/Close";
 import Instagram from "@mui/icons-material/Instagram";
 import debounce from "lodash.debounce";
 import NavLinks from "../components/NavLinks";
-
+import { useLanguage } from "../context/LanguageContext";
 
 const Header = () => {
   const [headerClass, setHeaderClass] = useState(false);
   const headerRef = useRef(null);
   const [openMenu, setOpenMenu] = useState(false);
+  const { i18n, changeLanguage } = useLanguage();
 
   const LogoColor100 = "logoColor-100.webp";
-  const navItems = ['High quality', 'User friendly', 'Custom made', 'Innovative solutions', 'On time']
+  const navItems = [
+    "High quality",
+    "User friendly",
+    "Custom made",
+    "Innovative solutions",
+    "On time",
+  ];
 
   useEffect(() => {
-  const handleScroll = debounce(() => {
-    setHeaderClass(window.scrollY > 0);
-  }, 20); // Ajusta el tiempo según tus necesidades
+    const handleScroll = debounce(() => {
+      setHeaderClass(window.scrollY > 0);
+    }, 20); // Ajusta el tiempo según tus necesidades
 
-  window.addEventListener("scroll", handleScroll, {passive: true});
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const handleChangeLanguage = (lang) => {
+    changeLanguage(lang);
   };
-}, []);
 
   const toggleMenu = () => {
     setOpenMenu(!openMenu);
@@ -46,12 +57,10 @@ const Header = () => {
       // Realizamos el desplazamiento suave hasta el offsetTop del target
       window.scrollTo({
         top: targetPosition,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
-  }
-
-
+  };
 
   return (
     <>
@@ -61,26 +70,37 @@ const Header = () => {
       <div className={`menu-responsive ${openMenu ? "menu-open" : ""}`}>
         <nav className="header-nav" title="Menú de navegación">
           <NavLinks closeMenu={closeMenu} scrollToPlaning={scrollToPlaning} />
+          <div className="languages">
+              <button className="lang-btn">ES</button>
+              <span>|</span>
+              <button className="lang-btn">EN</button>
+          </div>
           <div className="menu-slider">
             <div className="menu-slider-track">
-              {
-                navItems.concat(navItems).map((item, index) => (
-                  <span className="menu-slider-item" key={index}>{item}</span>
-                ))
-              }
+              {navItems.concat(navItems).map((item, index) => (
+                <span className="menu-slider-item" key={index}>
+                  {item}
+                </span>
+              ))}
             </div>
           </div>
           <div className="social-header">
-            <a href="https://www.instagram.com/inspirawebstudio/" aria-label="Visita nuestro perfil en Instagram" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.instagram.com/inspirawebstudio/"
+              aria-label="Visita nuestro perfil en Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Instagram className="social-icon" />
             </a>
-
           </div>
+          
         </nav>
       </div>
       <header
-        className={`container-header ${headerClass && !openMenu ? "header-sticky" : ""
-          }`}
+        className={`container-header ${
+          headerClass && !openMenu ? "header-sticky" : ""
+        }`}
         ref={headerRef}
       >
         <a className="header-logo" href="#">
@@ -95,8 +115,9 @@ const Header = () => {
             />
           </div>
           <span
-            className={`header-title ${headerClass ? "header-sticky-title" : ""
-              }`}
+            className={`header-title ${
+              headerClass ? "header-sticky-title" : ""
+            }`}
             title="Inspira Web Studio, estudio de desarrollo y diseño web"
           >
             Inspira Web Studio
@@ -104,16 +125,34 @@ const Header = () => {
         </a>
         <div className="header" id="header-id">
           <nav className="header-nav" title="Menú de navegación">
-            <a className="nav-link" href="#footer" title="Nosotros"  >
-              Nosotros
-            </a>
-            <a className="nav-link" href="#objectives" title="¿Qué ofrecemos?"  >
-            ¿Qué ofrecemos?
-            </a>
+            
+              <a className="nav-link" href="#footer" title="Nosotros">
+                Nosotros
+              </a>
+              <a
+                className="nav-link"
+                href="#objectives"
+                title="¿Qué ofrecemos?"
+              >
+                ¿Qué ofrecemos?
+              </a>
           </nav>
-          <a id="header-call" href="#planing" title="Planes de pago" onClick={(e) => { e.preventDefault(); scrollToPlaning(); }}  >
+          <a
+            id="header-call"
+            href="#planing"
+            title="Planes de pago"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollToPlaning();
+            }}
+          >
             Ver planes
           </a>
+          <div className="languages">
+              <button className="lang-btn">ES</button>
+              <span>|</span>
+              <button className="lang-btn">EN</button>
+          </div>
         </div>
         {!openMenu && (
           <button

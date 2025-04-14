@@ -22,13 +22,13 @@ function App() {
   useEffect(() => {
     if (isMobile) {
       document.querySelector("body").style.cursor = "default"
-      document.querySelectorAll("button, a, .swiper-button-next, .swiper-button-prev, .swiper-pagination-bullet")
+      document.querySelectorAll("button, a, .swiper-button-next, .swiper-button-prev, .swiper-pagination-bullet, .lang-btn")
         .forEach((el) => {
           el.style.cursor = "pointer"
         })
     } else if (!isMobile) {
       document.querySelector('body').style.cursor = 'none'
-      document.querySelectorAll("button, a, .swiper-button-next, .swiper-button-prev, .swiper-pagination-bullet")
+      document.querySelectorAll("button, a, .swiper-button-next, .swiper-button-prev, .swiper-pagination-bullet, .lang-btn")
         .forEach((el) => {
           el.style.cursor = "none"
         })
