@@ -128,34 +128,35 @@ const PayCard = ({ t, cardContainer }) => {
 
   return (
     <>
-      {openCountriesList && <div className="seccion3-overlay"></div>}
-        <div className="location-wrapper">
-          <div
-            className={`location ${openCountriesList ? 'location-open' : ''}`}
-            onClick={() => setOpenCountriesList(!openCountriesList)}
-          >
-            {
-              window.innerWidth >= 768 ? <span>Moneda: {currencySymbol[selectedCountry]}</span>
-                : <span>{currencySymbol[selectedCountry]}</span>
-            }
-            <KeyboardArrowDown />
-          </div>
-          {openCountriesList && (
-            <ul className="country-dropdown">
-              {countries.map((c) => (
-                <li
-                  key={c.code}
-                  onClick={() => {
-                    setSelectedCountry(c.code);
-                    setOpenCountriesList(false);
-                  }}
-                >
-                  {c.name} ({currencySymbol[c.code]})
-                </li>
-              ))}
-            </ul>
+      <div className={`seccion3-overlay ${openCountriesList ? 'active' : ''}`} onClick={() => setOpenCountriesList(false)}></div>
+      <div className="location-wrapper">
+        <div
+          className={`location ${openCountriesList ? "location-open" : ""}`}
+          onClick={() => setOpenCountriesList(!openCountriesList)}
+        >
+          {window.innerWidth >= 768 ? (
+            <span>Moneda: {currencySymbol[selectedCountry]}</span>
+          ) : (
+            <span>{currencySymbol[selectedCountry]}</span>
           )}
+          <KeyboardArrowDown />
         </div>
+        {openCountriesList && (
+          <ul className="country-dropdown">
+            {countries.map((c) => (
+              <li
+                key={c.code}
+                onClick={() => {
+                  setSelectedCountry(c.code);
+                  setOpenCountriesList(false);
+                }}
+              >
+                {c.name} ({currencySymbol[c.code]})
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
       <Swiper
         modules={swiperModules}
         navigation
@@ -171,10 +172,12 @@ const PayCard = ({ t, cardContainer }) => {
         }}
         className="swiper-container"
       >
-
         {sortCards().map((card) => (
           <SwiperSlide key={card.id}>
-            <article className="card-container" id={`card-container-${card.id}`}>
+            <article
+              className="card-container"
+              id={`card-container-${card.id}`}
+            >
               {card?.chip && (
                 <span
                   className={`chip ${
@@ -192,7 +195,10 @@ const PayCard = ({ t, cardContainer }) => {
               )}
               <div
                 className={`card ${
-                  card.id === 2 || card.id === 4 || card.id === 5 || card.id === 6
+                  card.id === 2 ||
+                  card.id === 4 ||
+                  card.id === 5 ||
+                  card.id === 6
                     ? "no-radius"
                     : "basics-cards"
                 }`}
@@ -256,7 +262,9 @@ const PayCard = ({ t, cardContainer }) => {
                           </span>
                         </span>
                         <Button
-                          buttonText={t("payCardsDetails.--paycard-button-query")}
+                          buttonText={t(
+                            "payCardsDetails.--paycard-button-query"
+                          )}
                           buttonClassName="button-variant"
                           aria-label="Consultar precio del plan"
                           textForWhatsapp={t(card.textForContact)}
@@ -296,7 +304,12 @@ const PayCard = ({ t, cardContainer }) => {
                 </div>
                 <div className="card-separator"></div>
                 <Suspense>
-                  <PayCardCharacteristicsLazy t={t} card={card} />
+                  <PayCardCharacteristicsLazy
+                    t={t}
+                    card={card}
+                    selectedCountry={selectedCountry}
+                    currencySymbol={currencySymbol}
+                  />
                 </Suspense>
                 {card.id === 6 && (
                   <img
@@ -310,7 +323,6 @@ const PayCard = ({ t, cardContainer }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-    
     </>
   );
 };

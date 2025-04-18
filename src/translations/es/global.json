@@ -43,7 +43,7 @@
           "text7": "Gestión de base de datos",
           "info2": "Consultar costo adicional"
         },
-        { "text8": "Multi-idioma", "info3": "Costo adicional de ar$20000" },
+        { "text8": "Multi-idioma", "info3": "Costo adicional de" },
         { "text9": "Integración de diseño responsivo"},
         { "text10": "Desarrollo de nuevas páginas"},
         { "text11": "Integración con APIs externas" }
@@ -63,7 +63,7 @@
         { "text17": "Integración con redes sociales" },
         { "text18": "Reportes de rendimiento" },
         { "text19": "Mantenimiento por 3 meses" },
-        { "text20": "Multi-idioma", "info4": "Costo adicional de ar$20000" },
+        { "text20": "Multi-idioma", "info4": "Costo adicional de" },
         { "text21": "Funcionalidades avanzadas"},
         { "text22": "Integración con APIs externas" }
       ]
@@ -146,7 +146,7 @@
           "text60": "Blog autogestionado",
           "info6": "Costo adicional, consultanos"
         },
-        { "text61": "Multi-idioma", "info7": "Costo adicional de ar$20000" },
+        { "text61": "Multi-idioma", "info7": "Costo adicional de" },
         {
           "text62": "Tienda online para vender merch y productos",
           "info8": "Costo adicional, consultanos"

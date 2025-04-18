@@ -7,7 +7,7 @@ const InfoOutlinedLazy = lazy(() => import("@mui/icons-material/InfoOutlined"));
 const KeyboardArrowDownLazy = lazy(() => import("@mui/icons-material/KeyboardArrowDown"));
 
 
-const PayCardCharacteristics = ({ t, card }) => {
+const PayCardCharacteristics = ({ t, card, selectedCountry, currencySymbol }) => {
 
     const [showAll, setShowAll] = useState(false)
     const [hoverIndex, setHoverIndex] = useState(null)
@@ -43,7 +43,13 @@ const PayCardCharacteristics = ({ t, card }) => {
                                         : (<Suspense><CloseLazy className='cross-icon' aria-hidden='true' /></Suspense>)
                         }
                             <span className="characteristic-txt" >{t(char.text)}</span>
-                            <InfoCard t={t} infotext={char.info} isVisible={hoverIndex === index} />
+                        <InfoCard
+                            t={t}
+                            infotext={char.info}
+                            infoCost={char.infoCost}
+                            selectedCountry={selectedCountry}
+                            currencySymbol={currencySymbol}
+                            isVisible={hoverIndex === index} />
                         </li>
                 ))}
             </ul>

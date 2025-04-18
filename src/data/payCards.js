@@ -8,7 +8,6 @@ export const payCardList = [
       US: "70",
       BR: "280",
     },
-
     button: false,
     textForContact: "payCards.0.--paycard-textForContact",
     description: "payCards.0.--paycard-description",
@@ -35,6 +34,7 @@ export const payCardList = [
         text: "payCards.0.characteristics.7.text8",
         type: "info",
         info: "payCards.0.characteristics.7.info3",
+        infoCost: true,
       },
       { id: 9, text: "payCards.0.characteristics.8.text9", type: "cross" },
       { id: 10, text: "payCards.0.characteristics.9.text10", type: "cross" },
@@ -50,12 +50,6 @@ export const payCardList = [
       ES: "60",
       US: "70",
       BR: "280",
-    },
-    additionalCost: {
-      AR: "20000",
-      ES: "20",
-      US: "20",
-      BR: "110",
     },
     button: true,
     textForContact: "payCards.1.--paycard-textForContact",
@@ -74,6 +68,7 @@ export const payCardList = [
         text: "payCards.1.characteristics.8.text20",
         type: "info",
         info: "payCards.1.characteristics.8.info4",
+        infoCost: true,
       },
       { id: 21, text: "payCards.1.characteristics.9.text21", type: "cross" },
       { id: 22, text: "payCards.1.characteristics.10.text22", type: "cross" },
@@ -84,12 +79,6 @@ export const payCardList = [
     chip: "payCards.2.--paycard-chip",
     title: "payCards.2.--paycard-title",
     price: "800000",
-    additionalCost: {
-      AR: "20000",
-      ES: "20",
-      US: "20",
-      BR: "110",
-    },
     description: "payCards.2.--paycard-description",
     textForContact: "payCards.2.--paycard-textForContact",
     characteristics: [
@@ -114,12 +103,6 @@ export const payCardList = [
     id: 3,
     title: "payCards.3.--paycard-title",
     price: "500000",
-    additionalCost: {
-      AR: "20000",
-      ES: "20",
-      US: "20",
-      BR: "110",
-    },
     description: "payCards.3.--paycard-description",
     textForContact: "payCards.3.--paycard-textForContact",
     characteristics: [
@@ -142,12 +125,6 @@ export const payCardList = [
     chip: "payCards.4.--paycard-chip",
     title: "payCards.4.--paycard-title",
     price: "1000000",
-    additionalCost: {
-      AR: "20000",
-      ES: "20",
-      US: "20",
-      BR: "110",
-    },
     description: "payCards.4.--paycard-description",
     textForContact: "payCards.4.--paycard-textForContact",
     characteristics: [
@@ -198,12 +175,6 @@ export const payCardList = [
       US: "70",
       BR: "280",
     },
-    additionalCost: {
-      AR: "20000",
-      ES: "20",
-      US: "20",
-      BR: "110",
-    },
     description: "payCards.5.--paycard-description",
     textForContact: "payCards.5.--paycard-textForContact",
     characteristics: [
@@ -238,6 +209,7 @@ export const payCardList = [
         text: "payCards.5.characteristics.9.text61",
         type: "info",
         info: "payCards.5.characteristics.9.info7",
+        infoCost: true,
       },
       {
         id: 63,
