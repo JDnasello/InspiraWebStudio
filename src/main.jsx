@@ -4,13 +4,14 @@ import './index.css'
 import App from './App.jsx'
 import { HelmetProvider } from 'react-helmet-async'
 import i18next from 'i18next'
+import Backend from 'i18next-http-backend'
 import { initReactI18next } from 'react-i18next'
-import globalES from './translations/es/es.json'
-import globalEN from './translations/en/en.json'
+import globalES from './translations/es/global.json'
+import globalEN from './translations/en/global.json'
 
-i18next.use(initReactI18next).init({
-  lng: "es",
-  interpolations: {
+i18next.use(Backend).use(initReactI18next).init({
+  fallbackLng: "es",
+  interpolation: {
     escapeValue: false,
   },
   resources: {

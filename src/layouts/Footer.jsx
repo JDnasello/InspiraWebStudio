@@ -1,9 +1,11 @@
 import "../css/footer.css";
 import Instagram from "@mui/icons-material/Instagram";
 import { useRef, useEffect, useState, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Footer = () => {
+  const { t } = useTranslation()
   const footerRef = useRef(null); // Ref para el footer
   const logo = "/assets/optimized/logoSinColor-80.webp";
 
@@ -95,35 +97,33 @@ const Footer = () => {
             </a>
           </div>
           <div className="nav-section section-1 animate-item">
-            <h4 className="nav-section-title">Nosotros</h4>
-            <p>
-              Somos un equipo creativo inspirado en diseñar páginas web con onda
-              y personalidad. Investigamos las últimas tendencias, pero siempre
-              le ponemos nuestro toque único. Creamos espacios digitales que
-              ayudan a las marcas a conectar con sus clientes, combinando
-              creatividad, innovación y nuestra propia esencia.
-            </p>
+            <h4 className="nav-section-title">{t("header.--head-about")}</h4>
+            <p>{t("footer.--footer-aboutText")}</p>
           </div>
           <div className="nav-section section-2 animate-item">
             <h4 className="nav-section-title">Menu</h4>
             <ul>
               <li>
                 <a className="a-us" href="#footer">
-                  Nosotros
+                  {t("header.--head-about")}
                 </a>
               </li>
               <li>
-                <a href="#objectives">¿Qué ofrecemos?</a>
+                <a href="#objectives">{t("header.--head-offer")}</a>
               </li>
               <li>
-                <a href="#planing">Ver planes</a>
+                <a href="#planing">{t("header.--head-plans")}</a>
               </li>
             </ul>
           </div>
         </div>
         <div className="social-media-and-email animate-item">
           <div>
-            <a href="mailto:inspirawebstudio@gmail.com" target="_blank" rel="noopener norefrerrer">
+            <a
+              href="mailto:inspirawebstudio@gmail.com"
+              target="_blank"
+              rel="noopener norefrerrer"
+            >
               inspirawebstudio@gmail.com
             </a>
           </div>

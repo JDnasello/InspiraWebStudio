@@ -6,8 +6,11 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import Instagram from "@mui/icons-material/Instagram";
 import { Helmet } from 'react-helmet-async';
 import useParallax from "../hooks/useParallax";
+import { useTranslation } from "react-i18next";
 
 const Section1 = ({ cursorRef, innerCursorRef }) => {
+
+  const { t } = useTranslation()
 
   const spanRef = useRef(null);
   const itemRefs = {
@@ -67,7 +70,7 @@ const Section1 = ({ cursorRef, innerCursorRef }) => {
               <span className="contder-h1">imagine.</span>
               <span className="contder-h1">develop.</span>
               <span className="contder-h1">& style.</span>
-              <button className="planing-btn"><a id="header-call" href="#planing" title="Planes de pago">Ver planes</a></button>
+              <button className="planing-btn"><a id="header-call" href="#planing" title="Planes de pago">{t('header.--head-plans')}</a></button>
             </h1>
 
             <div className="items-hero">

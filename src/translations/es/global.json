@@ -1,0 +1,169 @@
+{
+  "header": {
+    "--head-about": "Nosotros",
+    "--head-offer": "¿Qué ofrecemos?",
+    "--head-plans": "Ver planes"
+  },
+  "objectives": {
+    "--obj-custom-title": "Diseño web personalizado",
+    "--obj-custom-description": "Creamos sitios web únicos y adaptados a las necesidades de tu marca.",
+
+    "--obj-SEO-title": "SEO",
+    "--obj-SEO-description": "Aumenta tu visibilidad en buscadores con nuestras estrategias integradas.",
+
+    "--obj-responsive-title": "Diseño web responsive",
+    "--obj-responsive-description": "Creamos páginas web con una experiencia de usuario impecable en cualquier dispositivo.",
+
+    "--obj-fast-title": "Velocidad y optimización web",
+    "--obj-fast-description": "Sitios web rápidos y eficientes para potenciar su rendimiento.",
+
+    "--obj-secure-title": "Seguridad web garantizada",
+    "--obj-secure-description": "Protegemos tu web contra vulnerabilidades y amenazas.",
+
+    "--obj-support-title": "Soporte continuo",
+    "--obj-support-description": "Acompañamos tu proyecto web con mantenimiento y actualizaciones."
+  },
+  "payCards": [
+    {
+      "--paycard-chip": "",
+      "--paycard-title": "Mantenimiento web",
+      "--paycard-textForContact": "Hola, quiero consultar por el plan de mantenimiento web",
+      "--paycard-description": "Actualización de contenido, corrección de errores, y soporte técnico regular para tu sitio web.",
+      "characteristics": [
+        { "text1": "Actualización de contenido" },
+        { "text2": "Corrección de errores básicos" },
+        { "text3": "Optimización SEO básica" },
+        { "text4": "Reportes de rendimiento" },
+        { "text5": "Gestión de copias de seguridad" },
+        {
+          "text6": "Integración de nuevas funcionalidades",
+          "info1": "Consultar costo adicional"
+        },
+        {
+          "text7": "Gestión de base de datos",
+          "info2": "Consultar costo adicional"
+        },
+        { "text8": "Multi-idioma", "info3": "Costo adicional de ar$20000" },
+        { "text9": "Integración de diseño responsivo"},
+        { "text10": "Desarrollo de nuevas páginas"},
+        { "text11": "Integración con APIs externas" }
+      ]
+    },
+    {
+      "--paycard-chip": "Recomendado",
+      "--paycard-title": "Landing page",
+      "--paycard-textForContact": "Hola, quiero consultar por el plan de landing page",
+      "--paycard-description": "Diseñada para quienes buscan destacar online con una página rápida, efectiva y rentable.",
+      "characteristics": [
+        { "text12": "Diseño personalizado" },
+        { "text13": "Optimización SEO básica" },
+        { "text14": "Hosting gratuito" },
+        { "text15": "Diseño responsivo" },
+        { "text16": "Formulario de contacto" },
+        { "text17": "Integración con redes sociales" },
+        { "text18": "Reportes de rendimiento" },
+        { "text19": "Mantenimiento por 3 meses" },
+        { "text20": "Multi-idioma", "info4": "Costo adicional de ar$20000" },
+        { "text21": "Funcionalidades avanzadas"},
+        { "text22": "Integración con APIs externas" }
+      ]
+    },
+    {
+      "--paycard-chip": "Premium",
+      "--paycard-title": "Desarrollo de web personalizada",
+      "--paycard-textForContact": "Hola, quiero consultar por el plan premium",
+      "--paycard-description": "Creación de sitios web multi-página completamente personalizados y optimizados para tus necesidades.",
+      "characteristics": [
+        { "text23": "Diseño completamente personalizado" },
+        { "text24": "Optimización SEO avanzada" },
+        { "text25": "Hosting gratuito" },
+        { "text26": "Desarrollo de funcionalidades a medida" },
+        { "text27": "Diseño responsivo" },
+        { "text28": "Formulario de contacto" },
+        { "text29": "Integración de base de datos" },
+        { "text30": "Reportes de rendimiento" },
+        { "text31": "Mantenimiento por 3 meses" },
+        { "text32": "Multi-idioma" },
+        { "text33": "Integración con APIs externas" }
+      ]
+    },
+    {
+      "--paycard-chip": "",
+      "--paycard-title": "Desarrollo/Integración de API",
+      "--paycard-textForContact": "Hola, quiero consultar por el plan de Desarrollo/Integración de API",
+      "--paycard-description": "Creación o conexión con APIs de terceros para integrar funcionalidades avanzadas en tu proyecto.",
+      "characteristics": [
+        { "text34": "Diseño de API personalizada" },
+        { "text35": "Integración con APIs de terceros" },
+        { "text36": "Autenticación y seguridad avanzada" },
+        { "text37": "Optimización del rendimiento de API" },
+        { "text38": "Documentación técnica" },
+        { "text39": "Mantenimiento de api por 3 meses" },
+        {
+          "text40": "Integración con frontend",
+          "info5": "Consultar costo adicional"
+        }
+      ]
+    },
+    {
+      "--paycard-chip": "E-Commerce",
+      "--paycard-title": "Tiendas online gestionables",
+      "--paycard-textForContact": "Hola, quiero consultar por el plan de tienda online",
+      "--paycard-description": "Tiendas online profesionales y optimizadas, utilizando WordPress y WooCommerce para la gestión de tu negocio en línea.",
+      "characteristics": [
+        { "text41": "Diseño personalizado para tu tienda" },
+        { "text42": "Compatibilidad con WooCommerce" },
+        { "text43": "Autogestión de productos (altas, bajas, modificaciones)" },
+        { "text44": "Autogestión de inventario en tiempo real" },
+        { "text45": "Carrito de compras y proceso de checkout optimizado" },
+        {
+          "text46": "Integración con pasarelas de pago (MercadoPago, Paypal, etc.)"
+        },
+        { "text47": "Soporte para múltiples métodos de envío" },
+        {
+          "text48": "Integración con herramientas de marketing (email, Google Ads)"
+        },
+        { "text49": "Diseño responsivo" },
+        { "text50": "Optimización SEO avanzada" },
+        { "text51": "Mantenimiento por 3 meses" }
+      ]
+    },
+    {
+      "--paycard-chip": "Tatuadores",
+      "--paycard-title": "Web para tatuadores que quieren destacar",
+      "--paycard-textForContact": "Hola, quiero una web para mi estudio de tatuajes",
+      "--paycard-description": "Mostrá tu arte, conseguí más clientes y organizá tus reservas sin estrés.",
+      "characteristics": [
+        { "text52": "Diseño único que refleje tu estilo" },
+        { "text53": "Galería pro para mostrar tus tatuajes" },
+        { "text54": "Reservas online fácil y sin vueltas" },
+        { "text55": "Enlaces a redes sociales" },
+        { "text56": "Optimización SEO para que te encuentren" },
+        { "text57": "Diseño responsivo" },
+        { "text58": "Hosting y dominio gratis el primer año" },
+        { "text59": "Mantenimiento por 3 meses" },
+        {
+          "text60": "Blog autogestionado",
+          "info6": "Costo adicional, consultanos"
+        },
+        { "text61": "Multi-idioma", "info7": "Costo adicional de ar$20000" },
+        {
+          "text62": "Tienda online para vender merch y productos",
+          "info8": "Costo adicional, consultanos"
+        }
+      ]
+    }
+  ],
+  "payCardsDetails": {
+    "--paycard-fee-tattoo": "Desde 3 cuotas sin interés de:",
+    "--paycard-fee-landing": "3 cuotas sin interés de:",
+    "--paycard-monthly-pay": "/mes",
+    "--paycard-button-txt": "Elegir plan",
+    "--paycard-button-query": "Consultar precio",
+    "--paycard-view-all": "Ver todas las características",
+    "--paycard-view-less": "Ver menos características"
+  },
+  "footer": {
+    "--footer-aboutText": "Somos un equipo creativo inspirado en diseñar páginas web con onda y personalidad. Investigamos las últimas tendencias, pero siempre le ponemos nuestro toque único. Creamos espacios digitales que ayudan a las marcas a conectar con sus clientes, combinando creatividad, innovación y nuestra propia esencia."
+  }
+}

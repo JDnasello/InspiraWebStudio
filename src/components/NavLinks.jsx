@@ -1,15 +1,15 @@
 
-const NavLinks = ({ closeMenu, scrollToPlaning }) => {
+const NavLinks = ({ closeMenu, scrollToPlaning, t }) => {
   return (
     <>
         <a className="nav-link" href="#footer" title="Nosotros" onClick={closeMenu}>
-            Nosotros
+            {t('header.--head-about')}
           </a>
           <a className="nav-link" href="#objectives" title="¿Qué ofrecemos?" onClick={closeMenu}>
-          ¿Qué ofrecemos?
+          {t('header.--head-offer')}
           </a>
           <a className="nav-link" href="#planing" title="Planes de pago" onClick={() => { closeMenu(); scrollToPlaning() }}>
-            Ver planes
+            {t('header.--head-plans')}
           </a>
     </>
   )

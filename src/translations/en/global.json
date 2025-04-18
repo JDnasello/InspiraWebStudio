@@ -1,0 +1,150 @@
+{
+    "header": {
+    "--head-about": "About us",
+    "--head-offer": "What do we offer?",
+    "--head-plans": "See plans"
+    },
+    "objectives": {
+        "--obj-custom-title": "Custom web design",
+        "--obj-custom-description": "We create unique websites tailored to your brand's needs.",
+        
+        "--obj-SEO-title": "SEO",
+        "--obj-SEO-description": "Increase your search engine visibility with our integrated strategies.",
+        
+        "--obj-responsive-title": "Responsive web design",
+        "--obj-responsive-description": "We build websites with a flawless user experience on any device.",
+        
+        "--obj-fast-title": "Web speed and optimization",
+        "--obj-fast-description": "Fast and efficient websites to boost performance.",
+        
+        "--obj-secure-title": "Guaranteed web security",
+        "--obj-secure-description": "We protect your site against vulnerabilities and threats.",
+        
+        "--obj-support-title": "Continuous support",
+        "--obj-support-description": "We support your web project with maintenance and updates."
+    },
+    "payCards": [
+            {
+            "--paycard-chip": "",
+            "--paycard-title": "Web Maintenance",
+            "--paycard-textForContact": "Hello, I'd like to inquire about the web maintenance plan",
+            "--paycard-description": "Content updates, error fixes, and regular technical support for your website.",
+            "characteristics": [
+                { "text1": "Content updates" },
+                { "text2": "Basic error fixes" },
+                { "text3": "Basic SEO optimization" },
+                { "text4": "Performance reports" },
+                { "text5": "Backup management" },
+                { "text6": "New feature integration", "info1": "Additional cost required" },
+                { "text7": "Database management", "info2": "Additional cost required" },
+                { "text8": "Multi-language", "info3": "Additional cost of AR$20000" },
+                { "text9": "Responsive design" },
+                { "text10": "Development of new pages" },
+                { "text11": "Third-party API integration" }
+            ]
+            },
+            {
+            "--paycard-chip": "Recommended",
+            "--paycard-title": "Landing Page",
+            "--paycard-textForContact": "Hello, I'd like to inquire about the landing page plan",
+            "--paycard-description": "Designed for those looking to stand out online with a fast, effective and profitable page.",
+            "characteristics": [
+                { "text12": "Custom design" },
+                { "text13": "Basic SEO optimization" },
+                { "text14": "Free hosting" },
+                { "text15": "Responsive design" },
+                { "text16": "Contact form" },
+                { "text17": "Social media integration" },
+                { "text18": "Performance reports" },
+                { "text19": "3 months maintenance" },
+                { "text20": "Multi-language", "info4": "Additional cost of AR$20000" },
+                { "text21": "Advanced features"},
+                { "text22": "Third-party API integration" }
+            ]
+            },
+            {
+            "--paycard-chip": "Premium",
+            "--paycard-title": "Custom Web Development",
+            "--paycard-textForContact": "Hello, I'd like to inquire about the premium plan",
+            "--paycard-description": "Creation of completely customized multi-page websites optimized for your needs.",
+            "characteristics": [
+                { "text23": "Fully custom design" },
+                { "text24": "Advanced SEO optimization" },
+                { "text25": "Free hosting" },
+                { "text26": "Custom feature development" },
+                { "text27": "Responsive design" },
+                { "text28": "Contact form" },
+                { "text29": "Database integration" },
+                { "text30": "Performance reports" },
+                { "text31": "3 months maintenance" },
+                { "text32": "Multi-language" },
+                { "text33": "External API integration" }
+            ]
+            },
+            {
+            "--paycard-chip": "",
+            "--paycard-title": "API Development/Integration",
+            "--paycard-textForContact": "Hello, I'd like to inquire about the API Development/Integration plan",
+            "--paycard-description": "Creation or connection with third-party APIs to integrate advanced functionalities into your project.",
+            "characteristics": [
+                { "text34": "Custom API design" },
+                { "text35": "Third-party API integration" },
+                { "text36": "Advanced authentication and security" },
+                { "text37": "API performance optimization" },
+                { "text38": "Technical documentation" },
+                { "text39": "3 months API maintenance" },
+                { "text40": "Frontend integration", "info5": "Additional cost required" }
+            ]
+            },
+            {
+            "--paycard-chip": "E-Commerce",
+            "--paycard-title": "Manageable Online Stores",
+            "--paycard-textForContact": "Hello, I'd like to inquire about the online store plan",
+            "--paycard-description": "Professional and optimized online stores using WordPress and WooCommerce to manage your online business.",
+            "characteristics": [
+                { "text41": "Custom store design" },
+                { "text42": "WooCommerce compatibility" },
+                { "text43": "Self-managed products (add, remove, modify)" },
+                { "text44": "Real-time inventory management" },
+                { "text45": "Optimized shopping cart and checkout process" },
+                { "text46": "Payment gateway integration (MercadoPago, PayPal, etc.)" },
+                { "text47": "Multiple shipping methods support" },
+                { "text48": "Marketing tools integration (email, Google Ads)" },
+                { "text49": "Responsive design" },
+                { "text50": "Advanced SEO optimization" },
+                { "text51": "3 months maintenance" }
+            ]
+            },
+            {
+            "--paycard-chip": "Tattoo Artists",
+            "--paycard-title": "Websites for Brilliant Tattoo Artists",
+            "--paycard-textForContact": "Hello, I'd like a website for my tattoo studio",
+            "--paycard-description": "Showcase your art, get more clients and manage bookings stress-free.",
+            "characteristics": [
+                { "text52": "Unique design reflecting your style" },
+                { "text53": "Professional gallery to display your tattoos" },
+                { "text54": "Easy online booking system" },
+                { "text55": "Social media links" },
+                { "text56": "SEO optimization to be found" },
+                { "text57": "Responsive design" },
+                { "text58": "Free hosting and domain for first year" },
+                { "text59": "3 months maintenance" },
+                { "text60": "Self-managed blog", "info6": "Additional cost, ask us" },
+                { "text61": "Multi-language", "info7": "Additional cost of AR$20000" },
+                { "text62": "Online store to sell merch and products", "info8": "Additional cost, ask us" }
+            ]
+            }
+    ],
+    "payCardsDetails": {
+        "--paycard-fee-tattoo": "Starting from 3 interest-free payments of:",
+        "--paycard-fee-landing": "3 interest-free payments of:",
+        "--paycard-monthly-pay": "/month",
+        "--paycard-button-txt": "Select plan",
+        "--paycard-button-query": "Check price",
+        "--paycard-view-all": "View all features",
+        "--paycard-view-less": "View fewer features"
+    },
+    "footer": {
+        "--footer-aboutText": "We are a creative team inspired to design websites with style and personality. We research the latest trends but always add our unique touch. We create digital spaces that help brands connect with their customers, combining creativity, innovation, and our own essence."
+    }
+}

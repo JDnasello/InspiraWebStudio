@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 
-const InfoCard = ({ infotext, isVisible}) => {
+const InfoCard = ({ t, infotext, isVisible}) => {
 
   const infoContainer = useRef(null)
 
@@ -14,7 +14,7 @@ const InfoCard = ({ infotext, isVisible}) => {
 
   return (
     <div ref={infoContainer} className={`info-container ${isVisible ? 'show' : ''}`}>
-        <p>{infotext}</p>
+        <p>{t(infotext)}</p>
     </div>
   )
 }

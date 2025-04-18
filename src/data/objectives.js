@@ -1,44 +1,38 @@
 export const objectivesList = [
     {
         id: 1,
-        title: "Diseño web personalizado",
+        titleKey: "objectives.--obj-custom-title",
+        descriptionKey: "objectives.--obj-custom-description",
         type: "custom",
-        description:
-        "Creamos sitios web únicos y adaptados a las necesidades de tu marca.",
     },
     {
         id: 2,
-        title: "SEO",
+        titleKey: "objectives.--obj-SEO-title",
+        descriptionKey: "objectives.--obj-SEO-description",
         type: "SEO",
-        description:
-        "Aumenta tu visibilidad en buscadores con nuestras estrategias integradas.",
     },
     {
         id: 3,
-        title: "Diseño web responsive",
+        titleKey: "objectives.--obj-responsive-title",
+        descriptionKey: "objectives.--obj-responsive-description",
         type: "responsive",
-        description:
-        "Creamos páginas web con una experiencia de usuario impecable en cualquier dispositivo.",
     },
     {
         id: 4,
-        title: "Velocidad y optimización web",
+        titleKey: "objectives.--obj-fast-title",
+        descriptionKey: "objectives.--obj-fast-description",
         type: "fast",
-        description:
-        "Sitios web rápidos y eficientes para potenciar su rendimiento.",
     },
     {
         id: 5,
-        title: "Seguridad web garantizada",
+        titleKey: "objectives.--obj-secure-title",
+        descriptionKey: "objectives.--obj-secure-description",
         type: "secure",
-        description:
-        "Protegemos tu web contra vulnerabilidades y amenazas.",
     },
     {
         id: 6,
-        title: "Soporte continuo",
+        titleKey: "objectives.--obj-support-title",
+        descriptionKey: "objectives.--obj-support-description",
         type: "support",
-        description:
-        "Acompañamos tu proyecto web con mantenimiento y actualizaciones.",
-    }
-]
+    },
+];

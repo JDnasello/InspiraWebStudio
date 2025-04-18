@@ -4,11 +4,13 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import useParallax from '../hooks/useParallax.jsx';
 import ObjectiveCards from '../components/ObjectiveCards.jsx';
+import { useTranslation } from 'react-i18next';
 
 
 
 const Section2 = () => {
 
+  const { t } = useTranslation()
 
   const itemRefs = {
     item6: useRef(null),
@@ -68,8 +70,8 @@ const Section2 = () => {
           effect="blur"
         />
       </div>
-      <h2 className='seccion2-title'>¿Qué ofrecemos?</h2>
-      <ObjectiveCards />
+      <h2 className='seccion2-title'>{t('header.--head-offer')}</h2>
+      <ObjectiveCards t={t} />
     </section>
   );
 }

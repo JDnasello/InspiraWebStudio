@@ -7,12 +7,14 @@ import Instagram from "@mui/icons-material/Instagram";
 import debounce from "lodash.debounce";
 import NavLinks from "../components/NavLinks";
 import { useLanguage } from "../context/LanguageContext";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const [headerClass, setHeaderClass] = useState(false);
   const headerRef = useRef(null);
   const [openMenu, setOpenMenu] = useState(false);
-  const { i18n, changeLanguage } = useLanguage();
+  const { t } = useTranslation()
+  const { changeLanguage } = useLanguage();
 
   const LogoColor100 = "logoColor-100.webp";
   const navItems = [
@@ -35,9 +37,9 @@ const Header = () => {
     };
   }, []);
 
-  const handleChangeLanguage = (lang) => {
-    changeLanguage(lang);
-  };
+  const handleLanguage = (lang) => {
+    changeLanguage(lang)
+  }
 
   const toggleMenu = () => {
     setOpenMenu(!openMenu);
@@ -69,11 +71,11 @@ const Header = () => {
       </Helmet>
       <div className={`menu-responsive ${openMenu ? "menu-open" : ""}`}>
         <nav className="header-nav" title="Menú de navegación">
-          <NavLinks closeMenu={closeMenu} scrollToPlaning={scrollToPlaning} />
+          <NavLinks closeMenu={closeMenu} scrollToPlaning={scrollToPlaning} t={t} />
           <div className="languages">
-              <button className="lang-btn">ES</button>
+              <button className="lang-btn" onClick={() => handleLanguage('es')}>ES</button>
               <span>|</span>
-              <button className="lang-btn">EN</button>
+              <button className="lang-btn" onClick={() => handleLanguage('en')}>EN</button>
           </div>
           <div className="menu-slider">
             <div className="menu-slider-track">
@@ -127,14 +129,14 @@ const Header = () => {
           <nav className="header-nav" title="Menú de navegación">
             
               <a className="nav-link" href="#footer" title="Nosotros">
-                Nosotros
+                {t('header.--head-about')}
               </a>
               <a
                 className="nav-link"
                 href="#objectives"
                 title="¿Qué ofrecemos?"
               >
-                ¿Qué ofrecemos?
+                {t('header.--head-offer')}
               </a>
           </nav>
           <a
@@ -146,12 +148,12 @@ const Header = () => {
               scrollToPlaning();
             }}
           >
-            Ver planes
+            {t('header.--head-plans')}
           </a>
           <div className="languages">
-              <button className="lang-btn">ES</button>
+              <button className="lang-btn" onClick={() => handleLanguage('es')}>ES</button>
               <span>|</span>
-              <button className="lang-btn">EN</button>
+              <button className="lang-btn" onClick={() => handleLanguage('en')}>EN</button>
           </div>
         </div>
         {!openMenu && (

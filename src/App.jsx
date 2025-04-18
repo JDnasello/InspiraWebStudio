@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react"
 import IwStudioPage from "./pages/IwStudioPage"
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import LanguageProvider from "./context/LanguageContext";
 
 
 function App() {
@@ -86,7 +87,7 @@ function App() {
   }, [isMobile])
 
   return (
-    <>
+    <LanguageProvider>
       {
         !isMobile && (
           <>
@@ -105,7 +106,7 @@ function App() {
       >
       <WhatsAppIcon className="whatsapp-icon" />
       </a>
-    </>
+    </LanguageProvider>
   );
 }
 

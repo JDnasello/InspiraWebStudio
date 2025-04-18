@@ -8,7 +8,7 @@ const LazyRocketLaunch = lazy(() => import("@mui/icons-material/RocketLaunch"));
 const LazyShieldTwoTone = lazy(() => import("@mui/icons-material/ShieldTwoTone"));
 const LazySupportAgent = lazy(() => import("@mui/icons-material/SupportAgent"));
 
-const ObjectiveCards = () => {
+const ObjectiveCards = ({ t }) => {
     const articleRef = useRef(null);
     const [visibleIndexes, setVisibleIndexes] = useState([]);
 
@@ -101,19 +101,19 @@ const ObjectiveCards = () => {
                         </div>
                         <h3
                             className="objective-h3"
-                            title={obj.title}
-                            aria-label={obj.title}
+                            title={t(obj.titleKey)}
+                            aria-label={t(obj.titleKey)}
                         >
-                            {obj.title}
+                            {t(obj.titleKey)}
                         </h3>
                     </div>
                     <div className="container-objective-body">
                         <p
                             className="objective-p"
-                            title={obj.description}
-                            aria-label={obj.description}
+                            title={t(obj.descriptionKey)}
+                            aria-label={t(obj.descriptionKey)}
                         >
-                            {obj.description}
+                            {t(obj.descriptionKey)}
                         </p>
                     </div>
                 </article>

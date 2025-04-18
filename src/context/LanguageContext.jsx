@@ -5,14 +5,15 @@ const LanguageContext = createContext();
 export const useLanguage = () => useContext(LanguageContext);
 
 const LanguageProvider = ({ children }) => {
-    const { t, i18n } = useTranslation();
+    const { i18n } = useTranslation();
 
     const changeLanguage = (lang) => {
         i18n.changeLanguage(lang);
+        console.log(i18n.language);
     };
 
     return (
-        <LanguageContext.Provider value={{ t, i18n, changeLanguage }}>
+        <LanguageContext.Provider value={{ i18n, changeLanguage }}>
         {children}
         </LanguageContext.Provider>
     );
